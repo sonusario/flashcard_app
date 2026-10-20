@@ -3,6 +3,12 @@
 `flashcards.html` is a single-file web version of the Godot 4 Flashcards project (Part 5: Anki import). Open it in any current browser. It needs no server, no install and no network connection.
 
 - **Cards first.** A card can be in any number of decks, or none. Deleting a deck keeps its cards. Editing a shared card from one deck can keep the change in that deck only (copy-on-write) or apply it everywhere.
+- **Managing many cards at once.** In the card browser:
+  - Click a card to select it. Ctrl+click (⌘+click on a Mac) or a row's checkbox adds or removes one card. Shift+click selects a range, and the header checkbox or Ctrl+A (⌘A) selects every card shown.
+  - **Change Decks…** adds the selected cards to decks or takes them out. **Delete N Cards** deletes them.
+  - **Delete All Cards…** empties the deck. Cards that other decks hold are only taken out of this deck, unless you choose to delete them too.
+  - **Delete Deck…** can also delete the deck's cards. Cards that another deck holds are always kept.
+- **Loose Cards.** Cards that are in no deck appear under **Loose Cards**, which you can browse and review like any deck.
 - **Rich content.** Cards are written in markdown and can include images (from a file, a drawing or the clipboard) and audio (from a file or the microphone).
 - **Spaced repetition.** Reviews use Leitner levels on golden-ratio intervals (1, 2, 3, 4, 7, 11, 18… days), buckets of 7, first looks, "review later", and optional time limits that give each level 20% of the time left.
 - **Anki import.** Imports `.apkg` files from current and older versions of Anki, including Zstandard-compressed collections, cloze and reversed cards, and media. Importing the same deck twice adds nothing.
