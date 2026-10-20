@@ -13,7 +13,13 @@
 - **Spaced repetition.** Reviews use Leitner levels on golden-ratio intervals (1, 2, 3, 4, 7, 11, 18… days), buckets of 7, first looks, "review later", and optional time limits that give each level 20% of the time left.
 - **Anki import.** Imports `.apkg` files from current and older versions of Anki, including Zstandard-compressed collections, cloze and reversed cards, and media. Importing the same deck twice adds nothing.
 
-On first launch, the app imports the bundled CompTIA Security+ SY0-701 acronym deck (328 cards).
+**Default decks.** On first launch, the app imports `CompTIA Security+ SY0-701 (Combined).apkg`, which is embedded in `flashcards.html`. It has 5,613 cards in 8 decks: the five exam domains, Ports and Protocols, Key Terms, and Acronyms. If you already have data from an earlier version, press **Add Default Decks** on the main menu to import them. Cards you already have are not copied again.
+
+To make a different package the default, run:
+
+```sh
+python3 tools/embed_deck.py "path/to/deck.apkg"
+```
 
 Data is stored in the browser (IndexedDB), separately for each browser and device. Use **Back Up…** on the main menu to save everything, including media, as one JSON file, and **Restore…** to load it again.
 
