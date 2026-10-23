@@ -1,5 +1,7 @@
 # flashcard_app
 
+**Live:** [https://sonusario.github.io/flashcard_app/](https://sonusario.github.io/flashcard_app/)
+
 `flashcards.html` is a single-file web version of the Godot 4 Flashcards project (Part 5: Anki import). Open it in any current browser. It needs no server, no install and no network connection.
 
 - **Cards first.** A card can be in any number of decks, or none. Deleting a deck keeps its cards. Editing a shared card from one deck can keep the change in that deck only (copy-on-write) or apply it everywhere.
