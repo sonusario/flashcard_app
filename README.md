@@ -1,5 +1,7 @@
 # flashcard_app
 
+**Live:** [https://sonusario.github.io/flashcard_app/](https://sonusario.github.io/flashcard_app/)
+
 `flashcards.html` is a single-file web version of the Godot 4 Flashcards project (Part 5: Anki import). Open it in any current browser. It needs no server, no install and no network connection.
 
 - **Cards first.** A card can be in any number of decks, or none. Deleting a deck keeps its cards. Editing a shared card from one deck can keep the change in that deck only (copy-on-write) or apply it everywhere.
@@ -7,7 +9,9 @@
 - **Spaced repetition.** Reviews use Leitner levels on golden-ratio intervals (1, 2, 3, 4, 7, 11, 18… days), buckets of 7, first looks, "review later", and optional time limits that give each level 20% of the time left.
 - **Anki import.** Imports `.apkg` files from current and older versions of Anki, including Zstandard-compressed collections, cloze and reversed cards, and media. Importing the same deck twice adds nothing.
 
-On first launch, the app imports the bundled CompTIA Security+ SY0-701 acronym deck (328 cards).
+On first launch, the app starts with a small sample deck. The repository also holds `CompTIA Security+ SY0-701 (Combined).apkg`, which you can load with **Import Anki Deck…**.
+
+**About** on the main menu links to this repository and the project hub, and lists the changes merged into `main`.
 
 Data is stored in the browser (IndexedDB), separately for each browser and device. Use **Back Up…** on the main menu to save everything, including media, as one JSON file, and **Restore…** to load it again.
 
