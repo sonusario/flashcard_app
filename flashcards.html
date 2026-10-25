@@ -135,6 +135,9 @@ table.cards td { padding: 6px 10px; white-space: nowrap; overflow: hidden; text-
 table.cards tr.card-row { cursor: default; }
 table.cards tr.card-row:hover td { background: color-mix(in srgb, var(--selected) 35%, transparent); }
 table.cards tr.selected td { background: var(--selected); }
+table.cards th.check, table.cards td.check { padding: 0; text-align: center; }
+table.cards input[type="checkbox"] { width: 16px; height: 16px; margin: 0; vertical-align: middle; cursor: pointer; }
+table.cards tbody { user-select: none; }
 .empty-note { padding: 24px; text-align: center; color: var(--muted); }
 
 /* Card editor */
@@ -151,7 +154,12 @@ table.cards tr.selected td { background: var(--selected); }
 .context { overflow-wrap: anywhere; }
 
 /* Review */
-.card-panel { flex: 1 1 auto; display: flex; flex-direction: column; padding: 24px; min-height: 280px; min-width: 0; }
+/* The review fits the window: a long card scrolls inside its panel, so the
+   answer buttons never move off screen. */
+.review-screen { flex: none; height: 100vh; height: 100dvh; }
+.card-panel { flex: 1 1 auto; display: flex; flex-direction: column; padding: 24px; min-height: 200px; min-width: 0; }
+.review-screen .card-panel { min-height: 0; }
+@media (max-width: 640px) { .card-panel { padding: 16px; } }
 .side-label { text-align: center; letter-spacing: .06em; font-size: 13px; color: var(--muted); }
 .controls { display: flex; gap: 8px; flex-wrap: wrap; }
 .controls > button { flex: 1 1 140px; padding: 10px 12px; }
@@ -162,8 +170,13 @@ kbd { border: 1px solid var(--border); border-radius: 3px; padding: 0 4px; font-
 /* Card view: one side of a card, drawn from markdown */
 .card-view { display: flex; flex-direction: column; gap: 12px; min-height: 0; min-width: 0; flex: 1 1 auto; }
 .card-view .md { overflow-wrap: anywhere; min-width: 0; }
-.card-view.centered { justify-content: center; text-align: center; }
-.card-view.centered .md { overflow: auto; }
+.card-view.centered { text-align: center; }
+/* Two empty spacers centre a short card; a long one fills the panel and scrolls. */
+.card-view.centered::before, .card-view.centered::after { content: ''; flex: 1 1 0; }
+.card-view.centered .md { overflow: auto; min-height: 0; flex: 0 1 auto; }
+.card-view.centered .audio-row { flex: none; }
+/* A list stays a centred block, but its lines read from the left. */
+.card-view.centered .md .md-list { display: table; margin-left: auto; margin-right: auto; text-align: left; }
 .card-view .audio-row { display: flex; flex-wrap: wrap; gap: 6px; }
 .card-view.centered .audio-row { justify-content: center; }
 .card-view .message { white-space: pre-line; }
@@ -172,7 +185,7 @@ kbd { border: 1px solid var(--border); border-radius: 3px; padding: 0 4px; font-
 .md p, .md .md-h, .md .md-list, .md blockquote, .md pre, .md table, .md hr { margin: 0 0 1em; }
 .md .md-h { font-weight: 700; line-height: 1.2; }
 .md .md-li { padding-left: calc(var(--depth) * 1.4em); }
-.card-view.centered .md .md-li { padding-left: 0; }
+.card-view.centered .md .md-li { padding-left: calc(var(--depth) * 1.4em + 1em); text-indent: -1em; }
 .md blockquote { font-style: italic; padding-left: 1.4em; margin-left: 0; }
 .md pre, .md code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9em; }
 .md pre { background: var(--field); padding: 8px 10px; border-radius: 4px; overflow: auto; text-align: left; white-space: pre; }
@@ -210,6 +223,11 @@ dialog::backdrop { background: rgba(0, 0, 0, .45); }
    name wraps, so the dialog and its OK button always stay on screen. */
 .deck-list { --line: 1.45em; max-height: calc(var(--line) * 6); overflow-y: auto; overflow-x: hidden; margin: 0; padding: 0; list-style: none; line-height: var(--line); }
 .deck-list li { overflow-wrap: anywhere; padding-left: 1em; text-indent: -1em; }
+/* The deck choices in Change Decks: a long list scrolls inside the dialog. */
+.check-list { max-height: min(40vh, 320px); overflow-y: auto; margin: 0; padding: 4px 0; list-style: none; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.check-list label { display: flex; gap: 8px; align-items: baseline; padding: 3px 2px; overflow-wrap: anywhere; cursor: pointer; }
+.check-list input, .check-option input { flex: none; }
+.check-option { display: flex; gap: 8px; align-items: baseline; margin: 4px 0 8px; cursor: pointer; }
 .sketch { display: block; max-width: 100%; height: auto; touch-action: none; cursor: crosshair; border: 1px solid var(--border); background: #fff; }
 .toast {
   position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); background: var(--panel);
@@ -513,6 +531,8 @@ const DataManager = (() => {
   const FORMAT_VERSION = 2;
   // Pass as a scope to mean "every card" instead of one deck. Real ids start at 1.
   const ALL_CARDS = 0;
+  // Pass as a scope to mean the loose cards: those that belong to no deck.
+  const LOOSE_CARDS = -2;
 
   const cards = new Map();      // card_id -> card
   const decks = new Map();      // deck_id -> deck
@@ -581,14 +601,28 @@ const DataManager = (() => {
   }
 
   // --- Cards
+  // The ids of the cards in a scope: one deck, ALL_CARDS or LOOSE_CARDS.
+  // Cards are listed in the order they were added.
   function getCardIds(scope = ALL_CARDS) {
     if (scope === ALL_CARDS) return [...cards.keys()];
+    if (scope === LOOSE_CARDS) return [...cards.keys()].filter(id => cardDecks.get(id).size === 0);
     return [...(deckCards.get(scope) || [])];
   }
   const getCards = (scope = ALL_CARDS) => getCardIds(scope).map(id => clone(cards.get(id)));
   const getCard = cardId => (cards.has(cardId) ? clone(cards.get(cardId)) : null);
   const hasCard = cardId => cards.has(cardId);
-  const cardCount = (scope = ALL_CARDS) => (scope === ALL_CARDS ? cards.size : (deckCards.get(scope)?.size || 0));
+  function cardCount(scope = ALL_CARDS) {
+    if (scope === ALL_CARDS) return cards.size;
+    if (scope === LOOSE_CARDS) return getCardIds(LOOSE_CARDS).length;
+    return deckCards.get(scope)?.size || 0;
+  }
+  // True for ALL_CARDS, LOOSE_CARDS and the id of an existing deck.
+  const isScope = scope => scope === ALL_CARDS || scope === LOOSE_CARDS || decks.has(scope);
+  function scopeName(scope) {
+    if (scope === ALL_CARDS) return 'All Cards';
+    if (scope === LOOSE_CARDS) return 'Loose Cards';
+    return decks.get(scope)?.name ?? '';
+  }
   const getCardDeckIds = cardId => [...(cardDecks.get(cardId) || [])];
 
   function createCard(front, back, deckIds = []) {
@@ -624,6 +658,13 @@ const DataManager = (() => {
   // Takes a card out of one deck. The card itself is kept.
   function removeCardFromDeck(deckId, cardId) {
     if (unlink(deckId, cardId)) commit();
+  }
+
+  // Deletes cards everywhere, saving once.
+  function deleteCards(cardIds) {
+    beginBatch();
+    for (const cardId of cardIds) deleteCard(cardId);
+    endBatch();
   }
 
   // Deletes a card everywhere: from the collection and from every deck.
@@ -790,10 +831,10 @@ const DataManager = (() => {
   }
 
   return {
-    ALL_CARDS, onChanged, makeSide, newReview, beginBatch, endBatch,
+    ALL_CARDS, LOOSE_CARDS, onChanged, makeSide, newReview, beginBatch, endBatch,
     getDecks, getDeck, hasDeck, findDeck, createDeck, renameDeck, deleteDeck,
-    getCardIds, getCards, getCard, hasCard, cardCount, getCardDeckIds,
-    createCard, updateCard, setCardDecks, addCardToDeck, removeCardFromDeck, deleteCard,
+    getCardIds, getCards, getCard, hasCard, cardCount, isScope, scopeName, getCardDeckIds,
+    createCard, updateCard, setCardDecks, addCardToDeck, removeCardFromDeck, deleteCard, deleteCards,
     setReview, resetProgress, createSampleDeck, load, save, toSnapshot, restore,
   };
 })();
@@ -2122,7 +2163,8 @@ async function promptDialog(title, value, okText, placeholder) {
 const player = new Audio();
 
 function createCardView({ textSize = 16, centered = false } = {}) {
-  const md = $('div', { class: 'md', style: `font-size:${textSize}px` });
+  // Large card text shrinks on narrow screens, but never below 16px.
+  const md = $('div', { class: 'md', style: `font-size: min(${textSize}px, max(16px, 5.5vw))` });
   const audioRow = $('div', { class: 'audio-row', hidden: true });
   const el = $('div', { class: 'card-view' + (centered ? ' centered' : '') }, md, audioRow);
 
@@ -2219,12 +2261,14 @@ Screens.mainMenu = () => {
 
   // Rebuilds the list of scopes and keeps the remembered one selected.
   function refresh() {
-    deckPicker.replaceChildren($('option', { value: DataManager.ALL_CARDS }, 'All Cards'));
+    deckPicker.replaceChildren(
+      $('option', { value: DataManager.ALL_CARDS }, 'All Cards'),
+      $('option', { value: DataManager.LOOSE_CARDS, title: 'Cards that are not in any deck' }, 'Loose Cards'));
     const decks = DataManager.getDecks();
     if (decks.length) deckPicker.append($('option', { disabled: true }, '──────────'));
     for (const deck of decks) deckPicker.append($('option', { value: deck.id }, deck.name));
     const remembered = AppState.selected_deck_id;
-    deckPicker.value = DataManager.hasDeck(remembered) ? String(remembered) : String(DataManager.ALL_CARDS);
+    deckPicker.value = DataManager.isScope(remembered) ? String(remembered) : String(DataManager.ALL_CARDS);
     updateForSelection();
   }
 
@@ -2342,107 +2386,239 @@ function showImportResult(result) {
   return openDialog({ title: 'Import', body, okText: 'OK', cancelText: null, width: 480 });
 }
 
-// --- Card browser: the cards in one deck, or every card.
+// --- Card browser: the cards in one deck, the loose cards, or every card.
+// Several cards can be selected at once: click selects one card, Ctrl/⌘+click
+// or the row's checkbox adds or removes one, Shift+click selects a range, and
+// the header checkbox selects every card shown.
 
 Screens.cardBrowser = () => {
   let scope = AppState.selected_deck_id;
-  if (scope !== DataManager.ALL_CARDS && !DataManager.hasDeck(scope)) {
+  if (!DataManager.isScope(scope)) {
     scope = DataManager.ALL_CARDS;
     AppState.selected_deck_id = scope;
   }
-  const inDeck = scope !== DataManager.ALL_CARDS;
-  let selectedId = -1;
+  const inDeck = DataManager.hasDeck(scope);
+  // The selected cards, and the card a Shift+click range starts from.
+  const selected = new Set();
+  let anchorId = -1;
+  // The ids of the rows shown, in order, and each one's row.
+  let shownIds = [];
+  let rowById = new Map();
+  // The ids drawn as selected, so a change only redraws the rows it affects.
+  let drawnSelected = new Set();
+  // Laying out thousands of table rows takes seconds, so rows are added in
+  // pages as the list scrolls. rowHtml holds every shown row; the first
+  // `drawn` of them are in the table.
+  const PAGE_ROWS = 200;
+  let rowHtml = [];
+  let drawn = 0;
 
   const title = $('div', { class: 'title' });
   const search = $('input', { type: 'search', placeholder: 'Search cards', class: 'grow', 'aria-label': 'Search cards', oninput: refresh });
   const editButton = $('button', { onclick: onEditPressed }, 'Edit');
+  const decksButton = $('button', { onclick: onChangeDecksPressed, title: 'Add the selected cards to decks, or take them out' }, 'Change Decks…');
   const removeButton = $('button', { onclick: onRemovePressed, hidden: !inDeck }, 'Remove from Deck');
-  const deleteCardButton = $('button', { onclick: onDeleteCardPressed }, 'Delete Card');
+  const deleteCardButton = $('button', { onclick: onDeleteCardsPressed }, 'Delete Card');
+  const deleteAllButton = $('button', { onclick: onDeleteAllPressed }, 'Delete All Cards…');
   const resetButton = $('button', { onclick: onResetPressed }, 'Reset Progress');
+  const selectAll = $('input', { type: 'checkbox', 'aria-label': 'Select every card shown', onchange: onSelectAllChanged });
   const tbody = $('tbody');
   const table = $('table', { class: 'cards' },
-    $('colgroup', {}, $('col', { style: 'width:30%' }), $('col', { style: 'width:30%' }), $('col', { style: 'width:20%' }), $('col', { style: 'width:20%' })),
-    $('thead', {}, $('tr', {}, $('th', {}, 'Front'), $('th', {}, 'Back'), $('th', {}, 'Decks'), $('th', {}, 'Progress'))),
+    $('colgroup', {}, $('col', { style: 'width:36px' }), $('col', { style: 'width:29%' }), $('col', { style: 'width:29%' }), $('col', { style: 'width:21%' }), $('col', { style: 'width:21%' })),
+    $('thead', {}, $('tr', {}, $('th', { class: 'check' }, selectAll), $('th', {}, 'Front'), $('th', {}, 'Back'), $('th', {}, 'Decks'), $('th', {}, 'Progress'))),
     tbody);
   const emptyNote = $('div', { class: 'empty-note', hidden: true });
-  const countLabel = $('div', { class: 'muted' });
+  const moreSentinel = $('div', { style: 'height:1px' });
+  const tableWrap = $('div', { class: 'table-wrap' }, table, emptyNote, moreSentinel);
+  const countLabel = $('div', { class: 'muted count' });
+  const scopeNote = scope === DataManager.LOOSE_CARDS
+    ? $('div', { class: 'muted small' }, 'Loose cards are cards that are not in any deck. Add them to a deck with Change Decks, or review them here.')
+    : null;
 
   const el = $('div', { class: 'screen' },
     $('div', { class: 'header' },
       $('button', { onclick: goBack }, 'Back'),
       title,
       $('button', { onclick: onRenamePressed, hidden: !inDeck }, 'Rename'),
-      $('button', { onclick: onDeleteDeckPressed, hidden: !inDeck }, 'Delete Deck'),
+      $('button', { onclick: onDeleteDeckPressed, hidden: !inDeck }, 'Delete Deck…'),
+      deleteAllButton,
       resetButton),
+    scopeNote,
     $('div', { class: 'row wrap' },
       search,
       $('button', { onclick: () => openEditor(-1) }, 'New Card'),
-      editButton, removeButton, deleteCardButton),
-    $('div', { class: 'table-wrap' }, table, emptyNote),
+      editButton, decksButton, removeButton, deleteCardButton),
+    tableWrap,
     countLabel);
 
   tbody.addEventListener('click', event => {
     const row = event.target.closest('tr[data-id]');
-    if (row) select(Number(row.dataset.id));
+    if (!row) return;
+    const cardId = Number(row.dataset.id);
+    if (event.target.matches('input[type=checkbox]')) toggle(cardId);
+    else if (event.shiftKey) selectRange(cardId, event.ctrlKey || event.metaKey);
+    else if (event.ctrlKey || event.metaKey) toggle(cardId);
+    else selectOnly(cardId);
   });
+  // Shift+click would otherwise select the page's text.
+  tbody.addEventListener('mousedown', event => { if (event.shiftKey) event.preventDefault(); });
   tbody.addEventListener('dblclick', event => {
     const row = event.target.closest('tr[data-id]');
-    if (row) openEditor(Number(row.dataset.id));
+    if (row && !event.target.matches('input[type=checkbox]')) openEditor(Number(row.dataset.id));
   });
   tbody.addEventListener('keydown', event => {
     const row = event.target.closest('tr[data-id]');
     if (!row) return;
-    if (event.key === 'Enter') { openEditor(Number(row.dataset.id)); event.preventDefault(); }
-    else if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+    const cardId = Number(row.dataset.id);
+    if (event.key === 'Enter') {
+      openEditor(cardId);
+    } else if (event.key === ' ') {
+      toggle(cardId);
+    } else if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+      if (event.key === 'ArrowDown' && !row.nextElementSibling) drawMore();
       const next = event.key === 'ArrowDown' ? row.nextElementSibling : row.previousElementSibling;
-      if (next) { select(Number(next.dataset.id)); next.focus(); }
-      event.preventDefault();
-    } else if (event.key === 'Delete') {
-      onDeleteCardPressed();
+      if (!next) return;
+      const nextId = Number(next.dataset.id);
+      if (event.shiftKey) selectRange(nextId, true, false);
+      else selectOnly(nextId);
+      next.focus();
+    } else if (event.key === 'a' && (event.ctrlKey || event.metaKey)) {
+      setSelection(shownIds);
+    } else if (event.key === 'Delete' || event.key === 'Backspace') {
+      onDeleteCardsPressed();
+    } else {
+      return;
     }
+    event.preventDefault();
   });
 
   // Rebuilds the title and the list of cards from DataManager.
   function refresh() {
-    if (inDeck && !DataManager.hasDeck(scope)) return;
-    title.textContent = title.title = inDeck ? DataManager.getDeck(scope).name : 'All Cards';
+    if (!DataManager.isScope(scope)) return;
+    title.textContent = title.title = DataManager.scopeName(scope);
     const deckNames = new Map(DataManager.getDecks().map(deck => [deck.id, deck.name]));
     const query = search.value.trim().toLowerCase();
     const today = Srs.today();
-    const rows = [];
+    // Rows are written as one HTML string: with thousands of cards this is
+    // many times faster than creating each element. Every value is escaped.
+    const html = [];
+    shownIds = [];
+    rowById = new Map();
     for (const card of DataManager.getCards(scope)) {
       if (query && !card.front.text.toLowerCase().includes(query) && !card.back.text.toLowerCase().includes(query)) continue;
-      const decks = DataManager.getCardDeckIds(card.id).map(id => deckNames.get(id)).sort((a, b) => a.localeCompare(b));
-      const front = Markdown.summary(card.front);
-      const back = Markdown.summary(card.back);
-      const progress = Srs.describe(card.review, today);
-      rows.push($('tr', { class: 'card-row' + (card.id === selectedId ? ' selected' : ''), dataset: { id: card.id }, tabIndex: 0 },
-        $('td', { title: front }, front), $('td', { title: back }, back),
-        $('td', { title: decks.join(', ') }, decks.join(', ')), $('td', {}, progress)));
+      const decks = DataManager.getCardDeckIds(card.id).map(id => deckNames.get(id)).sort((a, b) => a.localeCompare(b)).join(', ');
+      const front = escapeHtml(Markdown.summary(card.front));
+      const back = escapeHtml(Markdown.summary(card.back));
+      shownIds.push(card.id);
+      html.push(`<tr class="card-row" data-id="${card.id}" tabindex="0" aria-selected="false">`
+        + '<td class="check"><input type="checkbox" tabindex="-1" aria-label="Select card"></td>'
+        + `<td title="${front}">${front}</td><td title="${back}">${back}</td>`
+        + (decks ? `<td title="${escapeHtml(decks)}">${escapeHtml(decks)}</td>` : '<td><span class="muted">Loose</span></td>')
+        + `<td>${escapeHtml(Srs.describe(card.review, today))}</td></tr>`);
     }
-    tbody.replaceChildren(...rows);
-    if (!rows.some(row => Number(row.dataset.id) === selectedId)) selectedId = -1;
+    rowHtml = html;
+    drawn = 0;
+    tbody.replaceChildren();
+    drawnSelected = new Set();
+    // A selected card that is no longer shown (deleted, removed, or hidden by
+    // the search) stops being selected, so actions only reach what is visible.
+    const shown = new Set(shownIds);
+    for (const cardId of [...selected]) if (!shown.has(cardId)) selected.delete(cardId);
+    if (!shown.has(anchorId)) anchorId = -1;
+    // Keep the selected row drawn, so it stays in view after an edit.
+    const lastSelected = Math.max(-1, ...[...selected].map(id => shownIds.indexOf(id)));
+    drawMore(lastSelected + 1);
 
     const total = DataManager.cardCount(scope);
-    countLabel.textContent = rows.length === total ? plural(total, 'card') : `${rows.length} of ${total} cards`;
-    emptyNote.hidden = rows.length > 0;
-    emptyNote.textContent = total === 0 ? 'No cards yet. Press New Card to add one.' : 'No cards match your search.';
-    updateButtons();
+    countLabel.dataset.counts = shownIds.length === total ? plural(total, 'card') : `${shownIds.length} of ${total} cards`;
+    emptyNote.hidden = shownIds.length > 0;
+    emptyNote.textContent = total > 0 ? 'No cards match your search.'
+      : scope === DataManager.LOOSE_CARDS ? 'No loose cards. Every card is in at least one deck.'
+      : 'No cards yet. Press New Card to add one.';
+    updateSelection();
   }
 
-  function select(cardId) {
-    selectedId = cardId;
-    for (const row of tbody.children) row.classList.toggle('selected', Number(row.dataset.id) === cardId);
-    updateButtons();
+  // Adds the next page of rows, or enough to reach `atLeast` rows.
+  function drawMore(atLeast = 0) {
+    if (drawn >= rowHtml.length) return;
+    const end = Math.min(rowHtml.length, Math.max(drawn + PAGE_ROWS, atLeast));
+    tbody.insertAdjacentHTML('beforeend', rowHtml.slice(drawn, end).join(''));
+    for (let i = drawn; i < end; i++) rowById.set(shownIds[i], tbody.children[i]);
+    drawn = end;
+    updateSelection();
   }
 
-  function updateButtons() {
-    const hasSelection = selectedId !== -1;
-    editButton.disabled = !hasSelection;
-    removeButton.disabled = !hasSelection;
-    deleteCardButton.disabled = !hasSelection;
-    resetButton.disabled = DataManager.cardCount(scope) === 0;
+  const moreObserver = new IntersectionObserver(entries => {
+    if (entries.some(entry => entry.isIntersecting)) drawMore();
+  }, { root: tableWrap, rootMargin: '600px' });
+  moreObserver.observe(moreSentinel);
+
+  // --- Selection
+
+  function setSelection(cardIds) {
+    selected.clear();
+    for (const cardId of cardIds) selected.add(cardId);
+    updateSelection();
   }
+
+  function selectOnly(cardId) {
+    anchorId = cardId;
+    setSelection([cardId]);
+  }
+
+  function toggle(cardId) {
+    anchorId = cardId;
+    if (selected.has(cardId)) selected.delete(cardId);
+    else selected.add(cardId);
+    updateSelection();
+  }
+
+  // Selects the rows from the anchor to this one. With keep, the rest of the
+  // selection stays; with moveAnchor, this row becomes the new anchor.
+  function selectRange(cardId, keep, moveAnchor = false) {
+    const from = shownIds.indexOf(anchorId);
+    const to = shownIds.indexOf(cardId);
+    if (from === -1) { selectOnly(cardId); return; }
+    if (!keep) selected.clear();
+    for (let i = Math.min(from, to); i <= Math.max(from, to); i++) selected.add(shownIds[i]);
+    if (moveAnchor) anchorId = cardId;
+    updateSelection();
+  }
+
+  function onSelectAllChanged() {
+    setSelection(selectAll.checked ? shownIds : []);
+  }
+
+  // Draws the selection and enables only the buttons that make sense.
+  function updateSelection() {
+    for (const cardId of new Set([...drawnSelected, ...selected])) {
+      const row = rowById.get(cardId);
+      if (!row) continue;
+      const isSelected = selected.has(cardId);
+      row.classList.toggle('selected', isSelected);
+      row.setAttribute('aria-selected', String(isSelected));
+      row.firstChild.firstChild.checked = isSelected;
+    }
+    drawnSelected = new Set(selected);
+    const count = selected.size;
+    selectAll.checked = count > 0 && count === shownIds.length;
+    selectAll.indeterminate = count > 0 && count < shownIds.length;
+    selectAll.disabled = shownIds.length === 0;
+    editButton.disabled = count !== 1;
+    decksButton.disabled = count === 0;
+    removeButton.disabled = count === 0;
+    deleteCardButton.disabled = count === 0;
+    deleteCardButton.textContent = count > 1 ? `Delete ${count} Cards` : 'Delete Card';
+    removeButton.textContent = count > 1 ? `Remove ${count} from Deck` : 'Remove from Deck';
+    const total = DataManager.cardCount(scope);
+    deleteAllButton.disabled = total === 0;
+    resetButton.disabled = total === 0;
+    countLabel.textContent = countLabel.dataset.counts + (count ? ` · ${count} selected` : '');
+  }
+
+  const selectedIds = () => shownIds.filter(id => selected.has(id));
+
+  // --- Cards
 
   function openEditor(cardId) {
     AppState.editing_card_id = cardId;
@@ -2450,35 +2626,135 @@ Screens.cardBrowser = () => {
   }
 
   function onEditPressed() {
-    if (selectedId !== -1) openEditor(selectedId);
+    if (selected.size === 1) openEditor([...selected][0]);
   }
 
-  // Takes the card out of this deck only. It stays in All Cards.
+  // Takes the cards out of this deck only. They stay in All Cards.
   function onRemovePressed() {
-    if (selectedId !== -1) DataManager.removeCardFromDeck(scope, selectedId);
+    const cardIds = selectedIds();
+    if (!cardIds.length) return;
+    DataManager.beginBatch();
+    for (const cardId of cardIds) DataManager.removeCardFromDeck(scope, cardId);
+    DataManager.endBatch();
+    const loose = cardIds.filter(id => DataManager.getCardDeckIds(id).length === 0).length;
+    if (loose) toast(`${plural(loose, 'card is', 'cards are')} now in no deck, and can be found in Loose Cards.`);
   }
 
-  async function onDeleteCardPressed() {
-    const cardId = selectedId;
-    if (cardId === -1) return;
-    const decks = DataManager.getCardDeckIds(cardId).length;
-    const where = decks < 2 ? '' : ` It will be removed from all ${decks} of its decks.`;
-    if (await confirmDialog('Delete Card', `Delete this card?${where} This cannot be undone.`, 'Delete', { danger: true })) {
-      DataManager.deleteCard(cardId);
+  async function onDeleteCardsPressed() {
+    const cardIds = selectedIds();
+    if (!cardIds.length) return;
+    let text;
+    if (cardIds.length === 1) {
+      const decks = DataManager.getCardDeckIds(cardIds[0]).length;
+      text = `Delete this card?${decks < 2 ? '' : ` It will be removed from all ${decks} of its decks.`} This cannot be undone.`;
+    } else {
+      const elsewhere = cardIds.filter(id => DataManager.getCardDeckIds(id).some(deckId => deckId !== scope)).length;
+      const note = !elsewhere ? '' : inDeck
+        ? ` ${plural(elsewhere, 'of them is', 'of them are')} also in other decks, and will be removed from those too.`
+        : ` ${plural(elsewhere, 'of them is', 'of them are')} in more than one deck, and will be removed from all of them.`;
+      text = `Delete these ${cardIds.length} cards?${note} This cannot be undone.`;
     }
+    const ok = await confirmDialog(cardIds.length === 1 ? 'Delete Card' : 'Delete Cards', text, cardIds.length === 1 ? 'Delete' : `Delete ${cardIds.length} Cards`, { danger: true });
+    if (ok) DataManager.deleteCards(cardIds);
   }
+
+  // Adds the selected cards to decks or takes them out. Each deck shows
+  // whether all, some or none of the selected cards are in it; a deck left
+  // in the "some" state is not changed.
+  async function onChangeDecksPressed() {
+    const cardIds = selectedIds();
+    if (!cardIds.length) return;
+    const boxes = [];
+    const items = DataManager.getDecks().map(deck => {
+      const holding = cardIds.filter(id => DataManager.getCardDeckIds(id).includes(deck.id)).length;
+      const box = $('input', { type: 'checkbox', checked: holding === cardIds.length });
+      box.indeterminate = holding > 0 && holding < cardIds.length;
+      boxes.push({ deck, box, initial: box.checked, mixed: box.indeterminate });
+      const hint = box.indeterminate ? $('span', { class: 'muted small' }, ` (${holding} of ${cardIds.length})`) : null;
+      return $('li', {}, $('label', { title: deck.name }, box, ' ', deck.name, hint));
+    });
+    const newDeck = $('input', { type: 'text', placeholder: 'New deck name (optional)', maxLength: 200, 'aria-label': 'New deck name' });
+    const body = [
+      $('p', {}, `Choose the decks for ${cardIds.length === 1 ? 'this card' : `these ${cardIds.length} cards`}. A ticked deck holds every one of them; an empty box takes them out.`),
+      items.length ? $('ul', { class: 'check-list' }, items) : $('p', { class: 'muted' }, 'There are no decks yet.'),
+      $('label', { class: 'small muted', style: 'display:block;margin-top:8px' }, 'Also add them to a new deck'),
+      newDeck,
+    ];
+    if (!(await openDialog({ title: 'Change Decks', body, okText: 'Apply', width: 460 }))) return;
+
+    DataManager.beginBatch();
+    for (const { deck, box, initial, mixed } of boxes) {
+      if (box.indeterminate || (!mixed && box.checked === initial)) continue;
+      for (const cardId of cardIds) {
+        if (box.checked) DataManager.addCardToDeck(deck.id, cardId);
+        else DataManager.removeCardFromDeck(deck.id, cardId);
+      }
+    }
+    const name = newDeck.value.trim();
+    if (name) {
+      const existing = DataManager.findDeck(name);
+      const deckId = existing !== -1 ? existing : DataManager.createDeck(name);
+      for (const cardId of cardIds) DataManager.addCardToDeck(deckId, cardId);
+    }
+    DataManager.endBatch();
+  }
+
+  // Empties the scope. In a deck, cards that other decks hold too are only
+  // taken out of this deck, unless the user chooses to delete them as well.
+  async function onDeleteAllPressed() {
+    const cardIds = DataManager.getCardIds(scope);
+    if (!cardIds.length) return;
+    const shared = inDeck ? cardIds.filter(id => DataManager.getCardDeckIds(id).length > 1) : [];
+    const own = cardIds.length - shared.length;
+    const alsoShared = $('input', { type: 'checkbox' });
+    let text;
+    if (scope === DataManager.ALL_CARDS) text = `Delete every card in your collection (${plural(cardIds.length, 'card')})? Your decks are kept, empty. This cannot be undone.`;
+    else if (scope === DataManager.LOOSE_CARDS) text = `Delete all ${plural(cardIds.length, 'loose card')}? This cannot be undone.`;
+    else if (!shared.length) text = `Delete all ${plural(cardIds.length, 'card')} in "${title.textContent}"? This cannot be undone.`;
+    else text = `Empty "${title.textContent}"? ${plural(own, 'card is', 'cards are')} only in this deck and will be deleted. ${plural(shared.length, 'card is', 'cards are')} also in other decks and will only be taken out of this one.`;
+    const body = [$('p', {}, text)];
+    if (shared.length) {
+      body.push($('label', { class: 'check-option' }, alsoShared, ` Also delete the ${plural(shared.length, 'card')} that other decks hold, from every deck. This cannot be undone.`));
+    }
+    const ok = await openDialog({ title: 'Delete All Cards', body, okText: shared.length ? 'Empty Deck' : 'Delete All', danger: true, width: 460 });
+    if (!ok) return;
+    DataManager.beginBatch();
+    for (const cardId of cardIds) {
+      if (shared.includes(cardId) && !alsoShared.checked) DataManager.removeCardFromDeck(scope, cardId);
+      else DataManager.deleteCard(cardId);
+    }
+    DataManager.endBatch();
+  }
+
+  // --- Deck
 
   async function onRenamePressed() {
     const newName = await promptDialog('Rename Deck', title.textContent, 'Rename', 'Deck name');
     if (newName) DataManager.renameDeck(scope, newName);
   }
 
+  // Deletes the deck, and optionally the cards that only this deck holds.
+  // Cards that other decks hold are always kept.
   async function onDeleteDeckPressed() {
-    if (await confirmDialog('Delete Deck', `Delete the deck "${title.textContent}"? Its cards are kept in All Cards.`, 'Delete', { danger: true })) {
-      DataManager.deleteDeck(scope);
-      AppState.selected_deck_id = DataManager.ALL_CARDS;
-      goBack();
+    const cardIds = DataManager.getCardIds(scope);
+    const own = cardIds.filter(id => DataManager.getCardDeckIds(id).length === 1);
+    const shared = cardIds.length - own.length;
+    const alsoCards = $('input', { type: 'checkbox' });
+    const body = [$('p', {}, `Delete the deck "${title.textContent}"?`)];
+    if (own.length) {
+      body.push($('label', { class: 'check-option' }, alsoCards, ` Also delete its ${plural(own.length, 'card')}.`));
+      body.push($('p', { class: 'muted small' }, (shared ? `${plural(shared, 'card is', 'cards are')} also in other decks and will be kept there. ` : '')
+        + 'Cards that are kept but no longer in any deck move to Loose Cards.'));
+    } else if (shared) {
+      body.push($('p', { class: 'muted small' }, `Its ${plural(shared, 'card is', 'cards are')} all in other decks too, and will be kept there.`));
     }
+    if (!(await openDialog({ title: 'Delete Deck', body, okText: 'Delete', danger: true, width: 460 }))) return;
+    DataManager.beginBatch();
+    if (alsoCards.checked) for (const cardId of own) DataManager.deleteCard(cardId);
+    DataManager.deleteDeck(scope);
+    DataManager.endBatch();
+    AppState.selected_deck_id = !alsoCards.checked && own.length ? DataManager.LOOSE_CARDS : DataManager.ALL_CARDS;
+    goBack();
   }
 
   async function onResetPressed() {
@@ -2491,8 +2767,23 @@ Screens.cardBrowser = () => {
 
   function goBack() { changeScreen('mainMenu'); }
 
+  // Coming back from the editor, the card just edited is selected and in view.
+  const returning = AppState.editing_card_id;
+  if (DataManager.getCardIds(scope).includes(returning)) {
+    selected.add(returning);
+    anchorId = returning;
+  }
   refresh();
-  return { el, refresh, focus: () => search.focus() };
+  const returningRow = rowById.get(returning);
+  return {
+    el,
+    refresh,
+    focus: () => {
+      if (returningRow) { returningRow.scrollIntoView({ block: 'center' }); returningRow.focus({ preventScroll: true }); }
+      else search.focus();
+    },
+    destroy: () => moreObserver.disconnect(),
+  };
 };
 
 // --- Side editor: edits one side of a card. The card editor holds two.
@@ -2740,6 +3031,8 @@ function createSketchPad(width = 480, height = 320, brushRadius = 3) {
 Screens.cardEditor = () => {
   let cardId = AppState.editing_card_id;
   const scope = AppState.selected_deck_id;
+  // Opened from All Cards or Loose Cards, there is no "this deck".
+  const inDeck = DataManager.hasDeck(scope);
   if (!DataManager.hasCard(cardId)) cardId = -1;
   const original = cardId === -1 ? null : DataManager.getCard(cardId);
   // A number is an existing deck's id. A string names a deck created on save.
@@ -2756,7 +3049,7 @@ Screens.cardEditor = () => {
   const deckMenu = $('select', { class: 'deck-menu', 'aria-label': 'Choose a deck', onfocus: fillDeckMenu, onmousedown: fillDeckMenu, onchange: onDeckChosen });
   const progressLabel = $('div', { class: 'grow' });
   const saveButton = $('button', { onclick: () => save(false) }, 'Save');
-  const saveAllButton = $('button', { onclick: () => save(true), hidden: cardId === -1 || scope === DataManager.ALL_CARDS }, 'Save for All Decks');
+  const saveAllButton = $('button', { onclick: () => save(true), hidden: cardId === -1 || !inDeck }, 'Save for All Decks');
 
   const el = $('div', { class: 'screen' },
     $('div', { class: 'header' },
@@ -2775,7 +3068,7 @@ Screens.cardEditor = () => {
 
   // Names of the other decks that hold this card, when opened from a deck.
   function otherDeckNames() {
-    if (cardId === -1 || scope === DataManager.ALL_CARDS) return [];
+    if (cardId === -1 || !inDeck) return [];
     return DataManager.getCardDeckIds(cardId).filter(id => id !== scope).map(id => DataManager.getDeck(id).name).sort();
   }
   const isShared = () => otherDeckNames().length > 0;
@@ -2783,7 +3076,9 @@ Screens.cardEditor = () => {
   function updateContext() {
     const others = otherDeckNames();
     if (cardId === -1) contextLabel.textContent = '';
-    else if (scope === DataManager.ALL_CARDS) contextLabel.textContent = 'Changes apply in every deck that holds this card.';
+    else if (!inDeck) contextLabel.textContent = DataManager.getCardDeckIds(cardId).length
+      ? 'Changes apply in every deck that holds this card.'
+      : 'This card is not in any deck. Add one below, or leave it with the loose cards.';
     else if (!others.length) contextLabel.textContent = 'This card is only in this deck.';
     else contextLabel.textContent = `This card is also in ${others.join(', ')}. Save keeps your changes in this deck only, as a separate card. Save for All Decks changes the card everywhere.`;
     saveAllButton.title = isShared() ? '' : 'This card is only in this deck.';
@@ -2900,7 +3195,7 @@ Screens.cardEditor = () => {
   if (cardId === -1) {
     frontEditor.setSide(DataManager.makeSide());
     backEditor.setSide(DataManager.makeSide());
-    if (scope !== DataManager.ALL_CARDS && DataManager.hasDeck(scope)) tags.push(scope);
+    if (inDeck) tags.push(scope);
   } else {
     frontEditor.setSide(original.front);
     backEditor.setSide(original.back);
@@ -2923,8 +3218,8 @@ Screens.cardEditor = () => {
 
 Screens.review = () => {
   const State = ReviewSession.State;
-  const scope = DataManager.hasDeck(AppState.selected_deck_id) ? AppState.selected_deck_id : DataManager.ALL_CARDS;
-  const scopeName = scope === DataManager.ALL_CARDS ? 'All Cards' : DataManager.getDeck(scope).name;
+  const scope = DataManager.isScope(AppState.selected_deck_id) ? AppState.selected_deck_id : DataManager.ALL_CARDS;
+  const scopeName = DataManager.scopeName(scope);
   const session = new ReviewSession(scope, AppState.review_minutes);
   // Whether the answer side has been shown for the current card.
   let revealed = false;
@@ -2944,7 +3239,7 @@ Screens.review = () => {
     'Keys: ', $('kbd', {}, 'Space'), ' show / flip · ', $('kbd', {}, '1'), " didn't get it · ", $('kbd', {}, '2'), ' got it / complete first look · ',
     $('kbd', {}, 'L'), ' review later');
 
-  const el = $('div', { class: 'screen' },
+  const el = $('div', { class: 'screen review-screen' },
     $('div', { class: 'header' },
       $('button', { onclick: goBack }, 'End Review'),
       $('div', { class: 'title', style: 'font-size:20px', title: scopeName }, scopeName),
