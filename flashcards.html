@@ -929,6 +929,8 @@ const Srs = (() => {
 //  4. At level 0, cards missed (or first looked) in one bucket lead the next.
 //     After them come level 0 cards seen before, and only then new cards.
 //  5. The review is complete only when level 0 is empty.
+//  6. A new bucket never starts with the card just reviewed, unless it is
+//     the only card left.
 // With a time limit, each level gets 20% of the time left when it starts;
 // the last level gets the rest.
 // =============================================================================
@@ -954,6 +956,7 @@ class ReviewSession {
     this._bucketSize = 0;
     this._queue = [];
     this._carry = [];
+    this._lastCardId = -1;
   }
 
   start() {
@@ -993,6 +996,7 @@ class ReviewSession {
       // Missed above level 0, the card is found at level 0 when the review gets there.
       if (this.level === 0) this._carry.push(cardId);
     }
+    this._lastCardId = cardId;
     this._advance();
   }
 
@@ -1003,6 +1007,7 @@ class ReviewSession {
     DataManager.setReview(cardId, Srs.afterFirstLook(review, Srs.today()));
     this.firstLookCount += 1;
     this._carry.push(cardId);
+    this._lastCardId = cardId;
     this._advance();
   }
 
@@ -1018,6 +1023,7 @@ class ReviewSession {
     const place = low + Math.floor(Math.random() * (remaining - low + 1));
     if (place <= this._bucket.length) this._bucket.splice(place, 0, cardId);
     else this._queue.splice(place - this._bucket.length, 0, cardId);
+    this._lastCardId = cardId;
     this._advance();
   }
 
@@ -1047,6 +1053,7 @@ class ReviewSession {
         this._queue = this._queue.slice(ReviewSession.BUCKET_SIZE);
         this._bucketSize = this._bucket.length;
         this.bucketNumber += 1;
+        this._avoidRepeatAtStart();
         return;
       }
       const lower = this._dueLevels().filter(l => l < this.level);
@@ -1056,6 +1063,15 @@ class ReviewSession {
       }
       this._enterLevel(Math.max(...lower));
     }
+  }
+
+  // Swaps the card just reviewed out of the first place of a new bucket.
+  // A bucket of one is the only card left, so it may repeat.
+  _avoidRepeatAtStart() {
+    const bucket = this._bucket;
+    if (bucket.length < 2 || bucket[0] !== this._lastCardId) return;
+    const j = 1 + Math.floor(Math.random() * (bucket.length - 1));
+    [bucket[0], bucket[j]] = [bucket[j], bucket[0]];
   }
 
   _enterLevel(newLevel) {
