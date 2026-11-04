@@ -23,6 +23,6 @@ On first launch, the app starts with a small sample deck. The repository also ho
 
 Data is stored in the browser (IndexedDB), separately for each browser and device. Use **Back Up…** on the main menu to save everything, including media, as one JSON file, and **Restore…** to load it again.
 
-Review keys: <kbd>Space</kbd> shows or flips the card, <kbd>1</kbd> is "Didn't get it.", <kbd>2</kbd> is "Got it!" or "Complete First Look", and <kbd>L</kbd> is "Review later".
+Review keys: <kbd>Space</kbd> shows or flips the card, <kbd>1</kbd> is "Didn't get it.", <kbd>2</kbd> is "Got it!" or "Complete First Look", <kbd>L</kbd> is "Review later", and <kbd>E</kbd> edits the card being reviewed (the edit is saved to the card, which keeps its progress and its place in the review, and the time spent editing does not count against the time limit).
 
 Zstandard decompression uses [fzstd](https://github.com/101arrowz/fzstd) 0.1.1 (MIT License), included inline.

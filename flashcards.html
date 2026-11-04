@@ -161,6 +161,10 @@ table.cards tbody { user-select: none; }
 .review-screen .card-panel { min-height: 0; }
 @media (max-width: 640px) { .card-panel { padding: 16px; } }
 .side-label { text-align: center; letter-spacing: .06em; font-size: 13px; color: var(--muted); }
+/* The side label stays centred; Edit sits at the right of the same line. */
+.card-top { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
+.card-top .link-button { justify-self: end; }
+.review-edit .sides { min-height: 0; }
 .controls { display: flex; gap: 8px; flex-wrap: wrap; }
 .controls > button { flex: 1 1 140px; padding: 10px 12px; }
 .timer { text-align: right; font-variant-numeric: tabular-nums; }
@@ -3236,7 +3240,9 @@ Screens.review = () => {
   const State = ReviewSession.State;
   const scope = DataManager.isScope(AppState.selected_deck_id) ? AppState.selected_deck_id : DataManager.ALL_CARDS;
   const scopeName = DataManager.scopeName(scope);
-  const session = new ReviewSession(scope, AppState.review_minutes);
+  // Time spent editing a card is left out of the time limit.
+  let editingMsec = 0;
+  const session = new ReviewSession(scope, AppState.review_minutes, () => performance.now() - editingMsec);
   // Whether the answer side has been shown for the current card.
   let revealed = false;
   let showingFront = true;
@@ -3250,10 +3256,11 @@ Screens.review = () => {
   const missedButton = $('button', { onclick: () => onAnswer(false) }, "Didn't get it.");
   const gotItButton = $('button', { onclick: () => onAnswer(true) }, 'Got it!');
   const firstLookButton = $('button', { onclick: onFirstLookPressed }, 'Complete First Look');
+  const editButton = $('button', { class: 'link-button muted small', onclick: onEditPressed, title: 'Edit this card (E)' }, 'Edit');
   const doneButton = $('button', { onclick: goBack, hidden: true }, 'Back to Menu');
   const keysHint = $('div', { class: 'keys muted small' },
     'Keys: ', $('kbd', {}, 'Space'), ' show / flip · ', $('kbd', {}, '1'), " didn't get it · ", $('kbd', {}, '2'), ' got it / complete first look · ',
-    $('kbd', {}, 'L'), ' review later');
+    $('kbd', {}, 'L'), ' review later · ', $('kbd', {}, 'E'), ' edit');
 
   const el = $('div', { class: 'screen review-screen' },
     $('div', { class: 'header' },
@@ -3261,7 +3268,7 @@ Screens.review = () => {
       $('div', { class: 'title', style: 'font-size:20px', title: scopeName }, scopeName),
       timerLabel),
     statusLabel,
-    $('div', { class: 'panel card-panel' }, sideLabel, cardView.el),
+    $('div', { class: 'panel card-panel' }, $('div', { class: 'card-top' }, $('div'), sideLabel, editButton), cardView.el),
     $('div', { class: 'controls' }, reviewLaterButton, flipButton, missedButton, gotItButton, firstLookButton, doneButton),
     keysHint);
 
@@ -3286,6 +3293,7 @@ Screens.review = () => {
     doneButton.hidden = reviewing;
     flipButton.hidden = !reviewing;
     keysHint.hidden = !reviewing;
+    editButton.hidden = !reviewing;
     if (!reviewing) {
       for (const button of [reviewLaterButton, missedButton, gotItButton, firstLookButton]) button.hidden = true;
       showSummary();
@@ -3338,6 +3346,47 @@ Screens.review = () => {
   function onFirstLookPressed() { session.firstLook(); nextCard(); }
   function onReviewLaterPressed() { session.reviewLater(); nextCard(); }
 
+  // Edits the card being reviewed. The change is saved to the card itself, so
+  // it shows in every deck that holds it, and the card keeps its progress and
+  // its place in the review.
+  async function onEditPressed() {
+    const cardId = session.currentCardId();
+    const card = DataManager.getCard(cardId);
+    if (!card) return;
+    const frontEditor = createSideEditor('Front', updateValid);
+    const backEditor = createSideEditor('Back', updateValid);
+    const notice = $('div', { class: 'muted small', role: 'status' });
+    const others = DataManager.getCardDeckIds(cardId).filter(id => id !== scope);
+    const note = others.length > 1 || (others.length === 1 && DataManager.hasDeck(scope))
+      ? `Changes apply in every deck that holds this card (${others.map(id => DataManager.getDeck(id).name).sort().join(', ')}).`
+      : '';
+    function updateValid() {
+      notice.textContent = !frontEditor.isBlank() && !backEditor.isBlank() ? note : 'Both sides need text or audio.';
+    }
+    frontEditor.setSide(card.front);
+    backEditor.setSide(card.back);
+    const started = performance.now();
+    const saved = await openDialog({
+      title: 'Edit Card',
+      body: $('div', { class: 'review-edit' }, $('div', { class: 'sides' }, frontEditor.el, backEditor.el), notice),
+      okText: 'Save', width: 1040,
+      focus: showingFront ? frontEditor : backEditor,
+      onOk: () => !frontEditor.isBlank() && !backEditor.isBlank(),
+    });
+    editingMsec += performance.now() - started;
+    frontEditor.destroy();
+    backEditor.destroy();
+    if (!saved || !DataManager.hasCard(cardId)) return;
+    const front = frontEditor.getSide();
+    const back = backEditor.getSide();
+    if (JSON.stringify(front) !== JSON.stringify(card.front) || JSON.stringify(back) !== JSON.stringify(card.back)) {
+      DataManager.updateCard(cardId, front, back);
+      toast('Card saved.', 2000);
+    }
+    show();
+    editButton.focus();
+  }
+
   // A key works only while its button is showing and enabled.
   function onKey(event) {
     if (event.ctrlKey || event.metaKey || event.altKey || document.querySelector('dialog[open]')) return;
@@ -3352,6 +3401,7 @@ Screens.review = () => {
     else if (key === '1') press(missedButton);
     else if (key === '2') { press(gotItButton); press(firstLookButton); }
     else if (key === 'l') press(reviewLaterButton);
+    else if (key === 'e') press(editButton);
     else if (key === 'escape') goBack();
   }
   document.addEventListener('keydown', onKey);
