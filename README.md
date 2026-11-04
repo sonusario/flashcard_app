@@ -17,6 +17,8 @@
 
 On first launch, the app starts with a small sample deck. The repository also holds `CompTIA Security+ SY0-701 (Combined).apkg`, which you can load with **Import Anki Deck…**. It has 5,613 cards in 8 decks: the five exam domains, Ports and Protocols, Key Terms, and Acronyms. Large collections stay fast because the card browser draws its rows in pages as you scroll.
 
+`CompTIA Security+ SY0-701 (Short Answer).apkg` holds the same 5,613 cards reframed so that every back is at most one sentence and any detail sits on the front. Cloze cards become one question per blank with only the missing words on the back, key terms are flipped so the definition is the question, and practice questions answer with just the correct choice. It imports into its own decks, so it can sit alongside the original. `tools/build_short_answer_deck.py` rebuilds it from the combined deck.
+
 **About** on the main menu links to this repository and the project hub, and lists the changes merged into `main`.
 
 Data is stored in the browser (IndexedDB), separately for each browser and device. Use **Back Up…** on the main menu to save everything, including media, as one JSON file, and **Restore…** to load it again.
