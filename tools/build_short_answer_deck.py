@@ -187,6 +187,12 @@ def main():
     db_path = os.path.join(work, 'collection.anki2')
     db = sqlite3.connect(db_path)
 
+    out = short_answer_cards(db)
+    write_deck(db, db_path, work, out, os.path.join(root, TARGET), NEW_ROOT, 'short-answer', 'short-answer')
+
+
+def short_answer_cards(db):
+    """The short-answer cards, as (source note id, deck id, tags, front, back)."""
     notes = {r[0]: r for r in db.execute('select id, guid, mid, tags, flds from notes')}
     cards = db.execute('select id, nid, did, ord from cards order by id').fetchall()
     note_deck = {}
@@ -226,14 +232,18 @@ def main():
         for n, b in problems:
             print('More than one sentence on the back of note %d: %r' % (n, b), file=sys.stderr)
         sys.exit(1)
+    return out
 
+
+def write_deck(db, db_path, work, out, target, new_root, guid_prefix, type_tag, id_offset=ID_OFFSET, base_id=1792500000000):
+    """Replaces the collection's notes and cards with out and zips it to target."""
     # Rewrite the collection: new decks, one basic note and one card per output.
     col = db.execute('select decks, models from col').fetchone()
     decks = json.loads(col[0])
     new_decks = {}
     for key, deck in decks.items():
         if deck['name'].startswith(OLD_ROOT):
-            deck = dict(deck, id=deck['id'] + ID_OFFSET, name=NEW_ROOT + deck['name'][len(OLD_ROOT):])
+            deck = dict(deck, id=deck['id'] + id_offset, name=new_root + deck['name'][len(OLD_ROOT):])
         new_decks[str(deck['id'])] = deck
     models = json.loads(col[1])
     models = {k: v for k, v in models.items() if int(k) == BASIC_MODEL}
@@ -244,29 +254,28 @@ def main():
     db.execute('delete from revlog')
     db.execute('delete from graves')
 
-    base = 1792500000000 + ID_OFFSET
+    base = base_id + id_offset
     for i, (src, did, tag_list, front, back) in enumerate(out):
         nid = base + 2 * i
         cid = base + 2 * i + 1
-        guid = hashlib.sha1(('short-answer:%d:%s' % (src, front)).encode()).hexdigest()[:10]
+        guid = hashlib.sha1(('%s:%d:%s' % (guid_prefix, src, front)).encode()).hexdigest()[:10]
         sfld = text_of(front)
         csum = int(hashlib.sha1(sfld.encode()).hexdigest()[:8], 16)
-        tags = ' %s type::short-answer ' % ' '.join(t for t in tag_list if not t.startswith('type::'))
+        tags = ' %s type::%s ' % (' '.join(t for t in tag_list if not t.startswith('type::')), type_tag)
         db.execute('insert into notes (id, guid, mid, mod, usn, tags, flds, sfld, csum, flags, data) values (?,?,?,?,?,?,?,?,?,0,"")',
                    (nid, guid, BASIC_MODEL, 1792500000, -1, tags, '\x1f'.join([front, back, '']), sfld, csum))
         db.execute('insert into cards (id, nid, did, ord, mod, usn, type, queue, due, ivl, factor, reps, lapses, left, odid, odue, flags, data) '
                    'values (?,?,?,0,?,-1,0,0,?,0,0,0,0,0,0,0,0,"")',
-                   (cid, nid, did + ID_OFFSET, 1792500000, i + 1))
+                   (cid, nid, did + id_offset, 1792500000, i + 1))
     db.commit()
     db.execute('vacuum')
     db.close()
 
-    target = os.path.join(root, TARGET)
     with zipfile.ZipFile(target, 'w', zipfile.ZIP_DEFLATED) as z:
         z.write(db_path, 'collection.anki2')
         z.writestr('media', '{}')
     shutil.rmtree(work)
-    print('Wrote %s with %d cards.' % (TARGET, len(out)))
+    print('Wrote %s with %d cards.' % (os.path.basename(target), len(out)))
 
 
 if __name__ == '__main__':

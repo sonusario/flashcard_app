@@ -1,0 +1,3250 @@
+# key	front ("=" keeps the short-answer front)	back ("-" leaves the card out)
+f941a42602	Firewalls, OS controls and anti-virus are which control category?	Technical controls
+e02eee45de	Administrative controls tied to security design and policy are which control category?	Managerial controls
+c9b4ced549	Controls carried out by people, not technical systems, are which category?	Operational controls
+cb75866221	Controls that limit physical access to a resource are which category?	Physical controls
+856c8a1dbf	A control type that blocks access to a resource is called a <b>[...]</b> control.	Preventive
+dd914d82c0	A control type that discourages intrusion, usually with the threat of consequences, is a <b>[...]</b> control.	Deterrent
+e9f724d9f0	Do detective controls prevent access?	Not necessarily
+2b3bb29b9a	Which control type provides another way to resolve a security situation when existing controls aren't enough?	Compensating control
+6b1785a63d	=	-
+dd935464d2	Compensating controls usually go into effect to prevent exploitation of a newly discovered <b>[...]</b>.	Weakness
+c8944a9a2c	Which CIA triad element prevents disclosure of information to unauthorized people or systems?	Confidentiality
+480ca0545a	Which CIA triad element ensures data is stored and transferred as intended, so any modification is identified?	Integrity
+4e00a943cb	Which CIA triad element keeps systems and networks up and running at all times?	Availability
+80dd7f3904	Encoding messages so that only certain people can read them is called <b>[...]</b>.	Encryption
+97c6ca85ce	Proving without a doubt that data is genuine and who sent it is called <b>[...]</b>.	Non-repudiation
+d93bdffdc6	=	-
+c8ffbe7f4c	Building systems with duplicate components so they are always available is called <b>[...]</b>.	Redundancy
+40ae5b3886	A system that keeps running even when a failure occurs has <b>[...]</b>.	Fault tolerance
+8b31d9e1d1	With non-repudiation, what can the sender not deny?	Sending the data
+47778045a1	=	-
+1318763047	Non-repudiation is often likened to a <b>[...]</b> on a contract.	Signature
+1158e45f15	=	-
+6280a9c6c7	=	-
+42d5f99d31	Showing that information is exactly what it should be and has not been changed is proof of <b>[...]</b>.	Integrity
+47f8c8e14f	Showing that information did or did not come from where it claims is proof of <b>[...]</b>.	Origin
+54e37dc115	A short string generated from data, also called a message digest or fingerprint, is a <b>[...]</b>.	Hash
+f10f36141c	With the same algorithm, changed data produces a different <b>[...]</b> than the original.	Hash
+80e69472c7	A hash mismatch can be caused by intentional changes, accidental changes, or a corrupted <b>[...]</b>.	File transfer
+4658503314	=	-
+3946d71f9d	Must a message be encrypted to provide non-repudiation?	No
+250539dec4	A digital signature is created with the sender's <b>[...]</b> and verified with the paired public key.	Private key
+2abe62f685	A user proving they are who they say they are is called <b>[...]</b>.	Authentication
+950cc27dfe	Determining what access an already-authenticated user has is called <b>[...]</b>.	Authorization
+abde7d7e58	Recording what activities an authorized user performs is called <b>[...]</b>.	Accounting
+27e1ae031e	A certificate authority can be managed internally or <b>[...]</b>.	Externally
+5182c6859a	What defines which resources an authenticated user or service can access?	Authorization model
+89e7ec4717	The study of where we are versus where we'd like to be is called <b>[...]</b>.	Gap analysis
+47db2056c4	=	-
+09a1963891	Besides formal industry standards (NIST, ISO, IEC), a gap analysis baseline can be an internal set of <b>[...]</b>.	Goals
+7cf70f5a3d	=	-
+87594aadc8	=	-
+3ea7a4c335	=	-
+c2a9ff68f5	=	-
+ab531cdf12	=	-
+18e510351d	Besides describing the current state, a final gap analysis report gives <b>[...]</b> for meeting the baseline.	Recommendations
+c51336c163	Besides time and money, closing a gap usually needs lots of <b>[...]</b>.	Change control
+ef8a407c6f	Which model makes every person, device and process authenticate each time they access a resource?	Zero Trust
+6efad6cb8c	=	-
+583b0e9be8	Which Zero Trust plane holds the devices that actually process and move data, such as routers and switches?	Data plane
+50f602fd2a	Which Zero Trust plane manages the actions of the data plane through policies and rules?	Control plane
+76721aba52	Decreasing the number of possible entry points is called threat <b>[...]</b>.	Scope reduction
+e9aeafce46	Combining adaptive identity with predefined rules to choose an authentication process is called <b>[...]</b>.	Policy-driven access control
+1391415375	Which Zero Trust component evaluates subjects and asks the PDP whether to allow traffic?	Policy Enforcement Point
+b84079fddf	Which Zero Trust component decides whether the PEP should allow or disallow traffic?	Policy Decision Point
+ef79789286	=	-
+a5aaa543c8	=	-
+ec578a0926	Barricades and bollards let people through but stop <b>[...]</b>.	Vehicles
+0beb53c9cb	Barricades and bollards are always flimsy, true or false?<br><br>(Some are filled with concrete or built as water-filled moats.)	False
+6607393bf6	What physical control can replace a stationed guard?	Video surveillance
+dacef74edb	Requiring two people for access to a physical asset is called <b>[...]</b>.	Two-person integrity
+acb6e9106a	=	-
+644d74e275	Besides deterring attackers, more lighting helps which kind of cameras see better?	Non-IR cameras
+c758f15c77	Attackers tend to avoid <b>[...]</b>, which is why it adds security.	Light
+1b015645a3	Good security lighting avoids shadows and <b>[...]</b>.	Glare
+a18daf63af	Security lighting must be angled correctly for <b>[...]</b>.	Facial recognition
+a17ae0f8f9	Infrared sensors work in both <b>[...]</b> areas.	Light and dark
+db6fa603a8	Which sensor detects a change in force, often in floors and windows?	Pressure sensor
+ce2e0e7294	Which sensor detects movement across a larger area than infrared?	Microwave sensor
+8fc9b2a659	A system designed to attract attackers and trap them is a <b>[...]</b>.	Honeypot
+43861937cc	A honeypot buys time to determine the attack's nature and <b>[...]</b>.	Source
+24056c3c4c	A simulated network of several honeypots is a <b>[...]</b>.	Honeynet
+b8e64d9acc	A file containing fake but important-looking information to lure attackers is a <b>[...]</b>.	Honeyfile
+13de250673	Who manages a change but usually doesn't perform it?	Change owner
+f5dadbd021	In change management, the groups affected by a change are the <b>[...]</b>.	Stakeholders
+b159c5c5e3	A plan to revert to the original configuration if a change fails is a <b>[...]</b>.	Backout plan
+f16e391766	Weighing the risks of making a change against not making it is called <b>[...]</b>.	Impact analysis
+95ef8b84ab	With which list does nothing run unless approved?	Allow list
+7fb3322eef	With which list does anything run unless denied?	Deny list
+b608cc6714	What defines exactly which components a change affects?	Scope
+6078fd4109	In 24/7 environments, before changing the primary system, operators often switch to a <b>[...]</b> system.	Secondary
+bc1efdf71e	A change that must be made elsewhere before the intended change is a <b>[...]</b>.	Dependency
+1de3737b41	Can symmetric and asymmetric encryption be used together?	Yes
+f92df07af5	In asymmetric encryption, data encrypted with the public key is decrypted with the <b>[...]</b>.	Private key
+6f8e06d1f2	Besides a single file, encryption can cover an entire <b>[...]</b> or partition.	Disk
+3c41fd5e72	To avoid encryption overhead, encrypt only the most <b>[...]</b> data.	Sensitive
+71c73ccdca	Encrypting data as it is transmitted is called <b>[...]</b>.	Transport encryption
+a231f3fb64	Besides TLS and IPsec, which older protocol encrypts network traffic?	SSL
+431311ccc3	Which successor to SSL encrypts web traffic?	TLS
+58e0803ced	Which protocol suite encrypts traffic at the IP layer?	IPsec
+e55ca0144b	Besides security level and speed, what else matters when choosing an encryption algorithm?	Implementation complexity
+5629b742c9	Hashing a password many times over so each brute-force guess takes longer is called <b>[...]</b>.	Key stretching
+e066380b85	Using a different means of communication is called <b>[...]</b>.	Out of band
+3147b0b263	Which motherboard component generates and stores cryptographic keys?	TPM
+01ee68772d	=	-
+8ef4a50e2d	Which dedicated device, often clustered, manages large numbers of enterprise keys?	HSM
+184cd189ab	=	-
+e9b86703e6	Swapping old keys for new ones on a schedule is called key <b>[...]</b>.	Rotation
+8af47718ad	Which processor has its own boot ROM, a true random number generator and real-time memory encryption?	Secure Enclave
+2cc9da3fe6	Hiding data within another format, such as an image or audio file, is called <b>[...]</b>.	Steganography
+f9410b3539	Obfuscation is easy to undo once the <b>[...]</b> is known.	Method
+3accd8efd4	Swapping sensitive data for a replacement in transit, then swapping it back, is called <b>[...]</b>.	Tokenization
+c0f910a60e	Hiding parts of the original data, such as most digits of a card number, is called <b>[...]</b>.	Data masking
+5538f37644	When two different inputs produce the same hash, it is a hash <b>[...]</b>.	Collision
+f721dab29b	A hash function's output always has a <b>[...]</b> size.	Fixed
+82ef7843f8	A hash function accepts input of <b>[...]</b>.	Any size
+7691b8ba80	Comparing hashes verifies that a download has not been tampered with or <b>[...]</b>.	Corrupted
+378ecee595	Passwords are typically stored as salted <b>[...]</b>.	Hashes
+933cfc4cd4	Random data added to a password before hashing is called <b>[...]</b>.	Salt
+78e34f68e1	A precomputed table of inputs and hashes, used to reverse unsalted hashes, is a <b>[...]</b>.	Rainbow table
+9b6f6e2d7e	In a blockchain, what lets each block be checked for changes?	Its hash
+57c82a1f74	Besides serial number, issuer and public key, an X.509 certificate names the signature <b>[...]</b>.	Algorithm
+31adfa6e72	What does an entity send a CA to obtain a signed certificate?	CSR
+e6ff8d2615	An organization can build its own <b>[...]</b> for internal certificates.	Private CA
+92ee17c6c5	Must internal certificates be signed by a public CA?	No
+08e08d6441	Which X.509 extension lets one certificate cover several different domain names?	SAN
+7c8ce4b255	=	-
+c3c5d5d80e	Removing trust from a certificate or key is called <b>[...]</b>.	Revocation
+fd67e6c705	What list, maintained by a CA, names certificates that are no longer valid?	CRL
+5537c92284	=	-
+3e5bf4b772	Which protocol lets a browser ask a CA about one certificate's revocation status?	OCSP
+17071f0b5d	=	-
+a2bd5011cc	Attaching a certificate's current OCSP status to the certificate during the handshake is called <b>[...]</b>.	OCSP stapling
+754126e07c	OCSP is universally supported today, true or false?<br><br>(Older browsers lack it; some modern ones skip the checks.)	False
+ecd871836a	Besides data and computer systems, which asset type do security controls protect?	Physical property
+7dd2f5721c	Firewalls, operating systems and antivirus are examples of which controls?	Technical controls
+451d806138	=	-
+0c7020c49a	Besides preventing incidents and reducing impact, security controls aim to <b>[...]</b> damage.	Contain
+ae683f4723	Locks and perimeter fences are which kind of control?	Physical controls
+3b6964ab34	Policy-making controls are managerial; human-executed controls are <b>[...]</b>.	Operational
+c8ab62e089	Badge readers at a data center are which kind of control?	Physical
+e9db2418f9	Which CIA element prevents unauthorized modification?	Integrity
+06d0965169	What ensures proof of origin for a message?	Digital signatures
+4ba3aea699	A changed file hash means which property is compromised?	Integrity
+793a800b44	Signatures prove message integrity and origin; what validates the signer's identity?	Certificates
+a8d9746393	=	-
+c293d7df65	Session times, resources accessed and failed logins are logged by VPN <b>[...]</b>.	Accounting
+db89cf9827	MAC uses security clearance levels; what does RBAC use?	Job roles
+14913f0593	Department, job title, location and device type are attributes for which access model?	ABAC
+6831b4c69d	=	-
+0d5d01cf77	Which key, unique to its owner, makes non-repudiation possible?	Private key
+a652894e25	Besides CA validation and cryptographic signatures, what limits how long a certificate is trusted?	Expiration date
+6fcd2273aa	Besides closing security holes, patching supports availability by improving system <b>[...]</b>.	Stability
+1efec9df82	Backup systems that maintain uptime during failures provide <b>[...]</b>.	Redundancy
+0db43e98e8	Authentication starts with a claimed identity and the <b>[...]</b> that support it.	Credentials
+24b9852a54	Timestamps, user actions and resource access details are logged as part of <b>[...]</b>.	Accounting
+7090611e56	Permissions assigned through group membership rather than per user are easier to <b>[...]</b>.	Update
+878e040008	=	-
+6eac6b115a	A security baseline compares the current state with the <b>[...]</b> state.	Desired
+7485dfb37c	NIST SP 800-171 and ISO/IEC 27001 are commonly used as security <b>[...]</b>.	Baselines
+7c0c71f53c	Gap assessments analyze people, policies and <b>[...]</b>.	Systems
+7bb5b99585	User registration, access revocation and privileged access management are examined in an access control <b>[...]</b>.	Analysis
+022816b0aa	Gap analysis supports compliance by producing a remediation <b>[...]</b>.	Roadmap
+8573de8b0f	Zero Trust replaces perimeter-based security with <b>[...]</b> verification.	Continuous
+a17d8ef38c	MFA, encryption and granular role-based permissions are central to which security model?	Zero Trust
+e6be8760d1	=	-
+09b20d2b82	Systems that weigh user behavior, device trust and connection context to adjust authentication use <b>[...]</b>.	Adaptive identity
+a6aadb7a7d	Segmenting a network into zones removes <b>[...]</b> between them.	Implicit trust
+a2160ed9b5	Besides the PEP and PDP, which Zero Trust component carries out the PDP's decisions by setting up or closing connections?	Policy Administrator
+539ca40bb2	=	-
+83b6fe935b	Zero Trust uses temporary credentials to enforce least privilege with <b>[...]</b> permissions.	Time-bound
+2acd8b8662	A finance VLAN that can reach only HR servers, never guest Wi-Fi, shows security zone <b>[...]</b>.	Isolation
+d955a50c50	Under Zero Trust, a login from an unknown location triggers <b>[...]</b>.	Additional authentication
+d42a03da2a	Which Zero Trust component inspects traffic, applies policy and acts as the gateway?	PEP
+2d2fe37821	Traditional networks trust anything inside the firewall; Zero Trust takes which approach?	Verify everything
+1232b5596c	Besides comparing current and desired states, a gap analysis report gives a prioritized <b>[...]</b>.	Roadmap
+60f6ce6760	In Zero Trust, certificates validate <b>[...]</b> identity.	Device
+9e56db495f	Besides restricting access, barricades and bollards channel movement and act as visual <b>[...]</b>.	Deterrents
+bf7af3658e	=	-
+7a366c1d65	Which physical control stops tailgating by holding one person at a time between two doors?	Access control vestibule
+68148511b4	Advanced mantraps add badging and <b>[...]</b> to basic locking.	ID checks
+c59d0fee0b	Fences create visible <b>[...]</b>.	Boundaries
+1f3b695052	CCTV with facial recognition and license plate reading helps with <b>[...]</b>.	Evidence collection
+86fa2e9987	Requiring two guards together for sensitive tasks is called <b>[...]</b>.	Two-person integrity
+f99fde46bb	Photos, names and credentials that work with electronic locks are combined on an <b>[...]</b>.	ID badge
+d56fb6e1a2	Besides deterring intruders, lighting lets cameras perform <b>[...]</b>.	Facial recognition
+f92904e453	What sensor technology detects motion in darkness?	Infrared
+71160d0d5f	Which detection systems use sound waves to sense motion, for example in parking lots?	Ultrasonic sensors
+d36e6861cc	=	-
+8c784fcfb1	A honeynet is more credible than one honeypot because it mimics a real <b>[...]</b>.	Network
+969d356bf0	A file named passwords.txt that alerts when opened is a <b>[...]</b>.	Honeyfile
+d20b35e933	Fake API credentials that trigger an alert when used are a <b>[...]</b>.	Honeytoken
+fc874e15bc	=	-
+1854c9c5aa	In restricted zones, pressure sensors trigger <b>[...]</b> on unauthorized movement.	Alarms
+f1ba958074	Combining physical and cyber measures creates <b>[...]</b> defense.	Layered
+1901572cb5	=	-
+69a40f1a67	The systematic process for managing system modifications without disruption is called <b>[...]</b>.	Change control
+89f225990c	A need identified by an application or data owner starts a formal <b>[...]</b>.	Change request
+e0bae8ccdb	Which group assesses the risk, impact and approval of proposed changes?	Change Control Board
+cf24ba5aa5	Identifying everyone a change affects is called <b>[...]</b> analysis.	Stakeholder
+8588d86b77	Isolated replicas of production used to test changes safely are <b>[...]</b>.	Sandboxes
+719a52a477	=	-
+22ffe7c828	High-risk changes are usually made during a scheduled <b>[...]</b>.	Maintenance window
+bb269bc575	After implementing a change, functionality is confirmed with <b>[...]</b>.	User testing
+1ccd52f850	=	-
+01ec4c0ff9	=	-
+0cc02ad6d5	=	-
+97a5bcfeeb	Legacy systems need documentation because they often lack vendor <b>[...]</b>.	Support
+c52593f906	24/7 systems need redundancy and automated <b>[...]</b> to be updated without downtime.	Failover
+fd33b47f27	A change that needs only a service or daemon reload, not a full restart, still requires a <b>[...]</b>.	Reboot plan
+1ed3d70f9a	=	-
+fd3da538f5	Tracking patches, configuration changes and historical versions is called <b>[...]</b>.	Version control
+b417a0aa80	=	-
+2ec2206200	Users learn about scheduled changes through email and a shared change <b>[...]</b>.	Calendar
+5c74505650	=	-
+61c158f388	Undocumented changes risk unverified <b>[...]</b>.	Vulnerabilities
+0be3b3f397	The main advantage of symmetric encryption is <b>[...]</b>.	Speed
+68542c0a65	What is the main challenge of symmetric encryption?	Key distribution
+145502cfbc	In asymmetric encryption, which key is shared openly?	Public key
+ab53c09886	Asymmetric encryption enables authentication through <b>[...]</b> verifiable with public keys.	Signatures
+800eb27049	Using asymmetric encryption to exchange a symmetric key is called <b>[...]</b> encryption.	Hybrid
+c9878459e1	Which protocol encrypts web traffic using TLS?	HTTPS
+79eed3f357	Which algorithm replaced DES with larger keys and a stronger design?	AES
+132e8ee327	Because algorithms are public, encryption security depends on keeping the <b>[...]</b> secret.	Key
+e28c16c1eb	Which key exchange derives a shared secret without ever transmitting the key?	Diffie-Hellman
+287fb5b108	Exchanging keys by a non-internet channel to avoid interception is called <b>[...]</b> key exchange.	Out-of-band
+082f87fa18	=	-
+54185e4e69	After TLS exchanges a key asymmetrically, which encryption protects the data?	Symmetric
+8f40dc53f2	Which database encryption encrypts the whole database with one key, invisibly to applications?	Transparent encryption
+b571e562dd	Why are asymmetric keys longer than symmetric keys for equal security?	Prime-based math
+72510e7dfc	Diffie-Hellman alone does not stop which attack?	Man-in-the-middle
+12721c653f	CAs, certificates, registration authorities and repositories make up a <b>[...]</b>.	PKI
+00f5aada25	=	-
+f7e88c0d35	Asymmetric encryption relies on <b>[...]</b> functions, so public keys can't derive private keys.	One-way
+13a38b80f8	=	-
+723f477ec8	Which encryption covers an entire storage device rather than chosen files?	Full disk encryption
+00711128e7	Encrypting only sensitive fields, like SSNs, is called <b>[...]</b> encryption.	Column-level
+be6919543c	Which protocol do site-to-site VPNs usually use?	IPsec
+ff6b5361ed	AES-256 resists brute force better than AES-128 because of its larger <b>[...]</b>.	Key space
+56764d70b1	Diffie-Hellman's security rests on the <b>[...]</b> problem.	Discrete logarithm
+3636be52b3	Physical transfer, voice and trusted couriers are methods of <b>[...]</b> key exchange.	Out-of-band
+f27e06a8cb	=	-
+5fe88e86ea	EFS is an example of which data-at-rest encryption?	File-level encryption
+3a9f1efd8e	=	-
+ae5fc4531b	HTTPS, SSL VPN and IPsec VPN protect data in which state?	In transit
+4394397c52	Which hard math problem stops RSA private keys being derived from public keys?	Prime factorization
+b721bca740	What RSA key length is recommended today?	3072 bits
+28451ee9d1	Separate keys per database column limit <b>[...]</b> if one key is compromised.	Exposure
+47ebb0ee21	What key length made DES vulnerable to brute force?	56 bits
+580fe25092	Which chip is like a mini security vault built into your computer?	TPM
+f98e397e08	=	-
+ffda5be036	If a TPM is a personal safe, what is a high-security bank vault for data centers?	HSM
+417b13f301	A centralized system for managing and rotating keys across an organization is a <b>[...]</b>.	KMS
+4a3a889038	Which system is like a password manager for an organization's encryption keys?	KMS
+9e978ab1ac	=	-
+bc6971d90b	Which processor is like a private security officer inside your device?	Secure Enclave
+80429a5cc9	Making code hard to read without changing what it does is called <b>[...]</b>.	Obfuscation
+eeb3ac784e	=	-
+67166ab165	Hiding a message in an image's pixel data is an example of <b>[...]</b>.	Steganography
+2a8544f36b	=	-
+b6fec6a668	Which server generates tokens that can't be reversed to the original data?	Token service
+d6e91a97f3	=	-
+ea77b0aa14	Showing a card number as **** **** **** 1234 is an example of <b>[...]</b>.	Data masking
+1bf28eb69c	Which chip generates random numbers, stores machine-specific keys and supports full-disk encryption?	TPM
+84fbb97c40	Which device stores keys for many servers on redundant hardware?	HSM
+913583408f	Which key system can run on-premises or in the cloud, separates keys from data, and logs key usage?	KMS
+3c0e37785a	=	-
+d216517337	Steganography's weakness is that it relies on <b>[...]</b>.	Obscurity
+476eb2112c	Mobile payments using stand-ins instead of real card numbers are an example of <b>[...]</b>.	Tokenization
+e79b670171	Yellow printer dots that encode the printer's identity are an example of <b>[...]</b>.	Steganography
+98ef98106d	Obfuscation hides data but doesn't provide <b>[...]</b> protection.	Cryptographic
+184a86444e	A cryptographic hash is used to verify data <b>[...]</b>.	Integrity
+90f622c40a	Besides being one-way and unique per input, a good hash is <b>[...]</b>.	Collision-resistant
+6c5c5ce204	=	-
+fc973b3d7d	Which hashing algorithm produces a 256-bit (64 hex character) hash?	SHA-256
+4e69f0c918	Which hash algorithm is insecure because of known collisions?	MD5
+d67b692123	=	-
+6f2fa04f01	Storing passwords as salted hashes defeats which attack?	Rainbow tables
+b4b2c086bc	=	-
+92ad63caf4	A hash encrypted with a private key to prove authenticity and integrity is a <b>[...]</b>.	Digital signature
+90c0366791	To create a digital signature, the sender encrypts the message hash with their <b>[...]</b>.	Private key
+6b0781c00d	To verify a digital signature, the recipient decrypts the hash with the sender's <b>[...]</b>.	Public key
+7f2d13eb06	A distributed ledger where every participant keeps a copy is a <b>[...]</b>.	Blockchain
+9ae296b097	=	-
+12400ccea3	Altering a blockchain transaction invalidates the block's <b>[...]</b>.	Hash
+1da83ad98c	Payment processing, digital ID, supply chain monitoring and voting are uses of <b>[...]</b>.	Blockchain
+69e47eefc4	A trusted third party that signs certificates to validate identities is a <b>[...]</b>.	Certificate authority
+05dd42b989	A decentralized model where people sign each other's certificates instead of using a CA is a <b>[...]</b>.	Web of Trust
+8fb9db8333	A certificate signed with its own private key instead of by a CA is <b>[...]</b>.	Self-signed
+18b4590947	=	-
+e84eda6f32	A foundational trusted component, such as a Secure Enclave or HSM, is a <b>[...]</b>.	Root of Trust
+9720e6a096	A certificate that secures all subdomains of one domain is a <b>[...]</b> certificate.	Wildcard
+d6f221ef01	If a wildcard certificate's private key leaks, what becomes vulnerable?	All subdomains
+f3e428345a	=	-
+351a878d3f	=	-
+37c524a65e	=	-
+65efa5d983	In a blockchain, transactions are grouped into <b>[...]</b>.	Blocks
+211976f0f9	In a blockchain, blocks with invalid hashes are <b>[...]</b>.	Rejected
+65dc979770	=	-
+db9449e4f6	=	-
+a905c6b5f7	=	-
+cd42626959	The browser lock icon shows the site presented a valid <b>[...]</b>.	Digital certificate
+e125b5720d	What is the standard format for digital certificates recognized by browsers?	X.509
+aaa2dc80af	=	-
+11fc02d728	Implementing a firewall to restrict network traffic is which control category?	Technical
+a4245da68d	Developing and enforcing a company-wide security policy is which control category?	Managerial
+f5827a7cce	User security awareness training is which control category?	Operational
+79f49936bf	Biometric locks on server room doors are a <b>[...]</b> control.	Physical
+8623d3e6cc	Requiring users to change passwords regularly is which control type?	Preventive
+8ac2f06fa7	Visible signs warning of surveillance cameras are which control type?	Deterrent
+9a0e9fd6e9	An IDS that alerts administrators to suspicious activity is which control type?	Detective
+37d8358bc8	Restoring data from backup after a ransomware attack is which control type?	Corrective
+c4d9e0c528	A control that mitigates risk when the primary control isn't feasible is a <b>[...]</b> control.	Compensating
+b6a36d2376	An acceptable use policy for employee devices is which control type?	Directive
+cd616fdcd2	=	-
+ea8b90473a	Proof that a specific person performed an action or sent a message is called <b>[...]</b>.	Non-repudiation
+64890475d3	Which authorization model gives permissions to roles, and users get them by being assigned roles?	RBAC
+ccdce0f912	=	-
+73075c6a43	=	-
+64e8c293bd	Which Zero Trust plane manages authentication, authorization and access decisions?	Control plane
+8fa465730d	In Zero Trust, real-time access decisions based on identity, context and continuous authentication are called <b>[...]</b>.	Adaptive identity
+2eb32625f3	=	-
+8c2961e1f3	Evaluating access requests against defined rules before granting access is called <b>[...]</b> access control.	Policy-driven
+f82f457fcc	=	-
+cad05b4b21	Which control plane component evaluates access requests against policy and decides?	Policy engine
+34ab64363c	Which Zero Trust plane enforces access decisions and carries the data?	Data plane
+5862719cd5	Implicit trust zones let attackers move <b>[...]</b> once inside.	Laterally
+d0843469b2	=	-
+d9c1fd3d52	=	-
+bc2b4c0dd4	Bollards in front of an entrance mainly stop <b>[...]</b> ramming the building.	Vehicles
+b0647814d6	=	-
+a47d776eea	Perimeter fencing is meant to deter and <b>[...]</b> unauthorized access.	Delay
+ae414fed99	=	-
+79a16a0f41	Besides monitoring access points, a security guard verifies the <b>[...]</b> of people entering.	Credentials
+6e6d1b87a7	An access badge controls and <b>[...]</b> entry to secured areas.	Records
+304d90f0fa	=	-
+5fac4f84c3	Infrared sensors detect intruders by sensing body <b>[...]</b>.	Heat
+c6c742e74e	=	-
+c85e3b24f0	Microwave sensors detect movement by emitting <b>[...]</b> waves.	Electromagnetic
+8ac71a0eaa	Ultrasonic sensors detect motion using high-frequency <b>[...]</b> waves.	Sound
+f03b6c1ee1	A honeypot lures attackers into an isolated environment for <b>[...]</b>.	Observation
+ef5d6870a8	=	-
+fe226728d2	=	-
+f44459cd6a	=	-
+7682faab2c	Data intentionally planted so that its use reveals unauthorized access is a <b>[...]</b>.	Honeytoken
+61856dddc2	An approval process makes sure changes are reviewed for security <b>[...]</b> before implementation.	Implications
+2d9d229443	Clear change ownership defines who is <b>[...]</b> for a change.	Accountable
+bb19d7b83e	Stakeholders in change management help identify <b>[...]</b> impacts.	Business
+506afe8786	=	-
+10ce97c1a6	=	-
+ecbaad1bd8	=	-
+c2b995587e	A maintenance window minimizes a change's impact on business <b>[...]</b>.	Operations
+f1ccd4ee0a	Standard operating procedures make changes <b>[...]</b> applied.	Consistently
+31955b949b	=	-
+3751be59e4	Restricting unscheduled installs keeps out <b>[...]</b> applications.	Unvetted
+83df0bce9e	=	-
+95a03a97e7	=	-
+8b8938fa37	=	-
+83a9e82e36	Legacy systems are risky to change because they are <b>[...]</b>.	Fragile
+9b16ec9f3c	=	-
+3487edf15f	Network diagrams are updated after changes so security teams have accurate information for <b>[...]</b>.	Threat response
+3502877c1e	=	-
+032a8b2d9d	Version control enables tracking and <b>[...]</b> of code changes.	Auditing
+be023106a2	PKI secures email by giving senders certificates for authentication and <b>[...]</b>.	Encryption
+f91cce384e	=	-
+2a2c9be326	=	-
+df8a78daad	Storing copies of keys so encrypted data can be recovered if an employee leaves is called <b>[...]</b>.	Key escrow
+0241d2ae2b	=	-
+de7354d9f9	Which encryption protects all data on a lost laptop?	Full-disk encryption
+00a2eb0048	Encrypting everything within one partition of a drive is called <b>[...]</b> encryption.	Partition-level
+58930f2077	To protect specific documents on a shared workstation, use <b>[...]</b> encryption.	File-level
+32b2e10dce	=	-
+68be9f888e	Choosing an encryption level is a balance between security and <b>[...]</b>.	Performance
+58e94ffca4	Encrypting individual records protects data even if attackers access the <b>[...]</b> directly.	Database
+1c4f62e02e	=	-
+c7d7999700	Establishing a TLS connection between a client and web server uses which encryption for the key exchange?	Asymmetric
+dc6b2013ca	=	-
+83a7bada90	=	-
+2580baf715	=	-
+a18556d8bf	Longer key lengths resist which kind of attack better?	Brute force
+2daa8f48ab	=	-
+25797b0b4c	HSMs provide tamper-resistant key storage and <b>[...]</b> cryptographic operations.	Accelerate
+c7e9964d2e	Generating, storing, distributing, rotating and revoking keys centrally is the job of a <b>[...]</b>.	Key management system
+cd741f3222	=	-
+2c691df449	=	-
+ac7a8f291a	Steganography makes the <b>[...]</b> of secret data less obvious.	Existence
+60c1ad4f35	Tokens can keep the original data's <b>[...]</b> without exposing it.	Format
+55b5d04547	Data masking replaces sensitive values with fictional but <b>[...]</b> ones.	Realistic
+fc617fd8b2	Hashing turns passwords into <b>[...]</b> values.	Fixed-length
+9fce6eed38	Salting makes identical passwords produce <b>[...]</b> hashes.	Different
+087b839bc0	=	-
+612a4785c2	Key stretching increases the <b>[...]</b> needed to crack hashed passwords.	Computing time
+88368f18f3	=	-
+b7cff5edee	Hashing gives an open public ledger tamper <b>[...]</b>.	Evidence
+c0927fd35f	=	-
+8158f5851f	=	-
+fb458edd29	=	-
+47399b5417	Self-signed certificates lack <b>[...]</b> validation.	Third-party
+fe061da5a8	For public websites, use certificates from a third-party CA because browsers already <b>[...]</b> them.	Trust
+5af5df72b3	=	-
+80fffe6abb	A CSR gives the CA the <b>[...]</b> and identifying information it needs.	Public key
+166f25e801	=	-
+128cf6e295	An entity that causes an event affecting the security of others is a <b>[...]</b>.	Threat actor
+d832cff308	A threat actor that is a government or an arm of one is a <b>[...]</b>.	Nation state
+70b9339f4b	Skilled, well-funded attackers who stay hidden in a network for a long time are an <b>[...]</b>.	APT
+6801f14137	=	-
+2897b70549	An attacker running scripts they don't understand is an <b>[...]</b> attacker.	Unskilled
+c227b0e96f	A politically or ideologically motivated hacker is a <b>[...]</b>.	Hacktivist
+9189eaa06b	=	-
+65d15877b6	Do hacktivist attacks come from inside the organization, outside it, or both?	Both
+6b3e45a1ab	An attacker with the same resource access as employees is an <b>[...]</b>.	Insider threat
+54fadbcd22	Users who add their own hardware or services, going around security policy, are which threat?	Shadow IT
+784bb1bf3a	The method an attacker uses to gain access to a system is a threat <b>[...]</b>.	Vector
+98b03e228a	What image format's XML can be used to deliver malicious code?	SVG
+89c6676b81	Automatically dialing ranges of phone numbers to find modems is called <b>[...]</b>.	War dialing
+746efca8b9	A network physically isolated from the internet and other networks is <b>[...]</b>.	Air-gapped
+9be7ecb3ea	=	-
+fb5c304d03	Systems whose manufacturer no longer provides patches are <b>[...]</b> systems.	Unsupported
+be49dbdbb0	Office files can carry attacks through <b>[...]</b>.	Macros
+f895b597d8	A USB device physically added to a network is which threat vector?	Removable device
+0eea36307c	Some malicious USB devices pose as a <b>[...]</b> to type commands instantly.	Keyboard
+40848ac2ad	By their nature, networks can give attackers easy access to <b>[...]</b> of the network.	All parts
+37d3efe275	One of the first tasks when installing a new device should be to change the <b>[...]</b>.	Default credentials
+f833469293	Tampering with manufacturing so trusted devices arrive with malicious code is which threat vector?	Supply chain
+20ff95529a	Social engineering that presents something malicious as legitimate and safe is called <b>[...]</b>.	Phishing
+3af8bdc2a9	Phishing typically targets information that would normally be <b>[...]</b>, like usernames and passwords.	Private
+f286ef249f	Never click a password reset link unless you <b>[...]</b> it.	Requested
+294877a138	Registering misspelled versions of legitimate domains is called <b>[...]</b>.	Typosquatting
+62b61a643c	Phishing by text message is called <b>[...]</b>.	Smishing
+4f45c6b2c2	Making up a story to direct a target's actions ("I'm calling from your bank about an issue...") is called <b>[...]</b>.	Pretexting
+7792ea60a9	An attacker pretending to be someone else, such as a bank representative, is practicing <b>[...]</b>.	Impersonation
+187bdabad1	=	-
+dd3270423f	Unless you started the interaction, anyone who needs your personal details should <b>[...]</b> them.	Already have
+d9d9a23cd2	Be most suspicious of a phone call that asks for <b>[...]</b> information.	Sensitive
+983b14c92d	Compromising an outside site that a target organization's users frequent is a <b>[...]</b> attack.	Watering hole
+b9b3050a28	Using multiple detection and prevention systems so one catches what another misses is called <b>[...]</b>.	Defense in depth
+b90152f663	=	-
+a61211233b	Is an organization with a firewall or an IPS fully protected?	No
+964978e0bd	Watering hole attacks are an alternative to directly attacking a <b>[...]</b> system.	Well-defended
+b07d4a4bbf	Besides dividing a group of people, disinformation campaigns aim to <b>[...]</b> from something else.	Distract
+648a4e6e1d	=	-
+b14a5e0d20	Social media misinformation can be spread to real users by even a <b>[...]</b> attacker.	Single
+5b95dddbe5	=	-
+f97bbff226	A campaign to persuade people to believe something untrue is an <b>[...]</b> campaign.	Influence
+6812767789	Generating masses of content with popular brand names to steer search results to an attacker's site is called <b>[...]</b>.	SEO poisoning
+6bea3f97ab	=	-
+bf09a5a94f	Besides starting its own process, malware can inject itself into an already <b>[...]</b> process.	Running
+14bb51a5c9	=	-
+eadb750c6c	Malware injects into running processes to avoid detection and gain the host's <b>[...]</b>.	Privileges
+5fa5a7ffde	=	-
+31eeb9d24d	A library file used by multiple processes in Windows is a <b>[...]</b>.	DLL
+0ce4f7ec60	Putting malicious code in a library file and making a running program load it is called <b>[...]</b>.	DLL injection
+4cb5b67e4b	=	-
+05ae93e539	Examining physical memory to find a malware process that ran is called <b>[...]</b>.	Memory forensics
+d485b95c00	Adding malicious code between the memory addresses a running process uses is called <b>[...]</b>.	Memory injection
+f117034dee	=	-
+5c7609a39e	For an attacker, a buffer overflow is only useful if it performs a function and is <b>[...]</b>.	Repeatable
+c757d0c623	Writing more data than a memory section holds, so it spills into the next section, is a <b>[...]</b>.	Buffer overflow
+770497d1c5	When more than one thing happens at the same time in an application, it can cause a <b>[...]</b>.	Race condition
+2215d73dd8	An attack exploiting the gap between when a value is checked and when it is used is a <b>[...]</b> attack.	TOCTOU
+a0793e5e1f	Malicious code added to an otherwise legitimate update makes a <b>[...]</b>.	Malicious update
+b45f5fa3c4	=	-
+973b6be092	Malicious updates usually arrive outside the normal update <b>[...]</b>.	Channels
+500ec4938a	The simplest protection against a bad or malicious update is making a <b>[...]</b> first.	Backup
+bdb7458781	=	-
+64450881cb	Many operating systems only install applications that carry a verified <b>[...]</b>.	Digital signature
+53dc790152	Downloading updates directly from the <b>[...]</b> helps ensure they are legitimate.	Developer's site
+ca1ee0504d	=	-
+e4947aace3	=	-
+9ccea71cd3	Microsoft releases updates on the second Tuesday of each month, known as <b>[...]</b>.	Patch Tuesday
+e678d3c8e6	Once an update is released, attackers become <b>[...]</b> of the vulnerabilities it fixes.	Aware
+6c9869036b	Before deploying an update to a large system, administrators <b>[...]</b> it.	Test
+4c0e059d34	Updates to core operating system parts often require a <b>[...]</b>.	Reboot
+fdee6147dc	=	-
+1b972eeb3d	The language used to manage and query databases is <b>[...]</b>.	SQL
+82c0833c66	Putting your own database requests into an application's normal queries is called <b>[...]</b>.	SQL injection
+ee890460a6	What always-true condition is commonly injected to return all rows of a table?	1=1
+3304802912	An attacker adding their own code to an application is a <b>[...]</b> attack.	Code injection
+c737d06395	Removing unwanted (especially malicious) content from user inputs is called input <b>[...]</b>.	Sanitization
+c50b001d72	Making sure user inputs are structured as the application expects is called input <b>[...]</b>.	Verification
+492ca64fc9	=	-
+671e214ac3	Because it can give complete control over a database, SQL injection is especially <b>[...]</b>.	Dangerous
+34903a52bf	=	-
+36975c9ecd	=	-
+992eb72fa6	An attack that abuses a browser's trust in one site to run code from a malicious site is <b>[...]</b>.	Cross-site scripting
+7a6a0e3bcf	=	-
+076bf9afa3	What language do most XSS attacks use?	JavaScript
+29eb6d182e	=	-
+c4ca0bbca0	An XSS attack delivered through a crafted link the victim clicks is a <b>[...]</b> attack.	Non-persistent
+c0d5ae4481	An XSS attack where the script is stored on the site, for example in a comment, is a <b>[...]</b> attack.	Persistent
+424a09c716	Does a persistent XSS attack need a malicious link?	No
+0c66921a54	=	-
+ea09b517cf	Users can reduce XSS risk by disabling or limiting <b>[...]</b>.	JavaScript
+071c3af7d8	=	-
+3df997debf	=	-
+07a4742244	In XSS, whose browser actually runs the malicious code?	The victim's
+38ba52010d	=	-
+b2d997fc7a	Which devices connected to a network are potential vulnerabilities?	Every one
+e6a0d3e517	IoT devices usually run <b>[...]</b> operating systems from their manufacturers.	Custom
+75a6c90508	The date a manufacturer stops making a product is its <b>[...]</b> date.	End of Life
+bca51afb84	=	-
+fe57e89f41	The date a manufacturer stops providing support or updates is its <b>[...]</b> date (acronym).	EOSL
+89725840af	=	-
+0efddd20fb	Approaching EOSL, an organization weighs the risk of keeping a system against the cost of <b>[...]</b> it.	Replacing
+c360e73ef6	=	-
+ce0c8cdd43	A device still in use past its EOL or EOSL date is a <b>[...]</b> system.	Legacy
+3be7b82cdf	=	-
+d1b561ecf2	A mission-critical legacy device that can't be replaced yet needs <b>[...]</b> controls like extra firewall rules.	Compensating
+4906684c63	Software running directly on hardware, updated only by the manufacturer, is <b>[...]</b>.	Firmware
+2dd16b2650	Some hardware manufacturers are slow to patch <b>[...]</b> vulnerabilities.	Firmware
+cad33be2ab	Some manufacturers sell <b>[...]</b> support past the EOSL date.	Extended
+66e4c37ff3	=	-
+07970b8271	Although VMs are isolated, exploits have reached the <b>[...]</b> that manages them.	Hypervisor
+265c21fffe	An exploit that lets an attacker move from one VM to another is a <b>[...]</b>.	VM escape
+7d3ee876e3	A hypervisor letting one VM access memory used by another is a resource <b>[...]</b> problem.	Reuse
+feabd2561b	The system that manages multiple virtual machines on the same hardware is a <b>[...]</b>.	Hypervisor
+e250b97847	What 10-point scale rates the severity of vulnerabilities?	CVSS
+1439560de0	=	-
+8c9fd2d5b8	Cloud services are available globally, so attackers can reach them from <b>[...]</b>.	Anywhere
+af1c3b2457	Using paths like ../ to reach files outside the intended directory is called <b>[...]</b>.	Directory traversal
+22d21283ce	=	-
+e737bd07af	Weak authentication and authorization settings can allow <b>[...]</b> to sensitive data.	Unauthorized access
+7700f4e4aa	=	-
+3817a01b96	Writing to memory a user isn't authorized to use is an <b>[...]</b>.	Out-of-bounds write
+7644bb0d07	=	-
+d49776b340	Malicious code inserted into products before an organization receives them is a <b>[...]</b> vulnerability.	Supply chain
+696ccac75c	Can firewalls, switches and routers be supply chain vulnerabilities?	Yes
+7ecf43183a	=	-
+1194c8345b	To limit supply chain risk, treat new network hardware with <b>[...]</b> until proven trustworthy.	Zero Trust
+1cec2a7682	The supply chain runs from raw material to delivery to the <b>[...]</b>.	End consumer
+9eeaea3569	=	-
+8ca0f4d7c9	Instead of logging in directly as an administrator, users should request <b>[...]</b> when needed.	Elevation
+9ac6fb400b	=	-
+ce751b7a8d	Ideally, very few accounts should have <b>[...]</b> access.	Administrator
+eceab90742	Collecting network traffic to see what is sent securely or insecurely is called <b>[...]</b>.	Packet capture
+ff258e242c	Devices with unchanged default logins are easily recruited into a <b>[...]</b>.	Botnet
+b6eccc8eef	Each open port gives a bit of <b>[...]</b> to the device.	Access
+5876f252b7	=	-
+8f761d55dd	Because every open port is a potential vulnerability, disable any <b>[...]</b> ports.	Unused
+7e2aef24ca	=	-
+592c0a3f46	Large, complex firewall rule sets make it easy to <b>[...]</b> grant access.	Accidentally
+164b708d33	To confirm firewalls expose only the desired ports, conduct regular <b>[...]</b>.	Audits
+5fb610b483	=	-
+bbb1c6b763	Mobile devices are hard to secure partly because they are constantly connected to the <b>[...]</b>.	Internet
+fdcdf89595	Mobile devices are high-value targets because they hold both personal and <b>[...]</b> information.	Organizational
+5ca4ba97ca	=	-
+822e11611c	Mobile devices are hard to secure because they are small and easily <b>[...]</b>.	Hidden
+658186c785	Modifying or replacing an Android device's operating system is called <b>[...]</b>.	Rooting
+4ab1f940ca	Software that centrally manages and secures an organization's mobile devices is <b>[...]</b>.	MDM
+aef45969f9	=	-
+102a8a0ffa	=	-
+aaa350c21b	Modifying an Apple iOS device to bypass its restrictions is called <b>[...]</b>.	Jailbreaking
+6edbea980b	Installing unapproved apps on a rooted device exposes it to <b>[...]</b>.	Malicious code
+85d6749af6	Installing apps from outside approved sources is called <b>[...]</b>.	Sideloading
+304e06ce00	Rules on installing unauthorized software are often in the employee handbook or the <b>[...]</b>.	AUP
+d5b1e64882	=	-
+b468a91e44	Jailbreaking or rooting a device makes which management tool ineffective?	MDM
+7166afa7d0	Does every piece of software contain vulnerabilities?	Yes
+416445d836	Exploiting a new vulnerability that has no patch yet is a <b>[...]</b> attack.	Zero-day
+ee3c1ae61e	=	-
+be913371c4	=	-
+54385fde12	The broad term for any software that performs malicious actions is <b>[...]</b>.	Malware
+bbf8a3cc2f	Malware exists because <b>[...]</b> is very valuable.	Data
+985c866a61	=	-
+2c34b1bf6a	The constant advice for protecting systems from malware is keeping software <b>[...]</b>.	Up to date
+53701c7777	The best protection against ransomware is frequent, <b>[...]</b> backups.	Offline
+3b0311f050	What should you do with unsolicited links?	Don't click
+10fd0e8b36	Malware that records every keystroke and sends it to an attacker is a <b>[...]</b>.	Keylogger
+19f1543f8f	=	-
+c92f91bf1e	Malware that appears to be useful software but also installs malicious code is a <b>[...]</b>.	Trojan horse
+23d12487bb	Can several types of malware work together in one attack?	Yes
+923651132a	Malware installed just by visiting a link, without approval, is a <b>[...]</b>.	Drive-by download
+91efbb64a9	=	-
+a42ed05dee	Malware that infects a system and replicates to infect others, usually needing user action, is a <b>[...]</b>.	Virus
+c73773fbf6	Viruses are typically associated with making systems <b>[...]</b>.	Unavailable
+d740c642a5	=	-
+d56b2df6a1	Built-in antivirus identifies viruses using <b>[...]</b>.	Signatures
+5cca4bce89	A virus that infects the boot sector runs before <b>[...]</b> can detect it.	Antivirus
+7121ade1ab	Viruses usually infect a system because of a <b>[...]</b> action.	User's
+a3de92da12	Malware that replicates between systems with no user intervention is a <b>[...]</b>.	Worm
+02df792d53	=	-
+25e94c3613	The best-known virus type, which runs as an application or part of one, is a <b>[...]</b> virus.	Program
+c0b825e3e8	Worms spread at the speed of the <b>[...]</b>.	Network
+05a390b67c	Malware that watches everything happening on a system is <b>[...]</b>.	Spyware
+7a41919f20	Spyware can earn money from legitimate online purchases through <b>[...]</b> fraud.	Affiliate
+2e9ad9c535	=	-
+45797c007d	Some spyware is so hard to remove that strong <b>[...]</b> practices are needed.	Backup
+0aafa16459	Applications installed by default by manufacturers and partners are called <b>[...]</b>.	Bloatware
+ab3f3c9972	=	-
+e333881cc8	=	-
+710301f08c	Besides vulnerabilities, bloatware's security concern is overconsuming system <b>[...]</b>.	Resources
+a861981198	=	-
+cfb395df95	=	-
+f80d7135da	=	-
+42460bcfdb	Keyloggers work because keyboard input has no protection or <b>[...]</b>.	Encryption
+d2e7fc0934	Malware that regularly captures keystrokes and screenshots and gives an attacker remote control is a <b>[...]</b>.	RAT
+b1d0cc7441	=	-
+047b308150	Malware that waits for certain conditions before executing is a <b>[...]</b>.	Logic bomb
+900305a0ed	=	-
+a13cced22d	=	-
+b9a5c0144b	Logic bombs can be triggered by elapsed time, a user action, or a specific <b>[...]</b>.	Date and time
+6a279d7378	Logic bombs are hard to detect because they carry no <b>[...]</b>.	Signature
+ff08db4634	Besides least-privilege permissions, logic bombs are countered by monitoring OS files for <b>[...]</b>.	Changes
+037115b88a	=	-
+8096ecd46b	Malware that installs itself as part of the operating system is a <b>[...]</b>.	Rootkit
+37a586befc	=	-
+fa104f0992	Which feature verifies OS file signatures before loading, to detect rootkits?	UEFI Secure Boot
+d946193437	Logic bombs are often planted by someone with a <b>[...]</b>.	Grudge
+5890af6fe2	The "root" in rootkit comes from the Linux name for the <b>[...]</b>.	Superuser
+a8538492c1	Can some rootkits be removed after discovery?	Yes
+f31c66e955	With physical access to a system, an attacker can circumvent its <b>[...]</b>.	Operating system
+c5d5971c50	Forcing a door or breaking a window is a <b>[...]</b> attack on physical security.	Brute force
+50ea08b138	Copying the RFID signature of an access card is called <b>[...]</b>.	RFID cloning
+ca94474215	=	-
+b0434a2551	Requiring more than one piece of information to log in is called <b>[...]</b>.	MFA
+c68c70124a	An attacker who can't attack a system directly may disrupt the <b>[...]</b> around it.	Environment
+7d1955ea5c	=	-
+c38b36f031	A very common environmental attack is turning off the <b>[...]</b>.	Power
+2d15563888	Do environmental attacks always require entering the building?	No
+5a9df7a3b3	Disabling a data center's HVAC so it overheats is which kind of attack?	Denial of service
+f3e8262eda	=	-
+e321162c0b	An attacker forcing a service to fail by any means is a <b>[...]</b> attack.	DoS
+502c3ad5b9	=	-
+e7812fa854	=	-
+9c847378bf	Overwhelming a service so no one else can use it is a <b>[...]</b> attack.	DoS
+39d000a411	=	-
+0a6ca661f0	Besides being the goal, a DoS attack can be a <b>[...]</b> for another exploit.	Smokescreen
+0c69986d87	=	-
+1d56e80abe	Using thousands of internet devices to bombard a service with requests is a <b>[...]</b> attack.	DDoS
+f4362d4ebf	=	-
+807691a492	An attack where few resources bring down a much larger system is an <b>[...]</b> threat.	Asymmetric
+b9cb385f8b	=	-
+2f32fcf6d0	Turning a small amount of data into a very large amount is called <b>[...]</b>.	Amplification
+85ba806162	DNS, NTP and ICMP can be abused for amplification because they send back more data than they <b>[...]</b>.	Receive
+e419ed6bc7	Sending DNS requests with the target's spoofed address so replies flood the target is a DNS <b>[...]</b> attack.	Amplification
+4badfefb72	In a DNS amplification attack, the attacker spoofs the <b>[...]</b> address to be the target's.	Return
+fbfc4794dd	A collection of infected devices under an attacker's control is a <b>[...]</b>.	Botnet
+12ebc3f912	DNS maps a fully qualified domain name to its <b>[...]</b>.	IP address
+b755a2caba	Changing the IP address tied to a domain name so traffic goes to the attacker is called <b>[...]</b>.	DNS poisoning
+9f602075bd	Poisoning records on a well-secured DNS server is very <b>[...]</b>.	Difficult
+94e0b709ab	Which local file maps domain names to IP addresses and is checked before DNS?	Hosts file
+b26bcb5690	=	-
+6c8c1b6e4e	=	-
+c20f44fbd1	To poison DNS on the wire, the attacker sits between the host and the <b>[...]</b>.	DNS server
+76f6d2c306	Modifying a hosts file requires access to the device and <b>[...]</b> privileges.	Elevated
+d1ef6bf50e	Attackers can redirect a domain by taking over its <b>[...]</b> instead of attacking DNS servers.	Domain registration
+04dc66a891	=	-
+c49a767945	=	-
+9eeace9de7	A DoS that forcefully disconnects legitimate wireless clients is a <b>[...]</b> attack.	Deauthentication
+355ddb6b06	Information wireless clients and access points exchange to coordinate their connection is carried in <b>[...]</b> frames.	Management
+949eeabb33	Early 802.11 versions did not protect <b>[...]</b> frames.	Management
+f87a659562	Preventing all clients from connecting to a wireless access point by flooding the airwaves is called <b>[...]</b>.	RF jamming
+1a1c5d84b5	=	-
+4b29691dcd	=	-
+d5de56cd38	Jamming only when legitimate traffic is attempted, to avoid detection, is called <b>[...]</b> jamming.	Reactive
+c686f76b4d	=	-
+cb6d37a7e5	Wireless attacks require the attacker to be within <b>[...]</b> range.	Physical
+aee4974e38	Searching for the source of RF interference is called a <b>[...]</b>.	Fox hunt
+eca43e2428	Directional antennas and signal attenuators help find the source of <b>[...]</b>.	RF interference
+409e320cdf	An attacker placing themselves between devices to see all traffic is an <b>[...]</b> attack.	On-path
+3aeb44d16a	Besides viewing traffic, an on-path attacker can <b>[...]</b> it before it arrives.	Modify
+2e68e0b203	=	-
+3d116e54e1	An on-path attack that manipulates the mapping of IP addresses to MAC addresses is <b>[...]</b>.	ARP poisoning
+c804d3c4d3	=	-
+6d1586b5aa	Which protocol maps a host's IP address to its MAC address?	ARP
+1265569e9a	In ARP poisoning, the attacker masquerades as the <b>[...]</b> for both sides of a conversation.	End device
+60d097b805	=	-
+114ebccfa8	Can an on-path attack occur within a single device?	Yes
+643c99d251	Malware that proxies a browser's data before it is encrypted is a <b>[...]</b> attack.	Man-in-the-browser
+4fb04ff23d	Capturing information sent between a victim and a server and reusing it is a <b>[...]</b> attack.	Replay
+e4a8c6297a	Stealing an authenticated user's session ID and using it in your own cookies is called <b>[...]</b>.	Session hijacking
+84bc62afd3	=	-
+e72cb161fb	Intercepting hashed login information and using it to log in is a <b>[...]</b> attack.	Pass the hash
+aded14566b	Browser cookies contain a lot of <b>[...]</b> information.	Private
+ad9e1f69b2	Which piece of cookie data lets an attacker take over a logged-in session?	Session ID
+f42cc13832	Most replay attacks are prevented by <b>[...]</b> all traffic before it leaves the client.	Encrypting
+a045994497	Which protocol encrypts all traffic between a browser and a web server?	HTTPS
+25182d789d	Browser extensions can <b>[...]</b> the use of HTTPS.	Force
+558e1b6457	A fresh random value added to each login so a captured hash can't be reused is a <b>[...]</b>.	Nonce
+32f61162d5	A stolen session ID can give access to an account without <b>[...]</b>.	Login credentials
+77f127c186	If end-to-end HTTPS isn't possible, traffic can be encrypted at least as far as a <b>[...]</b>.	VPN concentrator
+ed74c3ddbc	=	-
+3f9893408b	=	-
+38a4f42edd	=	-
+9cce6064c3	=	-
+9f7fba29b3	Injection attacks exploit applications that lack input <b>[...]</b>.	Sanitization
+102995daab	Buffer overflows are hard to exploit because applications use so many <b>[...]</b>.	Variables
+6ceea462ea	=	-
+485c4eedb6	=	-
+9bd2877652	Buffer overflow attempts most often just make the application <b>[...]</b>.	Crash
+f8f5758db1	=	-
+fb6839e657	Some vulnerabilities let attackers force privilege <b>[...]</b> once they can log in.	Elevation
+3284278c9e	Which OS feature limits which areas of memory an executable can run code from?	Data Execution Prevention
+26f7485012	=	-
+67a73b60a9	Randomizing where data is stored in memory, so exploits can't find it, is called <b>[...]</b>.	ASLR
+c2813d1cd4	=	-
+e679eb76ac	A page that loads resources from several servers makes <b>[...]</b> requests.	Cross-site
+8a48117fe2	Code that runs in the user's browser, such as JavaScript, is <b>[...]</b> code.	Client-side
+e648c69b26	Code that runs on the server to provide the web service is <b>[...]</b> code.	Server-side
+5aa6f4925d	An attack that abuses a server's trust in an authenticated browser to send forged requests is <b>[...]</b>.	CSRF
+97a3673ebb	=	-
+a7302c95c7	Like most attacks, CSRF requires an <b>[...]</b> by the victim.	Action
+825fb8fa83	On the command line, "../" moves <b>[...]</b>.	Up a directory
+e63ab2a5e1	=	-
+a1d633a3b4	=	-
+057dfdbe89	In most cryptography, what makes the difference between secure and insecure?	The key
+e0569aadca	Because keys are so hard to obtain, attackers usually get the data in <b>[...]</b> ways.	Other
+50883d1d05	Cryptographic algorithms are made public so anyone can confirm they are <b>[...]</b>.	Secure
+4c03e66866	=	-
+b0aeb7147f	A cryptographic algorithm with a known vulnerability should be <b>[...]</b>.	Phased out
+3f47ce94bb	=	-
+315c39c32f	=	-
+442e8c8dbe	Since cryptography itself is hard to break, attackers target its <b>[...]</b>.	Implementation
+4dda52ec72	Hashing huge numbers of inputs to find two with the same hash is a <b>[...]</b> attack.	Birthday
+1ff54571bc	=	-
+33047515c7	=	-
+d1c9250f8d	=	-
+5d0c5f452d	Birthday attacks are countered by a very large hash <b>[...]</b>.	Output size
+5c0c47bbea	=	-
+afaad7d274	Forcing encrypted connections to use a weaker algorithm, or none, is a <b>[...]</b> attack.	Downgrade
+63f8f9b316	Intercepting a connection and changing it from HTTPS to HTTP is called <b>[...]</b>.	SSL stripping
+4c46017c9c	=	-
+9e43e8fe8c	In SSL stripping, the attacker appears to the client as the <b>[...]</b>.	Server
+6c6d09ed79	=	-
+61b51f95dd	=	-
+2600fb9fac	Information stored or sent unencrypted is said to be <b>[...]</b>.	In the clear
+41a67f8b37	If an application stores sensitive data in plain text, the only good option is to <b>[...]</b> it.	Stop using
+379858aea8	For passwords, hashing's key property is that it can't be <b>[...]</b>.	Reversed
+2a38570b7e	=	-
+2d8f0344bd	=	-
+af1563c5dc	Trying a few common passwords across many accounts is a <b>[...]</b> attack.	Spraying
+13aec1bb1c	Attackers prefer brute forcing a stolen list of hashes <b>[...]</b>, with no attempt limits.	Offline
+194fa05c46	=	-
+602585fc86	Online password attackers avoid so many attempts that the account gets <b>[...]</b>.	Locked out
+998deeb9fa	Evidence that an attacker has breached a system is an <b>[...]</b>.	Indicator of compromise
+f9b3536ace	=	-
+5ec30f87de	A locked-out account suggests someone else tried too many <b>[...]</b>.	Wrong passwords
+5b1e4c4801	=	-
+c657a616a3	=	-
+a860c00d29	Attackers may lock out an account on purpose to get its password <b>[...]</b> while posing as the user.	Reset
+a2510d77d8	=	-
+48c6037c6a	To stay on a system, malware may disable anti-malware <b>[...]</b> and notifications.	Updates
+cb3869b774	In IT, we try to log <b>[...]</b> information as possible.	As much
+2b685c4c78	Knowing logs are recorded, attackers often <b>[...]</b> or modify them.	Delete
+f7c8d3f8d7	Besides log reports, notifications of <b>[...]</b> logs help detect intrusions.	Missing
+ffc640aacc	=	-
+5ac95ac5b3	=	-
+fb0b53b70a	In the worst case, an organization learns of a breach only when its data is <b>[...]</b>.	Published online
+905c53302f	=	-
+1b6ce282eb	=	-
+56c1e00969	Unusual amounts of network activity can be an <b>[...]</b>.	Indicator of compromise
+f2395d643a	Changed file <b>[...]</b> values are an indicator of compromise.	Hash
+b882f55aa2	Unexpected changes to <b>[...]</b> data are an indicator of compromise.	DNS
+d22c71b023	Sudden spikes in <b>[...]</b> requests for certain files can indicate compromise.	Read
+4340c6892c	Separating a network into smaller pieces, physically or logically, is called <b>[...]</b>.	Segmentation
+9a9beed643	Segmentation limits the <b>[...]</b> of security events.	Scope
+1f5668a4ef	=	-
+d877f3267e	Which compliance standard requires card numbers to be stored separately from the rest of the network?	PCI DSS
+a4919ec865	=	-
+b1f69fb316	A list that allows or blocks traffic based on source and destination is an <b>[...]</b>.	ACL
+eb3b0bed5c	=	-
+d0c9f82ce1	Besides ports and protocol, ACLs commonly match source and destination <b>[...]</b>.	IP addresses
+1216b02f6b	Local OS user groups and permissions are a form of <b>[...]</b>.	ACL
+132813e04b	Applications can be segmented with <b>[...]</b> lists.	Allow and deny
+ef41c287be	=	-
+91fd03f88e	=	-
+9a9cbe4366	Most anti-malware works as which kind of list?	Deny list
+f8212c53b8	Anti-malware can allow an application by its <b>[...]</b>, blocking it if that changes.	Hash
+72cac1ef0f	=	-
+e01dd9c5c2	Windows Firewall rules differ for domain, private and <b>[...]</b> networks.	Public
+d577a7c69e	=	-
+70fd167b8a	Letting only applications, not users, reach a database directly is an example of <b>[...]</b>.	Segmentation
+2bdfffcc54	Automatic patching suits home networks but may not be advisable in <b>[...]</b> environments.	Enterprise
+a38b8aef92	In enterprises, IT <b>[...]</b> patches before pushing them to everyone.	Tests
+8fa4bcea14	=	-
+93f687c513	A patch for an actively exploited vulnerability may be pushed without full <b>[...]</b>.	Testing
+373cf3e91f	=	-
+662c2633d5	=	-
+5979d9dffc	Encrypting sensitive files and folders limits how much <b>[...]</b> an attacker gets.	Data
+fc65b4c09c	Windows' file- and folder-level encryption is called <b>[...]</b>.	EFS
+69a2fd18bb	Encrypting everything on an entire disk is called <b>[...]</b>.	FDE
+c53dafe578	FDE is most advisable for devices that <b>[...]</b> the organization's secure location.	Leave
+d801fd4fc0	Some applications encrypt their own data because they don't assume disk encryption is <b>[...]</b>.	In place
+df7ff37013	=	-
+5c287b810b	Detecting and responding to security events early requires constant <b>[...]</b>.	Monitoring
+cb3f0de0fd	=	-
+a7536078d4	A central system that consolidates logs from many sources is a <b>[...]</b>.	SIEM
+a57a0b3b11	Giving users only the privileges their duties require is called <b>[...]</b>.	Least privilege
+3633e65abb	Rather than running as administrator, users should have permissions <b>[...]</b> temporarily.	Elevated
+d4f5f6b23c	Checking and enforcing the configuration of systems connecting to a network is a <b>[...]</b>.	Posture assessment
+3dbcb5a8e2	Before decommissioning equipment, completely <b>[...]</b> its drives.	Wipe
+db434846a8	The surest way to protect data on a decommissioned drive is to <b>[...]</b> it.	Physically destroy
+5bc93c6e27	=	-
+884413b95f	The SIEM component that compares diverse data to recognize security events is the <b>[...]</b>.	Correlation engine
+3bfa8fe330	Configuring a system to make it less susceptible to attack is called <b>[...]</b>.	Hardening
+9be3563003	One of the most significant hardening steps is always applying <b>[...]</b>.	Security updates
+6e8b5771e1	Password policies define things like minimum length and <b>[...]</b>.	Complexity
+a691dbf20b	=	-
+3fcf10cbec	=	-
+e741dd4e2d	=	-
+d5d4ca79f9	Which endpoint tool goes beyond signatures, analyzing application and user behavior with machine learning?	EDR
+e0f229e039	=	-
+d81946089e	=	-
+7d72e77901	Besides responding automatically, an EDR can look for an issue's <b>[...]</b>.	Root cause
+c59748b891	=	-
+9844193c20	=	-
+d1f8e60ba3	A host-based firewall can see traffic both before and after <b>[...]</b>.	Encryption
+2e7c7f7da9	Software firewalls run on each host but can be managed <b>[...]</b>.	Centrally
+ecb3f4a043	=	-
+19417934f2	An IPS running on an endpoint, often built into EDR, is a <b>[...]</b>.	HIPS
+a45ee7d929	A HIPS can stop application and OS <b>[...]</b> from being modified.	Configurations
+409ef4b903	Every outward-facing service opens a <b>[...]</b>.	Port
+f159e8818d	=	-
+63503cd721	=	-
+c56f527316	Removing unused applications also removes their <b>[...]</b>.	Vulnerabilities
+0c0f09a265	Policies for setting up any new device should include changing its default <b>[...]</b>.	Login
+900c4ee552	=	-
+f54a393103	Besides location, resources and skill level, threat actors are distinguished by their <b>[...]</b>.	Motivations
+c880bae37b	=	-
+e286f3c207	=	-
+9d05ccd868	Which cyberweapon, built by nation states, disrupted Iran's nuclear program?	Stuxnet
+25a1eab1e7	An unskilled attacker using pre-made scripts is nicknamed a <b>[...]</b>.	Script kiddie
+32bd6e9981	=	-
+6bc2ae9e4a	Insider threats can bypass <b>[...]</b> security measures.	External
+c75807ca5a	=	-
+2cdefae1fb	Which hacktivist group is known for DDoS attacks and leaks?	Anonymous
+40e6ed4356	A financially motivated attacker using fraud, ransomware or phishing is a <b>[...]</b>.	Cybercriminal
+ba4507324a	=	-
+23819a32e3	Shadow IT is risky because it lacks expertise in backups, security and <b>[...]</b>.	Risk management
+e0b91ab5b5	=	-
+db3f90a822	Email phishing, SMS scams and instant messages with malicious links are <b>[...]</b> threat vectors.	Messaging
+f4c43ad2c3	SVG scripts, malicious PDFs and malware-laden archives are <b>[...]</b> threat vectors.	File-based
+fa503750e8	Phishing by voice call is called <b>[...]</b>.	Vishing
+1cb4e3e729	=	-
+f731503418	Unpatched software, open ports and weak wireless protocols are <b>[...]</b> threat vectors.	Network
+d750e946ce	=	-
+e1eff29fe5	Counterfeit hardware and MSP compromises are <b>[...]</b> threat vectors.	Supply chain
+427c9c45a1	=	-
+67998bfec7	=	-
+66722522e8	=	-
+e367d99167	=	-
+0635d94502	A fake account-suspension email linking to a fake login page is <b>[...]</b>.	Phishing
+a14a43a683	=	-
+a5019b2b0e	=	-
+df40cc23dc	=	-
+c210af75fa	A fake USPS delivery text with a link is an example of <b>[...]</b>.	Smishing
+11a3adce37	=	-
+0590e088e7	=	-
+b5fbb698ef	To avoid phishing, type URLs <b>[...]</b> instead of clicking links.	Manually
+cb0df02cbe	Faking the number shown to the call recipient is called <b>[...]</b>.	Caller ID spoofing
+e0f52c8f80	=	-
+3024686df9	=	-
+5efa6ab975	A call from "Wendy from Microsoft" about urgent computer problems is a <b>[...]</b> scam.	Tech support
+e225ce69b9	=	-
+4419c1dd52	=	-
+ba87bd7095	Impersonators build trust by claiming <b>[...]</b>, such as being the VP of Finance.	Authority
+7d36a3f7ee	Using stolen information to open credit cards or file fake tax returns is <b>[...]</b>.	Identity fraud
+e1aab90d41	=	-
+c74d3c0e35	=	-
+f36db315ff	To prevent impersonation scams, verify callers <b>[...]</b>.	Independently
+ee9b89f521	=	-
+ec3e18c035	=	-
+1de6271541	Opening bank accounts with stolen information to launder money is bank account <b>[...]</b>.	Abuse
+baacb9b250	Verify unsolicited requests through <b>[...]</b> before acting.	Trusted channels
+519ab782e2	Dropping infected USB drives in a company parking lot relies on someone <b>[...]</b> one in.	Plugging
+6504253e56	=	-
+4a21f9005e	=	-
+b177620465	=	-
+5fafef18c3	=	-
+68a3bc7c78	=	-
+7473006271	=	-
+f2bb396feb	=	-
+37ff910860	=	-
+d1a0032d95	=	-
+aa811452e1	To execute, a program must load into memory and run on the <b>[...]</b>.	CPU
+bab773c564	=	-
+502efc94e9	=	-
+e2cb7821f6	Injecting malicious code into a legitimate process's memory space is called <b>[...]</b>.	Process injection
+2587ac46ed	Injected code inherits the host process's <b>[...]</b>.	Permissions
+70cccc2fd5	=	-
+aebabe7de8	=	-
+a0a7064c61	=	-
+75705f82b8	=	-
+a21d8f803e	Buffer overflows bypass <b>[...]</b> checking.	Bounds
+0549a86407	=	-
+60680ca45f	=	-
+4764e3b395	=	-
+5089975bce	=	-
+5c27089c89	Two simultaneous deposits and withdrawals leaving a wrong balance are a <b>[...]</b>.	Race condition
+c9ae37796d	Race conditions are caused by poor <b>[...]</b>.	Synchronization
+06e1db6660	=	-
+672efcd713	=	-
+8987648dae	=	-
+542f7cb8a6	=	-
+7464cf4cec	=	-
+5625469c56	=	-
+9fc7c5a38f	=	-
+e2ba72f05b	=	-
+09337cd546	=	-
+02e9051762	A backup before an update lets you <b>[...]</b> if something goes wrong.	Revert
+88f280dcff	=	-
+e3bac112ff	=	-
+1058ed8ddf	Before installing an update, check that it is digitally signed by the legitimate <b>[...]</b>.	Developer
+03d9800dc6	While browsing, be wary of <b>[...]</b> messages telling you to update.	Pop-up
+b9f0f7cf64	Are built-in application update processes foolproof?	No
+52d11c937e	=	-
+308c520966	Operating systems attract vulnerabilities because they have millions of lines of <b>[...]</b>.	Code
+7bce93b767	=	-
+61c0a57299	After a vulnerability is disclosed, the vendor creates, tests and releases a <b>[...]</b>.	Patch
+715065f254	Once a patch is public, attackers <b>[...]</b> it to exploit unpatched systems.	Reverse-engineer
+29eee34495	=	-
+bda31ae18a	Enterprises test patches first to avoid breaking critical <b>[...]</b>.	Applications
+06c742e460	=	-
+070e6cd637	Even trusted patches can cause crashes or <b>[...]</b> issues.	Compatibility
+562add43b0	=	-
+90de48523e	=	-
+7412ae1654	=	-
+caf44d1623	Besides SQL injection, a common code injection type is <b>[...]</b> injection.	HTML/XML
+79b9bae6ca	What does adding OR '1'='1' to an injected SQL query make the condition?	Always true
+581a5b04df	=	-
+1e12898a91	SQL injection needs no advanced tools, just a web browser and an <b>[...]</b>.	Input field
+aeb2a4da67	Besides search bars, which page element is a classic SQL injection entry point?	Login forms
+6d3b97bbaa	=	-
+87563b48c6	=	-
+db60802f47	=	-
+40e9275e33	Queries that keep SQL code separate from user input are called <b>[...]</b>.	Parameterized queries
+3032c0f207	Which kind of library, by handling database access for you, reduces SQL injection risk?	ORM
+7bc5147e45	Least privilege on database accounts limits the <b>[...]</b> of a successful SQL injection.	Damage
+b65535ce13	Building SQL by unsafe string <b>[...]</b> leaves code open to injection.	Concatenation
+469e63a402	=	-
+ed6fc5b870	Developers should assume all user inputs are <b>[...]</b>.	Malicious
+65d02c35fa	Which tool automates testing for SQL injection?	SQLMap
+7f154f4251	=	-
+5da78e8f58	Cross-site scripting is abbreviated XSS to avoid confusion with <b>[...]</b>.	CSS
+dd7474b00f	=	-
+ad907bc92b	A script embedded in a URL that runs when the victim clicks it is <b>[...]</b> XSS.	Reflected
+c494d102ac	=	-
+8edaea49b4	A script saved on a server that affects everyone viewing the page is <b>[...]</b> XSS.	Stored
+83551720d4	=	-
+82ac16bc0e	=	-
+ecac3ecc50	=	-
+28cffea143	=	-
+303d073dfc	Escaping dynamic content so the browser won't run injected scripts is called <b>[...]</b>.	Output encoding
+d8ecfde605	Which security header restricts the sources a browser may load scripts from?	CSP
+e2a464360f	Which cookie flag stops scripts from reading a session cookie?	HttpOnly
+154ce585d6	=	-
+61b9ac3984	Which XSS type can affect many users rather than one?	Stored
+f9c522375f	=	-
+cfe661af88	Smart appliances, industrial systems and embedded hardware are <b>[...]</b> devices.	IoT
+3266c5aac3	=	-
+8b409d27d9	Each IoT device expands the <b>[...]</b>.	Attack surface
+49072e52a3	=	-
+026d9941c3	=	-
+96455cdc52	=	-
+14b8e8380e	=	-
+466d1dbf19	=	-
+eca976efc9	=	-
+1fb7f35feb	=	-
+40c6e5fb86	Isolating IoT devices on their own network is called <b>[...]</b>.	Segmentation
+45b9a80c22	=	-
+222f660134	Using an IPS to block exploits against unpatched legacy systems is called <b>[...]</b>.	Virtual patching
+2c7af3a4b4	=	-
+dae9e5970c	=	-
+9ec5bea092	=	-
+5015e7d203	=	-
+6c0d7acd93	=	-
+3e1cfa10dd	Because cloud VMs scale instantly, their security configuration must be <b>[...]</b>.	Automated
+774db2b3e1	=	-
+942310acaf	=	-
+f33f844fcc	=	-
+71b4a809de	=	-
+7ac7d6207b	Allocating more RAM to VMs than the host physically has is called memory <b>[...]</b>.	Overcommitment
+9c9f7a8418	=	-
+21cea1297b	=	-
+dab5d7ccb1	Gradual divergence of VM settings from their baseline is called configuration <b>[...]</b>.	Drift
+a1987dc6e5	To limit VM escape damage, run critical workloads on <b>[...]</b> hosts.	Dedicated
+8d4a8337ec	=	-
+317e6da829	=	-
+04708a4a84	=	-
+d9dac1d987	=	-
+e29c75170f	=	-
+ff9fdfd123	=	-
+4b8cff5eb2	=	-
+433610a9a9	What should be enforced on all cloud accounts and consoles?	MFA
+06a51ac9e8	Which logging library flaw, found in 2021, was a high-severity unpatched-system risk?	Log4j
+4fcfb386a9	Unpatched cloud systems can allow full control through <b>[...]</b>.	Remote code execution
+f9f9f13362	=	-
+3b0645b1df	=	-
+8791eb0f86	Besides DDoS protection services, public cloud apps can limit traffic floods with <b>[...]</b>.	Rate limiting
+fed332e99d	=	-
+09991578b0	=	-
+86189a1b79	=	-
+3fbc028bca	=	-
+4647103fa7	Out-of-bounds writes can lead to memory <b>[...]</b>.	Corruption
+5d7f7a944d	Which security tool filters malicious requests to web applications?	WAF
+153247f654	=	-
+3a10bf4c3e	=	-
+644eda0c39	=	-
+a4e7978e34	=	-
+b62974be75	=	-
+4d187c5e43	=	-
+dfcc0ed4f1	Third-party providers with network access can become <b>[...]</b> for attackers.	Entry points
+1b52d304d7	In the 2013 Target breach, attackers got in through an <b>[...]</b> vendor's credentials.	HVAC
+1a212b5934	=	-
+76261c02cc	Counterfeit or tampered hardware can introduce <b>[...]</b>.	Backdoors
+5f0731e174	=	-
+4facf010c1	=	-
+14ce6228a5	Which 2020 attack inserted malicious code into legitimate software updates?	SolarWinds
+adf2849b20	A list of a software product's components and dependencies is an <b>[...]</b>.	SBOM
+f8ecd82e7b	=	-
+bf8d358b9e	Open-source supply chain risk is reduced with dependency <b>[...]</b>.	Scanning
+17016eef85	=	-
+51e55ec51e	Vendor contracts should include breach <b>[...]</b> clauses.	Notification
+e32c85ef96	=	-
+08347f45d7	=	-
+905af7e259	=	-
+7f903ed0d9	=	-
+a2d7dfa68a	=	-
+dd2498fb31	Which misconfigured cloud storage do attackers search for on AWS?	S3 buckets
+a0939e333d	=	-
+a6b3774aac	Attackers target the <b>[...]</b> account on Linux.	Root
+6a498e9680	Weak administrator passwords make <b>[...]</b> attacks easy.	Brute-force
+dfd192bfee	Instead of logging in as root, Linux admins elevate privilege with <b>[...]</b>.	sudo
+ba9faf58dc	=	-
+29bb4ddeb1	Which packet capture tool can reveal data sent over insecure protocols?	Wireshark
+ba7c65c428	What secure protocol replaces Telnet?	SSH
+912a404d42	=	-
+3eaa70743a	Which botnet scanned for IoT devices with default credentials and compromised them?	Mirai
+2f244bead7	=	-
+bdcb9cf320	=	-
+9f66fca888	=	-
+c2f6d5bfbe	=	-
+e3091ac1b7	=	-
+065fe7ac60	=	-
+afdb874760	=	-
+a71f8dec49	=	-
+0034ccc2ab	Sideloaded apps carry a higher risk of <b>[...]</b>.	Malware
+e215524536	=	-
+5ec0ab14fa	Policies that set restrictions on how devices may be used in an organization are <b>[...]</b>.	AUPs
+7712426282	A serious consequence of violating mobile device policies can be <b>[...]</b>.	Dismissal
+f2ef836f0a	=	-
+a773d54ff4	=	-
+c4752bbd48	Besides attackers, who are the main group that finds software vulnerabilities?	Security researchers
+d4f1762560	Security researchers who find a vulnerability usually <b>[...]</b> it to the developers.	Report
+04fb4ca691	=	-
+bbfdbba3b9	=	-
+0d44225223	=	-
+8b236c362d	=	-
+01b5068fff	=	-
+e5407f6b2d	Chrome's 2023 zero-day combined memory corruption with a <b>[...]</b> escape.	Sandbox
+fe82b6d5c4	Microsoft's May 2023 zero-day let self-signed code run at boot, bypassing <b>[...]</b>.	Secure Boot
+2e61f69d50	Apple's May 2023 iOS zero-days were all in which browser engine?	WebKit
+d54169e452	=	-
+061f2dde7e	=	-
+5a68315c26	=	-
+56d49a08fe	=	-
+3f060e6aac	=	-
+4de0880080	=	-
+a97e5450b0	Malware that encrypts files and demands payment for the key is <b>[...]</b>.	Ransomware
+8b973cab18	=	-
+cdaf0d79d2	=	-
+30072857e3	=	-
+e95048afc9	=	-
+36ae654adf	Does paying a ransom guarantee file recovery?	No
+1efba9d4f7	=	-
+76b6dd6f94	Worms often install malware and create <b>[...]</b>.	Backdoors
+53522289e9	=	-
+afe0c2d03d	=	-
+b9f3fd466a	A virus hiding in the startup process that activates when the system boots is a <b>[...]</b> virus.	Boot sector
+ed3bde41cb	A virus that runs in RAM without writing files to disk is a <b>[...]</b> virus.	Fileless
+33bff712de	Fileless malware survives reboots by modifying the Windows <b>[...]</b>.	Registry
+8b63a1d02c	=	-
+cd09655f6b	Firewalls and <b>[...]</b> can block known worm signatures.	IPS
+71c8bf6f35	Which 2017 worm-plus-ransomware spread through a Windows SMB vulnerability?	WannaCry
+300b1871df	Which exploit did WannaCry use to spread?	EternalBlue
+34491e5728	=	-
+4f19d7e907	=	-
+6430a39b46	=	-
+bb2cd8f26c	=	-
+237abaf539	=	-
+a14e584911	Spyware commonly spreads through P2P sharing and fake <b>[...]</b> software.	Security
+2943e20129	=	-
+47abda472c	Software that displays unwanted advertisements is <b>[...]</b>.	Adware
+7852ef394a	=	-
+45b6ad9457	Manufacturers include bloatware to earn <b>[...]</b>.	Revenue
+c4728eca27	=	-
+ce933f867d	=	-
+eabc0ff6c0	DarkComet is an example of which kind of malware?	RAT
+17e5816501	=	-
+a06748271e	A 2013 logic bomb that wiped South Korean bank and ATM systems is an example of malware that triggers on a <b>[...]</b>.	Set time
+7a4cab72c0	Rootkits often hide in the OS <b>[...]</b> to evade detection.	Kernel
+6d5fe833da	=	-
+235a256680	=	-
+bc801a2b9a	=	-
+59aecf1ec2	=	-
+dfdda01e4f	=	-
+1ddd9bb7fd	RFID badge cloning is mitigated by adding a <b>[...]</b> or biometric factor.	PIN
+ed60354189	Attackers target HVAC because it is often poorly <b>[...]</b>.	Secured
+a620f11551	=	-
+3af55d7ec3	=	-
+88b9aefec6	Unintentionally blocking others' access, for example with excessive bandwidth use, is an <b>[...]</b> DoS.	Accidental
+f62479cbcf	=	-
+cf5e2d31c3	DNS amplification attacks abuse <b>[...]</b> DNS resolvers.	Open
+86604bf29b	=	-
+926723e10e	Which service is often called the internet's phonebook?	DNS
+575ec29d21	=	-
+057068bffa	Altering a computer's hosts file requires <b>[...]</b> access.	Administrator
+cc04147059	Intercepting DNS requests and sending fake answers, common on public Wi-Fi, is DNS <b>[...]</b>.	Spoofing
+517a07e334	Gaining control of a domain's registration to change its DNS is called <b>[...]</b>.	Domain hijacking
+b778be17fa	Which DNS extension adds signatures to prevent forged records?	DNSSEC
+66d9859709	=	-
+d7e7a574da	Which tool sends spoofed deauthentication frames?	aireplay-ng
+64adc02fd3	Which 802.11 amendment, required by WPA3, protects management frames?	802.11w
+55b746ca81	Wireless jamming lowers the network's <b>[...]</b> ratio.	Signal-to-noise
+0403a4dfc1	=	-
+f2e0b4eb08	=	-
+7cf36edd24	Which botnet of millions of computers was known for stealing banking credentials?	Zeus
+0130c36307	=	-
+932345fb28	=	-
+e9b23c99e0	=	-
+d8f20db12c	In ARP poisoning, the attacker sends fake ARP replies claiming to be the <b>[...]</b>.	Router
+412ad650a3	=	-
+a42baf275c	=	-
+6b8e72e27b	=	-
+5c1935739d	=	-
+a1abb2d577	=	-
+5e2cc5ac22	=	-
+f9d8e0c071	Manipulating people into revealing sensitive information is called <b>[...]</b>.	Social engineering
+e8ef1cda1b	=	-
+a4e261899c	WannaCry exploited a vulnerability in which Windows protocol version?	SMBv1
+8871a780ff	=	-
+5e2260b084	=	-
+4ea9e5e853	=	-
+817da68e20	=	-
+04ed704d79	=	-
+67c3ed2bd5	=	-
+a8ac994aa4	Name a slow, salted password-hashing algorithm that weakens brute force.	bcrypt
+6968eb6ca5	Simultaneous logins from distant locations are called <b>[...]</b> travel.	Impossible
+5f4ac303b2	Encrypted files appearing unexpectedly indicate which malware?	Ransomware
+edd96df6c5	The birthday attack exploits the birthday <b>[...]</b>.	Paradox
+bff13906f7	=	-
+38a3cd4b85	=	-
+b96e1782c2	=	-
+61afcfa4d4	Which header makes browsers always use HTTPS for a site, defeating SSL stripping?	HSTS
+80b6c3cc8c	Unusually large outbound traffic suggests data <b>[...]</b>.	Exfiltration
+dc2dab6891	=	-
+ba4c553056	=	-
+1162e49857	=	-
+168aa21ad2	=	-
+237c7c226b	=	-
+c61c8d154f	Gaining another user's permissions at the same level is <b>[...]</b> privilege escalation.	Horizontal
+f6349b0a10	=	-
+3a2dfab726	=	-
+58dc4b79ea	CSRF is defended with unique cryptographic <b>[...]</b> in each request.	Tokens
+4acfd013b1	=	-
+5d7e091607	Repeated '../' sequences in URL requests in logs suggest <b>[...]</b>.	Directory traversal
+f63633b0dc	=	-
+5b801b00d8	=	-
+0ae76a02df	Gaining admin or system access from a normal account is <b>[...]</b> privilege escalation.	Vertical
+0613d98eeb	=	-
+e3fff237e0	Using VLANs to isolate traffic without physical separation is <b>[...]</b> segmentation.	Logical
+49875a496d	=	-
+1c9c68f30b	=	-
+929278c83c	A careless ACL rule can lock <b>[...]</b> out of systems.	Administrators
+2f529dc829	Controlling which software can run with allow and deny lists is <b>[...]</b> segmentation.	Application
+b2fb5e2028	=	-
+9e198187f4	=	-
+2c995b2f21	Which Windows feature provides full disk encryption?	BitLocker
+e90881d1ef	=	-
+8d513bade7	=	-
+47d2d94938	=	-
+3df63df326	=	-
+77e9779a9a	=	-
+6a730b22c8	=	-
+8fbb5cb882	=	-
+396b48de9e	=	-
+166a8534b3	=	-
+28ad1d2764	=	-
+6044dd13a4	Which firewall type can control network access per process?	Host-based firewall
+2a5b2b1181	=	-
+a575e841ae	Closing unused ports reduces the <b>[...]</b>.	Attack surface
+799041c204	Which tool scans for open ports to verify firewall rules?	Nmap
+c42cdfa9df	=	-
+7d1249f849	=	-
+c7ebbc0329	=	-
+c771d8b921	=	-
+19ae3d8bf8	EDR detects malware by monitoring unusual activity patterns, called <b>[...]</b> analysis.	Behavioral
+b720c55fc1	=	-
+f1ee050687	Next-generation firewalls control traffic by <b>[...]</b>, not just port numbers.	Application
+8afa2740b8	=	-
+f2a5d50892	A government-sponsored group conducting cyber espionage is a <b>[...]</b> actor.	Nation-state
+f7624495dd	=	-
+c2bc6e79b2	=	-
+c50cb64b96	=	-
+a355014e27	What primarily motivates organized crime threat actors?	Financial gain
+61f1e759df	=	-
+ecfc48a5df	=	-
+80766d0714	=	-
+79d4a10402	=	-
+c5d639e7fe	Obtaining confidential information for strategic or competitive advantage is called <b>[...]</b>.	Espionage
+4b0669bd88	=	-
+c6d99de447	Threatening to publish stolen data unless paid is a form of <b>[...]</b>.	Blackmail
+4b4931f0e7	=	-
+37b468bc0d	=	-
+228818c06c	A hacker who finds vulnerabilities with permission, to improve security, is an <b>[...]</b> hacker.	Ethical
+f0ec46e48c	A fired employee deleting critical data is motivated by <b>[...]</b>.	Revenge
+461307971d	In geopolitical conflict, nation-state attackers seek strategic military or <b>[...]</b> advantage.	Political
+ebd60d00c4	=	-
+acce21b334	=	-
+d5bba968aa	=	-
+0d18c17c86	=	-
+adcc20abb8	=	-
+7658c295b0	=	-
+db4a5b30e3	=	-
+8a4ac5325e	=	-
+f987e015c2	Monitoring software installed on each device is called <b>[...]</b>-based; the alternative is agentless.	Client
+4111444e77	=	-
+9d2d4c3729	On unsecured public Wi-Fi, attackers can intercept data by packet <b>[...]</b>.	Sniffing
+33a393a997	=	-
+cde2b5f7b5	=	-
+79f9f299d7	Bluetooth attacks are easiest when devices are left <b>[...]</b>.	Discoverable
+cc5cbe9fb4	=	-
+b63155f8c7	=	-
+1fd57e2106	=	-
+f468d5a873	A company that manages IT for many clients, making it a supply chain risk, is an <b>[...]</b>.	MSP
+199b51fca1	=	-
+f10eb98f29	=	-
+23e634fd32	=	-
+a533252026	=	-
+2f2087e018	=	-
+3ea87e6ac9	=	-
+cd1c551eaf	=	-
+baea719fe0	A spoofed email from the "CEO" requesting a wire transfer is an example of <b>[...]</b>.	Business email compromise
+f27d9d05ac	=	-
+7f04a2312d	=	-
+c9f4929bf3	Emails made to look as if they come from a trusted company are <b>[...]</b> impersonation.	Brand
+fbfc2e3f2c	=	-
+3c2ae9526c	=	-
+b08fb25d98	=	-
+0be2b152e2	=	-
+884a18edff	=	-
+0083082ccc	A file is checked as safe, then swapped for a malicious one before saving. Which vulnerability is this?	TOCTOU race condition
+852e0f1622	=	-
+5651c4c07d	=	-
+dc40e4ee4b	=	-
+f7730ec487	=	-
+75469a5e3f	=	-
+19b59cfe49	=	-
+143e275182	=	-
+7546dd02ab	=	-
+8634914bf2	=	-
+67710dddc9	=	-
+f4d5205b03	Memory not cleared between VMs causes data leakage through improper resource <b>[...]</b>.	Reuse
+078a00ca28	Misconfigured permissions on a cloud storage bucket make the data <b>[...]</b>.	Publicly accessible
+1d5b981e54	=	-
+f1f4f1bb5b	=	-
+1552d22644	A chipset compromised during manufacturing is a supply chain <b>[...]</b> vulnerability.	Hardware
+c97a48b2d9	=	-
+2012ee6636	Deprecated cryptographic algorithms are vulnerable to <b>[...]</b> attacks.	Known
+4d88370f89	Deploying a database server with default admin credentials is a <b>[...]</b> vulnerability.	Misconfiguration
+3178d85cce	Sideloading bypasses official app store <b>[...]</b>.	Vetting
+dbbe8a8c70	=	-
+2677eec5bf	=	-
+8167845197	Workstations suddenly slow, with high CPU, contacting external command-and-control servers without user action, are likely part of a <b>[...]</b>.	Botnet
+05ae08ee97	Files are encrypted and a note demands cryptocurrency. Which attack occurred?	Ransomware
+9f91e1dfdd	A legitimate-looking application showing unexpected network activity suggests which malware?	Trojan
+e8bd1a6d04	Malware spreading automatically from host to host without human action indicates a <b>[...]</b>.	Worm
+7cd730180e	=	-
+0294165656	Antivirus finds malicious files replicating across folders after a user opened something. Which malware?	Virus
+6de5b57f4d	Files are deleted by a hidden script at midnight right after an administrator is fired. Which malware?	Logic bomb
+4b3a0365b6	Task Manager fails to show malicious processes known to be running. Which malware is suspected?	Rootkit
+d9db2445d3	Pry marks and metal debris near a secure door indicate a <b>[...]</b> attack.	Physical
+31cb9e75c7	Scratches around a keyhole and bent paperclips nearby suggest a physical <b>[...]</b> attack.	Brute force
+3d326f31a5	The same badge ID is used at two doors seconds apart. Which attack is likely?	RFID cloning
+303bf8d1af	=	-
+bb680af165	A sudden sustained traffic spike from thousands of IP addresses worldwide makes a website unresponsive. Which attack?	DDoS
+1544b948bf	Floods of responses arrive from reflectors the target never queried. Which attack?	Amplification attack
+6e04282169	A payload appears in a clicked URL and comes back in the page response. Which attack?	Reflected XSS
+257d1fda6d	Internal domain names resolve to the wrong IP addresses, redirecting users. Which attack?	DNS poisoning
+2c9ff91ccc	Packet captures show many disassociation frames with no user action. Which attack?	Deauthentication
+a5cd816c7d	The ARP table maps the default gateway's IP to an unknown MAC address. Which attack?	On-path
+2145bd51e9	=	-
+8d8020cddf	Many devices connecting out to unfamiliar IPs on port 445 suggests malware spreading over <b>[...]</b>.	SMB
+c00fc8b11e	Web logs show 'OR 1=1;--' in URL parameters. Which attack?	SQL injection
+dab4c24692	An application crashes after receiving extremely long input in a username field. Which attack?	Buffer overflow
+f3e458b45e	Requests with identical session tokens keep arriving after the user logged out. Which attack?	Replay attack
+e74167486f	Handshakes fail and then succeed using SSLv2 instead of TLS. Which attack?	Downgrade
+8a2ddc82ad	Failed logins across many different accounts from one IP, a few common passwords each. Which attack?	Password spraying
+1ace93c003	Many rapid failed logins to one account from a single IP indicate a <b>[...]</b> attack.	Brute force
+efa5432605	=	-
+18ec971041	=	-
+113bf2849b	=	-
+bd74e653f1	=	-
+fc92f729a0	A user logs into the VPN from New York and from Singapore 30 minutes later. What is this indicator called?	Impossible travel
+f34b0e588a	A server's CPU suddenly sits near 100% with no known workload. Which unauthorized process is a likely cause?	Cryptocurrency mining
+c13f5cceaa	Log entries recorded outside scheduled logging intervals are called <b>[...]</b> logging.	Out-of-cycle
+f6023ef5cf	A trusted provider's list of known malicious IP addresses is an example of <b>[...]</b>.	Threat intelligence
+1ada2832e1	=	-
+ee66e8d697	=	-
+c791ed8211	=	-
+35e90a757c	=	-
+6cc7600b78	=	-
+a2fe106b8e	=	-
+c5b9f99cd1	Restricting a compromised system from interacting with the rest of the network is called <b>[...]</b>.	Isolation
+3f192dc8aa	=	-
+d708a22e02	=	-
+5ee7b2c112	=	-
+21b6518efd	=	-
+805cb13143	Which technique admits only devices that meet security requirements onto the network?	NAC
+fd76c43e79	Wiping storage media with a strong magnetic field is called <b>[...]</b>.	Degaussing
+529b162fc4	=	-
+f8a77f6f81	=	-
+c2174ac9e4	=	-
+e20350f70c	=	-
+23ec62f47b	=	-
+a71ff89950	=	-
+714b724c6a	=	-
+9c16c6f13d	=	-
+608f6e86c8	Which cloud service type provides a platform for developers to build and run applications?	PaaS
+46782bbac6	Which cloud service type delivers complete applications to users?	SaaS
+29e482f02c	Which cloud service type provides raw computing, storage and networking?	IaaS
+edc111e486	A cloud provider's chart of who secures each part of a system is the <b>[...]</b>.	Responsibility matrix
+56fac2d753	A mix of public and private cloud services is a <b>[...]</b> cloud.	Hybrid
+867e1cdfc7	=	-
+cd5c259320	=	-
+2edbebcb54	Data moved between cloud providers travels across the <b>[...]</b>.	Public internet
+f059a9da32	Managing the security of third-party technologies calls for a vendor <b>[...]</b> policy.	Risk management
+df46260254	=	-
+dbede09fe6	Defining systems as code rather than hardware is called <b>[...]</b>.	Infrastructure as Code
+3d74839e37	=	-
+f081206d77	Breaking an application into individual functions called only as needed is <b>[...]</b> architecture.	Serverless
+0916dffe38	=	-
+ae126fc898	An application that runs all at once as a single executable has a <b>[...]</b> architecture.	Monolithic
+d5a4b285f8	In serverless architecture, most of the security work is done <b>[...]</b>.	In the cloud
+6ae54ec9ec	A way for one program to interact with another is an <b>[...]</b>.	API
+73a78ecd27	A piece of an application called only as needed is a <b>[...]</b>.	Microservice
+8c4acaede9	=	-
+b2353ea20e	Responsibility matrices can differ by provider and by client <b>[...]</b>.	Contract
+9161773513	Serverless architecture is also called <b>[...]</b> (acronym).	FaaS
+7628f86ec6	What acts as the glue that lets microservices work together?	APIs
+e374d7fe2f	Microservices are resilient because one failing doesn't bring down the whole <b>[...]</b>.	Application
+091ab282b6	Because each microservice is self-contained, <b>[...]</b> is built in.	Containment
+2d71d7a1a1	=	-
+ff88a8e853	=	-
+b4f7b23ed3	=	-
+219c302ebc	What simulates physically separate networks using the same switch?	VLANs
+e35dcdeb2b	=	-
+7fa19e839a	=	-
+2566d776ef	=	-
+9abfe705fc	=	-
+418ca968d3	=	-
+ae4904e031	Which network plane covers how the network is administered, including the control plane's logic?	Management plane
+c8f1af6a7f	Defining the data, control and management planes as code is called <b>[...]</b>.	SDN
+65bbfda7a5	NAT, encryption and trunking all happen on which network plane?	Data plane
+f2cddf38ac	SSHing into a router to change its configuration happens on which plane?	Management plane
+e0fa5c61b3	=	-
+11e42f0426	=	-
+b80e202e5e	=	-
+e5edfa45a5	=	-
+7246a4c9f2	=	-
+cca864eb87	=	-
+aaaf1fa4af	Running multiple operating systems on one physical device is called <b>[...]</b>.	Virtualization
+7fc484f9f5	=	-
+00752ca583	Each virtual machine needs its own entire <b>[...]</b>.	Operating system
+20a853db84	A hypervisor that runs directly on the hardware is which type?	Type 1
+2a9c6dd86c	Packaging only what an application needs, sharing the host OS, is called <b>[...]</b>.	Containerization
+c3f8c93f9b	=	-
+c25227d4f4	=	-
+d3abd0f480	=	-
+b92f8fa504	=	-
+5f8699fbb0	Many containers can share a single <b>[...]</b>.	Operating system
+f55ff6c4df	=	-
+89d15d5332	=	-
+02c2a7c4c6	=	-
+38836ba8b7	=	-
+3212307cdc	=	-
+1459106fb5	Systems that connect, monitor and control industrial machinery are <b>[...]</b>.	SCADA
+e5fc769855	Consumer operating systems, where no process can grab all resources, are <b>[...]</b>.	Non-deterministic
+5cc456e9f0	An OS that can give one process nearly all resources immediately is an <b>[...]</b>.	RTOS
+721b8f93fc	=	-
+00eef2cc95	Hardware and software built together as a self-contained, purpose-built device is an <b>[...]</b>.	Embedded system
+9366c4a55a	A system with little to no downtime when a component fails is <b>[...]</b>.	Highly available
+6dbd0c6d4d	Availability is usually expressed as a <b>[...]</b> over a period of time.	Percentage
+ff1feda6d0	=	-
+3fd0f9a647	Downtime is hard to predict because identifying the issue's <b>[...]</b> takes varying time.	Cause
+b148aa71ae	The average time to repair a failed system and return it to service is the <b>[...]</b>.	MTTR
+69f19059ca	=	-
+4051550684	=	-
+bdd617e008	How long it takes to get a response after sending a request is a system's <b>[...]</b>.	Responsiveness
+39e5992a27	=	-
+c2f4abe3cc	Adding resources during busy times and scaling back when usage drops is called <b>[...]</b>.	Elasticity
+a4f71f660b	=	-
+c46bd96cea	Automatically building out cloud infrastructure on demand is called <b>[...]</b>.	Orchestration
+c21b7c6003	Buying cybersecurity insurance <b>[...]</b> risk to a third party.	Transfers
+e6d8e7f96f	Cybersecurity insurance can cover financial loss from downtime, legal costs and <b>[...]</b>.	Ransomware
+122603ba10	In recovery planning, remember that time is <b>[...]</b>.	Money
+e142ad0b6f	HVAC and time clock systems are often overlooked because they're seen as <b>[...]</b>.	Static
+856ab3056e	=	-
+9a54a2d3ba	Battery backups that provide emergency power during an outage are <b>[...]</b>.	UPS
+fa5b1db812	=	-
+17f47da80a	The part of a system that does the actual processing is the <b>[...]</b> component.	Compute
+99216c4fec	=	-
+4f70ff3be9	=	-
+6bcb1a2640	A cloud term for any number of processors handling a task is a compute <b>[...]</b>.	Engine
+21c6e5b676	The combination of all potential openings into a network is its <b>[...]</b>.	Attack surface
+ec0917c894	Continually evaluating, hardening and monitoring every entrance to the network is called minimizing the <b>[...]</b>.	Attack surface
+320346c323	Networks divided into areas with their own traffic rules use security <b>[...]</b>.	Zones
+f31ace18f4	Which device gives remote users secure access to the network?	VPN concentrator
+c5d50c280b	A device that watches traffic in real time and blocks what looks dangerous is an <b>[...]</b>.	IPS
+c0267552f9	=	-
+c99ca6a057	=	-
+7541e68090	A device that detects the same dangerous traffic as an IPS but only reports it is an <b>[...]</b>.	IDS
+3c031a89e0	A security device that all traffic must flow through is called <b>[...]</b>.	In-line
+7417186c01	If an in-line security device fails, it affects <b>[...]</b> through it.	All traffic
+659c423db9	=	-
+7af6f80516	=	-
+9de39f490c	An IDS may be chosen over an IPS to avoid overly aggressive <b>[...]</b>.	Filtering
+2b98323405	Evaluating and blocking traffic in real time is <b>[...]</b> monitoring.	Active
+fdf18d9ae8	Sending a copy of traffic to a device that evaluates and reports, but doesn't block, is <b>[...]</b> monitoring.	Passive
+e20a42483f	Besides a port mirror, what physical device copies traffic for passive monitoring?	Network tap
+dbd09ce505	A switch's port mirror feature is also called <b>[...]</b>.	SPAN
+0aff6fb6fb	A hardened server admins log into first, then SSH from to reach internal devices, is a <b>[...]</b>.	Jump server
+b2ffab69e0	=	-
+08236ad56d	A server that sits between devices and makes requests on their behalf is a <b>[...]</b>.	Proxy
+f080c63dca	=	-
+933896f5a4	A proxy saves bandwidth by keeping a local copy of responses, called <b>[...]</b>.	Caching
+1f211ee41d	Blocking internal users from visiting certain sites with a proxy is called <b>[...]</b>.	URL filtering
+20dd5fdad9	A proxy that must be manually configured in the application or OS is an <b>[...]</b> proxy.	Explicit
+5880e281a4	What common router function translates between internal and external IP addresses?	NAT
+f45ef7c6b9	A proxy that understands specific application protocols such as HTTP is an <b>[...]</b> proxy.	Application-level
+1c18bfec87	A proxy that makes internet requests on behalf of internal users is a <b>[...]</b> proxy.	Forward
+9bcb5ec829	=	-
+679a5e104c	A proxy that receives internet requests for an internal server, and can cache its replies, is a <b>[...]</b> proxy.	Reverse
+cbcaf4adbb	A publicly available proxy server anyone can use, which may not be safe, is an <b>[...]</b> proxy.	Open
+5c9c449b8e	The owner of an open proxy could inject <b>[...]</b> or advertising into your traffic.	Malicious code
+a98253aadc	=	-
+25d772d371	A device that distributes traffic over multiple servers is a <b>[...]</b>.	Load balancer
+48263da627	=	-
+ed292fe205	A load balancer configuration where all servers are in use is called <b>[...]</b>.	Active/active
+6b1f892541	A load balancer keeping persistent TCP connections to its servers is doing TCP <b>[...]</b>.	Offloading
+277fd27ef0	=	-
+39379db491	A load balancer directing traffic to certain servers by request type is doing content <b>[...]</b>.	Switching
+eb0ea9c4b7	Servers standing by to take over if an active server fails form an <b>[...]</b> configuration.	Active/passive
+1d98dafdd6	A component that collects data from within a device, often for central storage, is a <b>[...]</b>.	Sensor
+6516c9d0a5	Security on individual switch interfaces and wireless connections is called <b>[...]</b>.	Port security
+8a8ced52b0	=	-
+e923de9d84	Which authentication framework does port security use?	EAP
+32c32ec33c	=	-
+6deb7d75cd	Which IEEE standard defines port-based network access control?	802.1X
+f8d005a54b	In 802.1X, the device that wants to gain access is the <b>[...]</b>.	Supplicant
+b29d3e591d	In 802.1X, the switch or access point the client connects to is the <b>[...]</b>.	Authenticator
+eea9f07d69	In 802.1X, the device that verifies credentials passed on by the authenticator is the <b>[...]</b>.	Authentication server
+d2e536be46	In 802.1X, how much access does a supplicant have before authenticating?	None
+53eca8945c	=	-
+d53a0fe976	The authenticator's first request to the supplicant for credentials is the <b>[...]</b>.	EAP Request
+f9c232f52a	A device that controls the flow of traffic between two points is a <b>[...]</b>.	Firewall
+2a019f7d77	=	-
+10c24bcf46	A firewall that can allow or block traffic by application at OSI layer 7 is a <b>[...]</b>.	NGFW
+afa0f77acf	An all-in-one device providing URL filtering, IPS, spam filtering and VPN is a <b>[...]</b>.	UTM
+ed9c715241	Besides Application Layer Gateway, an NGFW is also called a <b>[...]</b> inspector.	Deep packet
+6966f98c91	An NGFW decodes the whole packet, including its <b>[...]</b> data.	Application
+e8bd2a29e3	=	-
+762ba91b03	A firewall that analyzes web application input to spot injections is a <b>[...]</b>.	WAF
+da9a435aa1	=	-
+48ff8fc5a5	=	-
+37d0529d11	What encrypts all of a connection's data and sends it across a public network?	VPN
+85cb305c8f	=	-
+74a2433dc7	=	-
+b7091f6a10	Encrypting a packet and embedding it inside other headers creates a VPN <b>[...]</b>.	Tunnel
+0ab0418888	=	-
+8dc2cbb4df	Which VPN type is commonly used for remote access from a single device?	SSL VPN
+ab12be484e	=	-
+eb65e6ac5f	Linking remote offices through encrypting firewalls so they behave like one network is a <b>[...]</b> VPN.	Site-to-site
+d2562e9a27	=	-
+dbd186e568	A cloud-based VPN-like service for secure access to web applications is <b>[...]</b>.	SASE
+98380402f5	A VPN that connects automatically whenever the device powers on is <b>[...]</b>.	Always On
+50e438e84f	=	-
+5e5e85e920	=	-
+c80ff471b7	=	-
+fb2ec231f6	Trade secrets and other data an organization owns are <b>[...]</b> data.	Proprietary
+959f161b6d	Information that can be tied back to an individual is <b>[...]</b>.	PII
+ddeb93b723	=	-
+3a6dded484	Health information specific to an individual is <b>[...]</b>.	PHI
+ad9d57cb03	=	-
+bd13a676ad	=	-
+1624be7cde	=	-
+73a8bd9a0c	Which agreement protects data by attaching legal consequences to sharing it?	NDA
+316987cddf	Data stored on a storage device is data <b>[...]</b>.	At rest
+98361ab678	Data moving from one point to another is data <b>[...]</b>.	In transit
+1ec2f27536	=	-
+b9d5a0b385	Data loaded into memory and being manipulated is data <b>[...]</b>.	In use
+5ae8261cb7	Laws applying to data depending on where it is stored is called data <b>[...]</b>.	Sovereignty
+0ddddd2c10	Which EU regulation restricts transferring personal data to countries without adequate protection?	GDPR
+252a99e796	=	-
+ef02054a62	=	-
+9c5df7ea2a	A user's physical location is called their <b>[...]</b>.	Geolocation
+8ec2df0d28	=	-
+6b967737d9	Policies controlling access by the locations of the data and user are geographic <b>[...]</b>.	Restrictions
+e3faac8ca1	Limiting access based on a device's physical location is called <b>[...]</b>.	Geofencing
+d355b89c75	=	-
+3a57065afb	=	-
+d2a92b636a	=	-
+ff1daf9956	Multiple servers acting together as a single server is called server <b>[...]</b>.	Clustering
+16622952c0	Besides resiliency, clustering lets you add or remove capacity, providing <b>[...]</b>.	Scalability
+d3c2692b54	Unlike clustered servers, servers behind a load balancer aren't <b>[...]</b> of each other.	Aware
+6a93c50f68	=	-
+125f24fa92	A recovery site that exactly mirrors the main site and can take over at a moment's notice is a <b>[...]</b>.	Hot site
+bba52a75f9	=	-
+8220bbbfbb	A recovery site that is essentially an empty building ready for equipment is a <b>[...]</b>.	Cold site
+35e0dbb4a9	=	-
+e4cb8221a1	A recovery site with some hardware and data in place, but needing more to begin, is a <b>[...]</b>.	Warm site
+1a739eb7d3	=	-
+c153e86e54	Placing a recovery site far from the main site is called geographic <b>[...]</b>.	Dispersion
+a0cfa177a8	The farther away a recovery site is, the higher the <b>[...]</b>.	Cost
+26c59d330d	Many OS vulnerabilities are <b>[...]</b> to that OS.	Specific
+a3acaf2dde	A plan for continuing to operate even with no technology available is a <b>[...]</b>.	COOP
+24711ab7ed	=	-
+edead6a2de	A COOP should be written well <b>[...]</b> of any disaster.	In advance
+9d98fe48db	=	-
+25bc6e828b	Clustered servers typically use <b>[...]</b> storage.	Shared
+d7b7e85ada	Cloud services changed capacity planning by enabling near-instant <b>[...]</b>.	Scaling
+c00e35cc27	Disaster recovery plans must be <b>[...]</b> before they are needed.	Tested
+cc509761b7	Recovery testing should happen on a <b>[...]</b> basis.	Regular
+cc2a4b2943	=	-
+787cc3e8a7	Walking through a recovery plan together instead of running a full drill is a <b>[...]</b>.	Tabletop exercise
+018f0c3268	=	-
+bd120cc1e7	=	-
+2d76cc576b	Distributing computing tasks across multiple processors is called <b>[...]</b>.	Parallel processing
+2073b4f363	=	-
+6652496962	=	-
+95bed9714e	=	-
+9310faf40d	=	-
+26a222149f	=	-
+991b43b62f	=	-
+e58c928372	=	-
+b3c9af5ae7	A backup kept in the same physical location as the data is an <b>[...]</b> backup.	On-site
+9e52642287	=	-
+5c1d62e2ef	A backup stored at another location is an <b>[...]</b> backup.	Off-site
+e37247e3fd	=	-
+fd3718659b	=	-
+a99b8682a8	Besides sensitivity, how often data changes (its <b>[...]</b>) affects the backup interval.	Volatility
+d2a6357931	=	-
+be40291784	Encrypted backups require planning to retain the decryption <b>[...]</b>.	Keys
+4b758193ad	Capturing a VM's current state so an identical VM can be created is a <b>[...]</b>.	Snapshot
+1312b6c556	A backup that saves only changes since the previous backup is an <b>[...]</b> backup.	Incremental
+037d53f35f	Backups must be tested to confirm they are <b>[...]</b> to restore from.	Viable
+6064813bd1	=	-
+d3291c665a	=	-
+a9a8f0f39c	Copying data in real time to other locations as it is written is called <b>[...]</b>.	Replication
+874db19e2b	=	-
+7fae8e7e2a	Committing changes to a local log before writing them to the database is called <b>[...]</b>.	Journaling
+866273b0b0	=	-
+5c9c7da265	=	-
+f470230700	=	-
+9cc9a4157d	=	-
+fe5e1aa6e1	=	-
+3c69eced34	A UPS that switches to battery only when main power completely fails is an <b>[...]</b> UPS.	Offline/standby
+4f76de1d34	=	-
+c22c5edf02	A UPS that can boost output voltage during brownouts is a <b>[...]</b> UPS.	Line-interactive
+678e7078e4	A UPS that always powers equipment from its batteries is an <b>[...]</b> UPS.	Online/double-conversion
+9a097150c1	Some UPSs signal connected systems to shut down <b>[...]</b> before the battery runs out.	Gracefully
+3542f651b2	Many UPSs provide <b>[...]</b> protection on their outlets.	Surge
+78ce9a3971	A generator provides power as long as it has <b>[...]</b>.	Fuel
+d826038ca7	=	-
+7fce94fe43	=	-
+ee08a64c7f	The division of security duties between cloud provider and customer is the <b>[...]</b> model.	Shared responsibility
+8a1ee22794	In which cloud model does the provider handle most of the security?	SaaS
+8aefc21b13	In which cloud model does the customer secure the OS, applications and data?	IaaS
+e2286eac97	Which security task is always the cloud customer's, in every service model?	Identity management
+2f4faff1ba	=	-
+449f27dc50	Using several public cloud providers is called <b>[...]</b>.	Multi-cloud
+026a8caa86	=	-
+acf7986796	=	-
+680099226f	Serverless computing usually follows a <b>[...]</b> cost model.	Pay-per-use
+c076db587c	=	-
+c1887b4cab	=	-
+780ae81428	In PaaS, the provider manages the OS and <b>[...]</b>.	Middleware
+c0e89bbc78	=	-
+a9b21d7e97	=	-
+defb2c4159	=	-
+11ca031334	=	-
+84fe38b388	=	-
+9b1c13a57a	=	-
+9c25c0838b	=	-
+3e385ee6ae	=	-
+a90eaec0f2	=	-
+933aec9ffc	Which network plane maintains routing tables and makes path decisions?	Control plane
+6f2f0bed77	=	-
+d20c88d3d7	=	-
+4416462ef6	=	-
+4f74429802	=	-
+037c6e15db	=	-
+4ef53d3aef	OSPF and BGP routing updates belong to which network plane?	Control plane
+ea0cc3f93f	=	-
+88cada106d	=	-
+ab7cf11f0c	=	-
+7ebed47abf	The main benefit of on-premises security is complete <b>[...]</b>.	Control
+f57c1cef66	=	-
+d13f3f9518	=	-
+bad5bcc600	=	-
+ebc0cb3779	VMs run separate guest operating systems; containers share the <b>[...]</b>.	Host OS
+bdfdf20e3f	=	-
+25c4fa50c1	=	-
+4574e977db	SCADA breaches are especially serious because they can cause <b>[...]</b> damage.	Physical
+256372d890	An RTOS is <b>[...]</b>, meaning it has precise timing.	Deterministic
+bc5c54393b	=	-
+3fd72e5277	=	-
+17da360ed2	=	-
+ed0c1a58b5	=	-
+4141bbdd1d	=	-
+29db08a11b	A centralized management console can become a single point of <b>[...]</b>.	Failure
+a1815361c4	=	-
+efaa557219	=	-
+dd287736b8	=	-
+6d95e8dbf9	=	-
+0e02fda655	=	-
+8105628788	=	-
+2f6aa87e3c	=	-
+c65b0bee38	=	-
+ed6971cdd8	Which power backup is suited to long outages?	Generator
+6c8e7f8349	=	-
+43f3fb2928	"Five nines" availability means what percentage uptime?	99.999%
+e83e5c358f	=	-
+850dfcbd66	Productivity loss from an outage is hourly cost multiplied by <b>[...]</b> in hours.	MTTR
+2e79db0315	=	-
+5b4f07d6d0	=	-
+f61b5bef17	=	-
+0010e3cc11	=	-
+99ee1cb834	What protocol do 802.1X authentication servers commonly use?	RADIUS
+bd1769b038	=	-
+62c13fcef9	=	-
+df35588073	=	-
+42bb09464f	=	-
+a4a84d8f2c	=	-
+b2354bee4f	Port security stops <b>[...]</b> devices plugged into office Ethernet jacks.	Rogue
+1ab79223d2	Why is MAC filtering weaker than 802.1X?	MACs are spoofable
+b0c2dc4baa	A device failing 802.1X may be placed on a restricted <b>[...]</b>.	Quarantine VLAN
+65f926ff82	=	-
+7ace4a6b60	Traditional firewalls filter by port at OSI layer <b>[...]</b>.	4
+60c5699216	=	-
+7d53e27fa0	=	-
+a0ff5188e1	=	-
+2bc5392057	=	-
+e5bf67546f	=	-
+090a707f2b	Which payment security standard often requires a WAF?	PCI DSS
+046adfa5a6	=	-
+2001fb2d39	A firewall that tracks connection states, like established TCP sessions, is <b>[...]</b>.	Stateful
+471c41424a	=	-
+08c7041374	=	-
+90fe7e768f	=	-
+76e2e60d63	Prioritizing VoIP over web browsing is bandwidth <b>[...]</b>.	Shaping
+b54955ce18	=	-
+3fa56f11ea	=	-
+a98525fadf	=	-
+0d0b3fe00f	=	-
+b3165b18c0	Which port do SSL/TLS VPNs use?	443
+fcb9aa76bf	=	-
+a7aaff5a6d	Which technology routes branch traffic directly to cloud services instead of through a data center?	SD-WAN
+c958b9154c	SASE combines SD-WAN with cloud-native <b>[...]</b>.	Security services
+952b60f4a2	=	-
+0e88b13266	=	-
+bbcb6ee962	=	-
+0f375f99b6	Sending branch traffic through the data center before the cloud is called <b>[...]</b>.	Backhauling
+5a9a35b541	=	-
+0b649a4b86	=	-
+f328db4fb4	=	-
+dd73cc0773	To users of a site-to-site VPN, the encryption is <b>[...]</b>.	Transparent
+11bc37f680	Data governed by laws or standards like HIPAA or PCI DSS is <b>[...]</b> data.	Regulated
+3ba894933a	=	-
+8f0c1ff9b0	Which US law governs health information?	HIPAA
+12cd937fde	Confidential information that gives an organization a competitive advantage is a <b>[...]</b>.	Trade secret
+5d5d9070c9	=	-
+45f7be3849	Legally protectable creations of the mind are <b>[...]</b>.	Intellectual property
+120d311465	Patents, copyrights and trademarks protect <b>[...]</b>.	Intellectual property
+b53f87f67a	=	-
+29b1dbbcec	=	-
+f1e5b95c85	Legal records are hard to protect because they balance privacy and <b>[...]</b>.	Transparency
+9f0b45a201	=	-
+8e195a526a	=	-
+e4ed904c19	Documents and spreadsheets people can read directly are <b>[...]</b> data.	Human-readable
+9422e1da34	=	-
+93f7ce2990	How damaging unauthorized access to data would be is its <b>[...]</b>.	Sensitivity
+705984bd6f	=	-
+fc50044543	Categorizing data by its sensitivity and value is data <b>[...]</b>.	Classification
+9ad0dd0dd5	=	-
+4bc4c6d42f	=	-
+e247e3c1a2	=	-
+110641df0e	=	-
+2e6b962501	Name, date of birth, SSN and biometrics are examples of <b>[...]</b>.	PII
+1f1aeb0c38	=	-
+ec03517322	Which classification label is for data intended for public release?	Public
+808d15e259	Which label marks internal data that wouldn't be critically harmful if leaked?	Sensitive
+684513b412	Which classification labels mark highly sensitive data needing strong protection?	Private/Confidential
+68e0d123f2	=	-
+8601a86abc	Data essential to core operations, needing uptime and recovery plans, is labeled <b>[...]</b>.	Critical
+1b148b29e7	=	-
+2982f2b2dd	=	-
+e0b1c7b476	=	-
+0344c9e679	=	-
+133f7a9de6	=	-
+bbddd3d16c	=	-
+d629f896c4	Web traffic, email, file transfers and API calls are data <b>[...]</b>.	In transit
+3220ff1204	=	-
+146a63f34d	=	-
+998fbaddac	=	-
+f80da614ff	=	-
+866ebd9db6	Data in RAM, CPU cache or a running app is data <b>[...]</b>.	In use
+caf49d84d0	Data in use is hard to protect because it is usually <b>[...]</b> for processing.	Cleartext
+ad229127ab	=	-
+eb608b4a2a	=	-
+ff09e99b58	=	-
+934d9e9c71	=	-
+a579abecd5	=	-
+2f187508b6	=	-
+c413750077	Restricting access based on the user's location and situation is <b>[...]</b> access control.	Context-aware
+3beba81087	Blocking content based on the user's geographic region is content <b>[...]</b>.	Restriction
+7d74548c00	Geolocation helps detect fraud by flagging logins from <b>[...]</b> locations.	Unexpected
+b6c15efc74	=	-
+1807730e2d	Besides IP address and GPS, user location can be found through <b>[...]</b> positioning.	Wi-Fi
+ba3a846caf	=	-
+95ca783459	=	-
+844b52d515	Transforming plaintext into ciphertext with an algorithm and key is <b>[...]</b>.	Encryption
+455729201c	Encrypted data is made readable again by decryption with the correct <b>[...]</b>.	Key
+e3dfd993f7	Ciphertext that looks random, with no resemblance to the plaintext, shows <b>[...]</b>.	Confusion
+acf0b5d2a6	=	-
+f59b93ed12	Is hashing reversible?	No
+c610dca516	=	-
+336b4c3619	A small input change causing a large change in the hash is the <b>[...]</b> effect.	Avalanche
+9b316256df	Is obfuscation the same as encryption?	No
+6ec2b257f6	=	-
+d4e7a07680	Instead of an algorithm, tokenization is reversed by lookup in a token <b>[...]</b>.	Vault
+87538370c5	Apple Pay and Google Pay protect card numbers with <b>[...]</b>.	Tokenization
+a03389d7a3	=	-
+d1129dff77	=	-
+eef2996534	=	-
+eb16eadb18	=	-
+3df66c1df9	=	-
+d00bdcedd7	=	-
+1af27bef4b	=	-
+99c144d833	=	-
+a6e1974b24	Can servers behind a load balancer run different operating systems?	Yes
+5c311df74b	Having a recovery site in a separate location to take over if the primary fails is site <b>[...]</b>.	Resiliency
+e2500d6d7e	Which recovery site type is the most expensive?	Hot site
+98b5844810	Which recovery site type is the least expensive?	Cold site
+de1c70eda5	=	-
+1515e77dc0	=	-
+152c0b623f	=	-
+35cccd1f45	=	-
+1dac0064a8	Using different operating systems so one vulnerability can't affect everything is platform <b>[...]</b>.	Diversity
+650d05d2a5	Running both Windows and Linux servers is an example of platform <b>[...]</b>.	Diversity
+5d6699b3ee	Spreading services across several cloud providers to avoid outages is cloud <b>[...]</b>.	Resiliency
+03237740df	=	-
+e73da598ae	=	-
+23f9eb785e	Manual transaction logs and paper receipts during an outage are part of a <b>[...]</b>.	COOP
+a477cc50d2	=	-
+5851a1a1ba	Aligning IT resource supply with expected demand is called <b>[...]</b>.	Capacity planning
+43344057e7	Too few resources for demand is called <b>[...]</b>.	Under-provisioning
+8919d9c132	Under-provisioning threatens which CIA element?	Availability
+08f84db68a	Paying for unused infrastructure is called <b>[...]</b>.	Over-provisioning
+512d44c671	Capacity planning covers technology, infrastructure and <b>[...]</b>.	People
+951d3398d5	=	-
+903193c01d	=	-
+2c5417df0b	=	-
+462750c755	=	-
+8b083b3572	=	-
+cc22ede38b	Splitting a database into parts spread across servers is called <b>[...]</b>.	Sharding
+b87631f5ae	=	-
+b921bf79d9	=	-
+497adcd77f	=	-
+6b518421a9	Capacity planning still matters in the cloud because you pay for what you <b>[...]</b>.	Use
+00d42f1bfa	=	-
+03133f683d	=	-
+0df7620abf	=	-
+621c3a4235	=	-
+309f4c9998	=	-
+d3ada5a627	Checking that redundant systems take over automatically when something fails is a <b>[...]</b> test.	Failover
+02c9aca42d	=	-
+648f362c10	=	-
+8a50d734c7	=	-
+5a2719f5c7	A controlled fake phishing campaign to test controls and users is a security <b>[...]</b>.	Simulation
+1c9cc7c3ee	=	-
+28a7ff6784	=	-
+7989b532ea	=	-
+9cb56ec933	=	-
+ec329f1e36	=	-
+9311ea68f0	=	-
+3899bcc88d	=	-
+8c521a6237	=	-
+b237ea613d	=	-
+292afedda8	=	-
+c782579eea	Multiple backup sets at different intervals give you several recovery <b>[...]</b>.	Points
+589b02f1f1	=	-
+3049efb146	=	-
+ffeef8445b	=	-
+ef048923da	=	-
+28b1f8c949	=	-
+2356fb685f	=	-
+6ae3fca125	=	-
+e13abed84c	=	-
+bd86745f96	=	-
+23458e83ed	=	-
+9f7a375d91	=	-
+f7ec9b0c4e	=	-
+76517f0b9d	=	-
+8910fac35b	=	-
+5c36c7041d	=	-
+bece8c1dcd	A drop in voltage, short of a blackout, is a <b>[...]</b>.	Brownout
+371583bbe3	=	-
+8e694fe6c8	With a UPS and a generator, the UPS covers the gap while the generator <b>[...]</b>.	Starts
+71768bb6dd	=	-
+687c1aa7ba	In a multi-tenant public cloud, what between customers becomes a shared responsibility?	Data isolation
+3c9965f483	=	-
+559ac69691	A hybrid cloud needs consistent <b>[...]</b> management across on-premises and cloud.	Identity and access
+8d43b4c9f3	=	-
+e44ffb2162	A key risk of Infrastructure as Code is <b>[...]</b> embedded in scripts.	Secrets
+c56a968467	Serverless architectures shift risk to insecure <b>[...]</b> code.	Function
+ba85755bdd	Microservices need strong authentication and authorization between <b>[...]</b>.	Services
+0fdadd6e89	A dedicated switch and cabling just for management traffic is an example of <b>[...]</b> isolation.	Physical
+3e79e41da2	An air-gapped network mainly minimizes the risk of <b>[...]</b> attacks.	Remote
+c33737740d	VLAN segmentation reduces attackers' <b>[...]</b> movement.	Lateral
+87e76d533b	In SDN, the centralized <b>[...]</b> can become a single point of failure.	Controller
+50c0870fb2	With on-premises architecture, who is responsible for all physical and logical security?	The organization
+9a042e9528	=	-
+e5d8ed5292	Containers isolate processes with kernel namespaces and <b>[...]</b>.	Control groups
+1376b57d71	A Type 2 hypervisor runs on a host OS, so compromising the host compromises all <b>[...]</b>.	Hosted VMs
+de4aa43c28	=	-
+fc55b15dd2	ICS and SCADA networks often rely on legacy protocols lacking authentication and <b>[...]</b>.	Encryption
+95b1371def	=	-
+78b746f9ce	A unique concern with embedded systems is the limited ability to patch <b>[...]</b>.	Firmware
+f0ef9aaa72	Microservices improve availability by reducing a failure's <b>[...]</b>.	Blast radius
+27514272d7	=	-
+7adc73dec0	=	-
+5934d2353f	=	-
+cb468a6237	Devices that rely on a central server, needing minimal local configuration, are <b>[...]</b>.	Thin clients
+8abf814508	Purchasing cybersecurity insurance is an example of risk <b>[...]</b>.	Transference
+37eb2a5e1b	=	-
+81ad90663c	=	-
+175998be57	=	-
+43cd261873	=	-
+2f4f8bfaa8	Dedicated servers instead of shared VMs reduce the risk of <b>[...]</b> attacks.	Side-channel
+84d41bcf77	Where should internet-facing web servers be placed to isolate them from the internal network?	DMZ
+e4e2a50158	=	-
+2a5faa7143	=	-
+939821b7b9	=	-
+5499dcaa1d	A firewall that lets all traffic through when it malfunctions is configured to fail <b>[...]</b>.	Open
+b3574efa00	A firewall that blocks all traffic when it malfunctions is configured to fail <b>[...]</b>.	Closed
+7057450ae0	=	-
+6e96176d9d	=	-
+65ba45d9a0	=	-
+cf65f7c283	=	-
+2ffadda122	Which appliance actively blocks and alerts on suspicious network traffic in real time?	IPS
+7a2efe1527	=	-
+11333b652a	For best detection, place sensors at the perimeter and on internal network <b>[...]</b>.	Segments
+f73a659bd5	=	-
+338cc903fa	=	-
+b791f74c02	=	-
+4c4853f4be	A branch office wanting firewall, IPS, antivirus and web filtering in one device should use a <b>[...]</b> firewall.	UTM
+b0724503cf	=	-
+dfc5b92723	Remote VPN access should also require <b>[...]</b>.	MFA
+96091013c9	=	-
+7b87673bc5	Which protocol provides confidentiality and integrity for web application traffic?	TLS
+4a602ba9dc	Which IPsec mode encrypts the whole original packet for gateway-to-gateway links?	Tunnel mode
+0c652e4648	=	-
+5d64a90f38	=	-
+9f8af183ab	=	-
+0f79006463	=	-
+47375f4fd6	A confidential manufacturing formula is an example of a <b>[...]</b>.	Trade secret
+bc5ccd0f07	=	-
+8b113fb6d7	=	-
+4637d857f6	=	-
+c3ba1dbc43	=	-
+71b1a47d6a	=	-
+f091b49bee	Which classification limits data to people with a specific need to know?	Restricted
+6ce66e943c	=	-
+b493955bae	=	-
+e15fba6702	Which macOS feature provides full disk encryption?	FileVault
+2aca760e77	=	-
+ebfd8e30a1	Data being processed is best protected by secure enclaves or <b>[...]</b> execution environments.	Trusted
+94cf763986	=	-
+44e22d71da	=	-
+b9ff0624f2	=	-
+19f915d2b0	=	-
+5fcb91d428	=	-
+bbf5f6c6b8	Data masking keeps the original data's format and <b>[...]</b>.	Structure
+61683d7b47	=	-
+69a3b1f6ec	=	-
+9b005637bc	=	-
+8f49de1cdd	=	-
+2b26a2b373	=	-
+e373e966f4	=	-
+e0965cb4f1	=	-
+43ea4458a1	=	-
+11906899eb	=	-
+410d6aff35	=	-
+15a811edfa	Which recovery site balances cost and recovery time?	Warm site
+e429c4c512	=	-
+af070ef02f	=	-
+9ea020065b	=	-
+a05de33feb	=	-
+b9336a3698	=	-
+e294ebc27d	=	-
+622dfdaa45	=	-
+55814af67a	=	-
+18500db91f	=	-
+95b88356dd	Automatically transferring workloads to backup systems during a failure is called <b>[...]</b>.	Failover
+4308ac31ae	=	-
+a991989db6	=	-
+34213f29c7	=	-
+acc0d92835	More frequent backups reduce potential data <b>[...]</b>.	Loss
+1826c2e60e	=	-
+b50ca92e44	Snapshots let you restore a system to a known <b>[...]</b> state.	Good
+5b1ac590de	=	-
+b69b05f60c	=	-
+ff654e0ac5	=	-
+00494812a4	=	-
+069ae493cb	=	-
+68defc9861	Documenting the security settings that must be in place for a deployment establishes a secure <b>[...]</b>.	Baseline
+ca10f3ef30	Which Microsoft toolkit eases security baseline configuration for Windows?	SCT
+5a8bf2a303	Security baselines can be pushed to Windows devices through Active Directory <b>[...]</b>.	Group Policy
+2158c968df	=	-
+0cc4763880	=	-
+783271c827	Baselines are tested before deployment, then regularly <b>[...]</b>.	Audited
+d31a2fb38e	=	-
+4046854911	=	-
+26e2493c71	Logically separating different sets of data is data <b>[...]</b>.	Segmentation
+72c76c9cf4	=	-
+b2c387a6d8	=	-
+6e2c2c8582	=	-
+401c7ce1cd	=	-
+9de001e838	=	-
+14aee79313	IoT devices should be segmented into their own <b>[...]</b>.	Network
+d13c6f800b	=	-
+a79103e63e	Assessing wireless coverage, existing networks and interference before configuring is a <b>[...]</b>.	Site survey
+b777519988	=	-
+3b25fc30bb	=	-
+58b749bc12	A map showing where wireless signal is strongest is a <b>[...]</b>.	Heat map
+ff4a02c062	=	-
+e19f9a9504	=	-
+0d5a782480	=	-
+433e94a3fb	=	-
+cc0602d6ee	=	-
+15c7550ac1	If a BYOD device is lost or stolen, the MDM should <b>[...]</b> company data.	Remove
+af9616ccfe	When the company offers several device models to choose from, the model is <b>[...]</b>.	CYOD
+b58c1b510b	=	-
+80616a56ab	=	-
+68ecad393f	Checking that received data is exactly what was sent is a <b>[...]</b>.	Message integrity check
+5c461ab162	Wireless communication can be viewed by <b>[...]</b> in range.	Anyone
+56a1aeae13	Which WPA3 encryption protocol is named after a counter mode by Galois?	GCMP
+8eaf50f2a3	WPA3 derives session keys on the end devices instead of sending key <b>[...]</b> over the network.	Hashes
+9f0bfe87eb	=	-
+e54d85d1c8	WPA3's method of deriving shared session keys is <b>[...]</b>.	SAE
+7747348209	=	-
+03b18b7c3d	=	-
+70fcd6f96c	=	-
+a347c42fc4	=	-
+a8c48d4774	Feeding an application many types of unexpected input to see what it does is called <b>[...]</b>.	Fuzzing
+611001f79b	=	-
+7b662d36b2	Are cookies executable?	No
+684912bdd0	Analyzing source code for vulnerabilities without running it is <b>[...]</b>.	SAST
+a565c78ad4	Signing code proves who wrote it and that it hasn't <b>[...]</b>.	Changed
+c76e365f01	=	-
+ba486cfd49	Giving an application access only to the data it needs is called <b>[...]</b>.	Sandboxing
+3c5c16d8dd	=	-
+23c2a77663	=	-
+763000acd9	=	-
+dd77c6db39	=	-
+915a855e9d	A system that tracks physical resources through their whole life cycle is <b>[...]</b>.	Asset management
+f8c81287a4	=	-
+7e8d9a876f	=	-
+4f91ae1ba8	Shattering, drilling, degaussing and incinerating are ways to <b>[...]</b> a drive.	Physically destroy
+5365b63822	=	-
+d73f462198	A specialist destroying drives provides a certificate of <b>[...]</b>.	Destruction
+ff64ce1bf7	Policies on what data must be kept, and for how long, cover data <b>[...]</b>.	Retention
+e4f24d8ddb	A scan that checks whether a system may be susceptible to attacks is a <b>[...]</b>.	Vulnerability scan
+871546c7de	Vulnerability scans should be run both inside and <b>[...]</b> the organization.	Outside
+8e50a3a7e6	A simple scan showing all open ports on a device is a <b>[...]</b>.	Port scan
+39253c89a4	=	-
+2ef66ea655	=	-
+99aa3165fd	=	-
+eefe927747	=	-
+f2ffc89994	=	-
+89b8aff68f	Security analytics firms map attacks across organizations to <b>[...]</b> where attacks will occur next.	Predict
+7dd70d3520	=	-
+1146544c33	A group of organizations sharing validated threat details in a standard format is the <b>[...]</b>.	Cyber Threat Alliance
+56f16ab84f	=	-
+399d66dc16	=	-
+ff78666a5a	An overlay network reachable only with specialized software is the <b>[...]</b>.	Dark web
+8f31b984ec	The CTA validates threat submissions and gives each a <b>[...]</b>.	Severity level
+859d52ec8a	=	-
+1fe71b079c	Simulating an attack on your own systems is <b>[...]</b>.	Penetration testing
+213b88dec6	=	-
+b614c72f95	=	-
+4c57bdc03b	Which NIST special publication is the technical guide to security testing and assessment?	SP 800-115
+5aa070d293	The document defining a pen test's scope, timing and systems is the <b>[...]</b>.	Rules of engagement
+877fa4ed91	=	-
+5be06356b9	Publishing a vulnerability only after the vendor has had time to patch is <b>[...]</b> disclosure.	Coordinated
+363f96ea57	A reward for finding and reporting vulnerabilities to the developer is a <b>[...]</b>.	Bug bounty
+f006029af9	A reported vulnerability that doesn't actually exist is a <b>[...]</b>.	False positive
+545fef15d6	A real vulnerability that a scan fails to detect is a <b>[...]</b>.	False negative
+6198f072d7	=	-
+a64734615e	=	-
+53fd1114ed	The percentage of an asset's value lost if a threat occurs is the <b>[...]</b>.	Exposure factor
+030b3403d6	=	-
+ede69807fb	=	-
+73b503a7e0	The amount of risk an organization will accept, such as while testing a patch, is its risk <b>[...]</b>.	Tolerance
+83e832cb67	Patching balances the vulnerability's risk against the risk that the patch <b>[...]</b>.	Breaks things
+501898bd2c	=	-
+d6fdb329c2	Leaving an unpatchable system running because it's necessary is accepting <b>[...]</b>.	Risk
+ebe22cbf80	After patching, run a vulnerability <b>[...]</b> to confirm the fix.	Scan
+63cbd3d344	=	-
+c787a07ee1	A control put in place temporarily until a patch can be applied is a <b>[...]</b> control.	Compensating
+0d4904957b	=	-
+77f004f677	Information that can be acted upon once known is <b>[...]</b> data.	Actionable
+e89873b82e	Which protocol lets diverse security tools identify and act on the same criteria?	SCAP
+6bc7f53e7f	A set of best-practice settings that makes a system as secure as possible is a <b>[...]</b>.	Benchmark
+a80f24cc11	Which organization maintains popular benchmark configurations?	CIS
+0e158ed1b9	A system that monitors traffic and blocks sensitive data from leaving the network is <b>[...]</b>.	DLP
+96e6dfe7ac	SNMP devices that send information to the console on their own use <b>[...]</b>.	Traps
+0c44d337e6	Denying any traffic that isn't specifically allowed is called <b>[...]</b>.	Implicit deny
+1fd3777b33	=	-
+541ad61711	=	-
+8f280ae8d6	Agent-based content filters are still managed by a <b>[...]</b> console.	Central
+435d0bfe20	Configuring a DNS server not to resolve harmful sites is DNS <b>[...]</b>.	Filtering
+06fda411d0	Which Microsoft directory holds every user, computer and component on the network?	Active Directory
+6b5cc7274a	An access model where users set their own permissions is <b>[...]</b>.	DAC
+71d1e2a0a3	SELinux enforces which access control model?	MAC
+15b6966659	=	-
+c66efb3adc	SELinux is not an operating system but a series of <b>[...]</b>.	Patches
+b5f1b0b0f2	A sender address pretending to be someone else is email <b>[...]</b>.	Spoofing
+ba3ec6abf8	A server that evaluates incoming mail and blocks invalid sources is a <b>[...]</b>.	Mail gateway
+fefd796f6b	Which DNS record lists the servers authorized to send an organization's email?	SPF
+a75906b431	=	-
+5a176d8fd6	Which email standard signs messages with public and private keys to verify the sender?	DKIM
+4e222422e5	Which standard tells recipients what to do with mail failing SPF or DKIM?	DMARC
+b5adb8ee87	=	-
+f33101b23e	=	-
+4f15d0b08b	A tool that alerts when core OS or application files are modified is a <b>[...]</b>.	FIM
+690edc5d06	Which Windows utility checks system file integrity on demand?	SFC
+5f6779252b	The device being used by the user is the <b>[...]</b>.	Endpoint
+74bd99969c	=	-
+3fbd0f0eca	Which tool correlates data from endpoints, network, cloud and email to detect threats?	XDR
+45202af564	=	-
+2ac68d237d	=	-
+107d05cd1c	=	-
+a2090ad698	Giving the right permissions to the right people at the right times is <b>[...]</b>.	IAM
+511f7cc9aa	=	-
+1c9150a5c6	Creating an account and assigning its access is <b>[...]</b>.	Provisioning
+bff5ba8752	Removing access and deleting a user account is <b>[...]</b>.	Deprovisioning
+faaa514048	Verifying at account creation that a user is who they claim is identity <b>[...]</b>.	Proofing
+a5993869d2	=	-
+2b945db698	Verifying identity through outside sources like government or banks is <b>[...]</b>.	Attestation
+6c232039d8	=	-
+7299710d4d	Logging in once to access multiple systems is <b>[...]</b>.	SSO
+8073035cdb	SSO typically forces reauthentication after a <b>[...]</b>.	Timeout
+ef732ef11a	=	-
+63a1002a56	Individual devices within a directory information tree are <b>[...]</b> objects.	Leaf
+891b30e24f	=	-
+2623df435b	=	-
+986dcec0b8	SAML was not designed for <b>[...]</b> devices.	Mobile
+97fdff00ab	=	-
+d013c2f1a0	Using a Google account to log in to another company's site is <b>[...]</b>.	Federation
+f72b1da0f9	=	-
+164498404a	Labels like Confidential, Secret and Top Secret are used in <b>[...]</b>.	MAC
+69f2add683	=	-
+af779a9093	=	-
+b0f7c03ce3	=	-
+912618ef4d	An access model that compares each attempt with rules attached to the resource is <b>[...]</b>.	Rule-based
+241cfeb7cc	Controlling access based on the current time is a time-of-day <b>[...]</b>.	Restriction
+86361a5d66	=	-
+fe0b5483f9	=	-
+cff47ae593	=	-
+e2921057e4	A phone, key fob or ID card is which authentication factor?	Something you have
+18cf0ef097	A fingerprint or retina scan is which authentication factor?	Something you are
+c8d3559b29	Biometric systems store a mathematical <b>[...]</b> of the attribute, not the attribute.	Representation
+1c2f96dbb4	=	-
+5a9e1690d5	How unpredictable a password is is its <b>[...]</b>.	Entropy
+67e4b36255	The time since a password was created is its <b>[...]</b>.	Age
+4ada1f5136	=	-
+3ab78fe380	Reusing passwords lets one breach unlock <b>[...]</b> accounts.	Multiple
+00defd36ee	=	-
+fbca972ee0	=	-
+3ff12084e7	Granting elevated access for a limited time with temporary credentials is <b>[...]</b> permissions.	Just-in-time
+74fa7dbbe7	=	-
+d8025821e7	=	-
+74958927b7	=	-
+760e8971a9	An automated check of data going into a system to prevent human mistakes is a <b>[...]</b>.	Guardrail
+ba7ad0eeb4	=	-
+50d8e9c3a7	A script that other systems depend on can be a single point of <b>[...]</b>.	Failure
+da7636d2bc	=	-
+e4151ccea9	The future cost of choosing a quick, limited fix now is <b>[...]</b>.	Technical debt
+da3ffdb8ce	Which NIST publication is the Computer Security Incident Handling Guide?	SP 800-61
+29f6258f38	=	-
+9e34017c4e	=	-
+f6116a4207	Removing malicious items and restoring from known good backups is the <b>[...]</b> phase.	Recovery
+cf19aca7e5	=	-
+62c8929199	=	-
+6d5ffca90b	=	-
+2bd9883d2b	=	-
+401020c4bd	=	-
+efc2003fc2	Incident response planning and training must happen <b>[...]</b> an incident.	Before
+7524b36628	Finding where a system failed and let an attack happen is <b>[...]</b>.	Root cause analysis
+46c10c9a2c	Proactively searching for attackers already inside the network is <b>[...]</b>.	Threat hunting
+26bfa6891e	Collecting data about a security event, during and especially after it, is digital <b>[...]</b>.	Forensics
+2996215d2b	=	-
+0fb1bceef7	Forensic best practices matter because the evidence may be used in <b>[...]</b> proceedings.	Legal
+2af217730e	A legal request requiring certain data to be preserved is a <b>[...]</b>.	Legal hold
+1a84e82f47	Tracking who has accessed a piece of evidence is the <b>[...]</b>.	Chain of custody
+dd3a288447	Chain of custody for electronic evidence is protected with <b>[...]</b> and digital certificates.	Hashes
+aebb9a16e9	When collecting data, also record <b>[...]</b> it was collected.	How
+aaf11c97b3	=	-
+67a77e260e	=	-
+71566a5e95	Collecting, reviewing and producing electronic documents for legal proceedings is <b>[...]</b>.	E-discovery
+ab61e7d306	Information that describes a file, like its author and creation date, is <b>[...]</b>.	Metadata
+56faeb606d	=	-
+c6a6a217fb	=	-
+ea11720431	=	-
+24f24b63df	Every time an application is deployed, reapply and verify the security <b>[...]</b>.	Baseline
+8a21c656e7	=	-
+e1477d1d9c	=	-
+fd43f55459	=	-
+80125cc4b8	=	-
+55d17f5e8b	=	-
+8c9b9bd89b	=	-
+b86ca60cf9	=	-
+4c05869aff	=	-
+7ec1df7411	=	-
+5d4edcb7e5	=	-
+4b4b1959eb	Default OS configurations are considered <b>[...]</b>.	Insecure
+2ad9d25ff7	=	-
+2a4b20e4d6	=	-
+220beec7f4	Keeping company data apart from personal data on a phone is data <b>[...]</b>.	Segmentation
+8116a4fb67	=	-
+9d5f32c9d6	How often do vendors such as Microsoft typically release patches?	Monthly
+14814a214a	Network infrastructure devices run <b>[...]</b> operating systems.	Embedded
+3d8b928848	=	-
+c0da11dffa	=	-
+3df314ef85	=	-
+c8d11e06ef	=	-
+b90b2ba769	=	-
+8954b34086	=	-
+383520d037	=	-
+6aae0697ad	=	-
+a48841f1cf	=	-
+714e30374c	=	-
+37368f6083	Adjusting your APs around neighboring APs avoids frequency <b>[...]</b>.	Overlap
+4a2cdc5a6b	Analyzing radio frequencies to find the best channels and interference sources is spectrum <b>[...]</b>.	Analysis
+e91f9b2d2a	=	-
+e6a8ccace9	=	-
+1c4427c527	=	-
+16a42f1962	Which tool detects all RF signals, including non-Wi-Fi interference?	Spectrum analyzer
+52c9f3d686	=	-
+eb9a4d86b3	Employees using their personal devices for work is called <b>[...]</b>.	BYOD
+706fa25795	Company-owned devices that also allow personal use are <b>[...]</b>.	COPE
+7e792f4256	=	-
+02e6101067	=	-
+9956ea0358	=	-
+fe9fcdc2ab	To protect mobile data on public Wi-Fi, use a <b>[...]</b>.	VPN
+4c7caebdf2	A network of Bluetooth headsets and smartwatches is a <b>[...]</b>.	PAN
+d3cbc688be	Bluetooth connections are secured by a <b>[...]</b> process.	Pairing
+9859fd9421	=	-
+49e196223b	Capturing WPA2's handshake hash lets attackers brute-force the <b>[...]</b> offline.	PSK
+d74d262e73	Which hardware speeds up WPA2 brute-force cracking?	GPUs
+2180a5795f	=	-
+b0eb71dd28	=	-
+c12b21210b	=	-
+087e4b9efa	Which WPA3 handshake replaces WPA2's four-way handshake?	SAE
+1999c5c01a	SAE uses which key exchange to provide mutual authentication?	Diffie-Hellman
+6d763e8f09	Which WPA3 mode suits home networks where everyone shares a passphrase?	WPA3-Personal
+305a676cee	Which WPA3 mode uses unique user credentials and central authentication?	WPA3-Enterprise
+244854cba3	Besides RADIUS and LDAP, which AAA protocol can WPA3-Enterprise use?	TACACS+
+89607c41ad	=	-
+ad687636c3	=	-
+a0c8b6eba6	=	-
+e3443b8618	=	-
+a03b089ceb	Can 802.1X be used on wired networks too?	Yes
+c1d0bef128	=	-
+4d183fc0c3	=	-
+40a56120a5	=	-
+8d25f6ccb5	=	-
+c2ac5af4bd	=	-
+42a0201e53	=	-
+45050d14c9	=	-
+942cf4c9eb	=	-
+4495a94cf5	Functional testing and security checks are part of <b>[...]</b>.	QA
+499ddce9a1	=	-
+f75b584a31	=	-
+41b4c64b4d	=	-
+5cd7d5c534	A zip code field accepting only valid formats is an example of <b>[...]</b>.	Input validation
+5afb23a069	=	-
+ee6ba4c85e	Fuzzing can uncover poor validation logic and unhandled <b>[...]</b>.	Exceptions
+e16e64812d	Small files storing session data and user preferences are <b>[...]</b>.	Cookies
+b905d59c42	=	-
+21d1f5f5fa	A cookie that may only be sent over HTTPS has the <b>[...]</b> attribute.	Secure
+bd60344401	What should never be stored in cookies?	Credentials
+6f1536232a	=	-
+511f6f33d2	=	-
+92394b3a0b	Can SAST detect every security issue?	No
+0a8b176b8e	Developers must review SAST results for false <b>[...]</b>.	Positives
+511c289238	Which safer C function replaces gets()?	fgets()
+8a954bf9c9	=	-
+f70c988b75	When installing software, the OS checks its code <b>[...]</b>.	Signature
+c87c60308e	=	-
+1b78fb17a9	=	-
+cdd4d724a3	=	-
+733622013e	=	-
+9e08c426a8	=	-
+080a9e1484	=	-
+dbb8d06632	Acquiring goods or services through formal approval procedures is <b>[...]</b>.	Procurement
+1a0e8dd14e	=	-
+0a223c1e25	=	-
+e6e5d11f21	=	-
+210c4f985f	=	-
+59d145773b	=	-
+7d2a25bc7f	=	-
+cc4415d07d	Attaching labels or barcodes to equipment for identification and recovery is asset <b>[...]</b>.	Tagging
+bd7bcf3333	Before reusing or disposing of a device, its data must be <b>[...]</b>.	Sanitized
+7e26c2a21f	=	-
+75970b77c9	=	-
+775d7ed325	=	-
+82e2a0b92c	=	-
+20ddfd51b2	=	-
+419806ed40	=	-
+16fe6bd9ee	=	-
+e35f05d062	=	-
+fb4706c11a	=	-
+7ec74390e8	Which test actively attempts exploitation: a vulnerability scan or a penetration test?	Penetration test
+41fb845aae	=	-
+0da1f008b9	=	-
+e29d77a987	A vulnerability scan run from inside the network helps find risk from <b>[...]</b> threats.	Insider
+a516848538	Below Low, what is the least severe rating in a vulnerability scan report?	Informational
+6750b9685a	=	-
+80e4e58d1a	Analysts must manually <b>[...]</b> scan findings before remediation.	Verify
+9bc25f1b66	=	-
+09dfeaf9c4	=	-
+def7c9a939	Confirmed vulnerabilities are fixed through the <b>[...]</b> process.	Change control
+1303462a6e	=	-
+1ae2c87898	=	-
+46d88450a1	Does SAST produce false positives?	Yes
+a021f3ea68	Fuzzing is a form of <b>[...]</b> analysis.	Dynamic
+cf544f3354	=	-
+f6d4e12d75	The goal of fuzzing is finding places that lack proper <b>[...]</b>.	Input validation
+5932dc1507	Fuzzing began in 1988 in a class taught by whom?	Barton Miller
+b7c5469992	.deb and .rpm are installation package formats for which OS?	Linux
+f34c793caa	=	-
+c5f7aee824	=	-
+77e460479b	=	-
+4f42a2065b	Freely available threat information from public sources is <b>[...]</b>.	OSINT
+994feeae20	=	-
+7a2883ecb1	=	-
+fa2ce6d956	=	-
+5e6d162fc2	=	-
+545e1b1f86	=	-
+b9969689b9	=	-
+b41021f2d5	=	-
+332e13a216	=	-
+719acff9d7	Which software is commonly used to reach the dark web?	Tor
+2774205e1f	=	-
+95c0628f71	=	-
+d56d24ac24	=	-
+57fd4a05df	=	-
+cfc11d8b7f	=	-
+6c0541bf20	=	-
+09d31a7086	Pen testers must avoid systems listed as <b>[...]</b>.	Out of scope
+ad160f1464	=	-
+3814608a0b	=	-
+95ad6bc63f	=	-
+b15f5c69ed	Jumping between systems inside a compromised network is <b>[...]</b>.	Lateral movement
+b2c55d2829	Keeping access with backdoors or new accounts is called <b>[...]</b>.	Persistence
+fb990de2a8	Using a compromised system as a relay to reach other internal systems is <b>[...]</b>.	Pivoting
+d0f45925b5	What is the public list of known vulnerabilities called?	CVE
+f464ac3052	=	-
+0f08c1ede5	=	-
+cbb935cdf4	=	-
+8209971024	=	-
+40a81a8281	=	-
+9f0cc95518	Which scan error is more dangerous: false positives or false negatives?	False negatives
+6e3254fd3e	=	-
+6769cf9262	=	-
+f8df697252	Where are official CVSS scores published?	NVD
+c7d05cf025	=	-
+57556d3f00	=	-
+d5b59a646a	=	-
+9cf061e737	=	-
+7dea856d2d	A vulnerability that would make a service completely unavailable has what exposure factor?	100%
+bf2c008594	=	-
+5691d0be72	=	-
+ed1d868fa5	=	-
+d9949a1e50	=	-
+3ee3a42b13	Patches released outside the normal schedule for zero-days are <b>[...]</b> patches.	Unscheduled
+28c1ae92a0	=	-
+e3bf8b8637	=	-
+f1d95136a7	=	-
+2b7751363d	=	-
+7c7f66b3a4	=	-
+00a17658e7	=	-
+42ec542bd6	Traffic between VLANs on the same switch needs a <b>[...]</b>.	Router
+ca650cad5a	=	-
+f69b3c0a6d	=	-
+69003e202b	=	-
+cc30bf8e96	An approved decision not to apply a patch is a patch <b>[...]</b>.	Exemption
+8a85a5d635	=	-
+0c1dbb4af4	=	-
+464e99db1c	=	-
+feabc13ce9	=	-
+40555009e8	=	-
+f15ec1dbab	=	-
+5c26dba9e0	=	-
+0a45b638ff	=	-
+1ad3e8d18f	=	-
+1a606295f3	=	-
+56103812ab	A centralized real-time view of the security posture is a security <b>[...]</b>.	Dashboard
+9b9e3fbe24	=	-
+f71a4ccea4	=	-
+9740dabeff	=	-
+fdb439d2db	=	-
+da0a9cf563	=	-
+e99132ba2f	=	-
+29798eec5c	=	-
+563d0a87ff	=	-
+27d2881b2a	=	-
+6516484fee	One-off reports that model scenarios, such as end-of-life OS impact, are <b>[...]</b> reports.	Ad hoc
+87ec1240b8	According to IBM in 2022, roughly how long did it take to detect and contain a breach?	About 9 months
+41d6846c87	=	-
+897de3be72	=	-
+11eba0f433	=	-
+040da3ff1e	=	-
+da55fb8ca7	=	-
+1591e56af9	=	-
+ededab2ccb	Which organization maintains SCAP?	NIST
+c4f99f0a47	=	-
+d9066fed83	=	-
+0f918c7917	=	-
+93878741b1	=	-
+3b50f86e4a	Installed software that continuously monitors compliance is <b>[...]</b>-based.	Agent
+66bc2e3d1b	A compliance check that runs in memory at login and then removes itself is <b>[...]</b>.	Agentless
+aeb0c00a28	=	-
+2629898dd4	=	-
+9ccf4764d1	=	-
+1ccd277969	=	-
+1b77a24944	=	-
+ca9916b7a7	Are antivirus and anti-malware still distinct tools today?	No
+6f10c0b0be	=	-
+ae27f68cdc	=	-
+7a96132d3c	Which protocol monitors device performance across the network?	SNMP
+d0c93919fb	In SNMP, the collection of object identifiers used to query metrics is the <b>[...]</b>.	MIB
+3279aa40b9	The SNMP system that polls devices for metrics is the network management <b>[...]</b>.	Station
+1838fe3e4b	=	-
+b6f5df7e02	=	-
+10e1e42f3a	=	-
+ef4f506ef2	An NGFW's ability to identify traffic by application rather than port is application <b>[...]</b>.	Awareness
+690ffd806f	=	-
+6632c45a6b	=	-
+3e423783eb	=	-
+5c1f53a2f8	=	-
+bc9a7075fb	In which order are firewall rules evaluated?	Top to bottom
+93fb6aa12f	=	-
+9e7b207b3f	=	-
+be8f353df0	What is another name for a DMZ?	Screened subnet
+5a05ef255b	=	-
+764521d0a0	=	-
+9c25e74752	=	-
+02ee7d1b9b	=	-
+b1936c7852	=	-
+b157409dd8	=	-
+c279ee3712	A content filter that keeps enforcing rules even off-network uses a local <b>[...]</b>.	Agent
+a128070135	=	-
+bf26341751	A proxy that intercepts traffic without any client configuration is a <b>[...]</b> proxy.	Transparent
+9c895db8d1	=	-
+44b97e3fd6	=	-
+d2b60d158a	Blocking whole groups of sites like gambling is URL <b>[...]</b> filtering.	Category
+6aa8f3a3c7	Blocking sites based on trust scores is <b>[...]</b>-based filtering.	Reputation
+83cd1da5a9	=	-
+0fb5c2a6c9	=	-
+45c483ac0a	=	-
+6e0cfd6cee	=	-
+35bb67ad89	In AD, permissions are best assigned through security <b>[...]</b>.	Groups
+83cafb5e73	=	-
+fa0686135a	=	-
+8500522daf	=	-
+b07fa1bccb	Group Policy is managed from the Group Policy Management <b>[...]</b>.	Editor
+b7e542c528	=	-
+18cf6b0d28	Legacy protocols like Telnet are insecure because they send data in <b>[...]</b>.	Cleartext
+b7e9061153	=	-
+7cfb33dbaf	=	-
+b882ad1fba	=	-
+455fd50dce	What is the secure replacement for FTP?	SFTP
+f17da7d046	Does using a well-known secure port guarantee encryption?	No
+b709ed753a	=	-
+8cae6e329b	Which Wi-Fi security standard is the latest and most secure?	WPA3
+8b6e01e923	=	-
+242f9de9d0	=	-
+0059c5efb7	=	-
+d0a5890090	=	-
+62c2b74fb8	=	-
+1514a856cd	Standard email protocols lack built-in sender <b>[...]</b>.	Authentication
+c02c1d128e	=	-
+4fa3d8bdda	=	-
+1ab51c5d91	SPF information is published in which type of DNS record?	TXT
+d4cc391967	=	-
+d2ed96d0e5	=	-
+b268238f14	=	-
+1c8eead616	Besides accepting or rejecting, DMARC can tell recipients to <b>[...]</b> failing mail.	Quarantine
+b149706180	=	-
+592d377536	=	-
+c88008a5fc	=	-
+327ba5231f	=	-
+78c2b1bf3a	=	-
+6e437edbb4	=	-
+ce7ae3bd62	=	-
+bee46417e9	=	-
+cb49295166	=	-
+18f1ce754f	=	-
+ae9714cf50	Local DLP agents counter USB risks by blocking <b>[...]</b>.	USB ports
+814e5055c5	=	-
+07cdc8627e	=	-
+dd94a106ac	=	-
+7071fbf1a5	=	-
+65fa85b409	=	-
+cba5594231	Which file integrity monitoring tool is common on Linux?	Tripwire
+bad0cf450c	=	-
+eac89f0fd6	=	-
+3d8432bf4b	=	-
+a1bf7cda91	=	-
+dcd0a45451	=	-
+5d9743decd	=	-
+65fb802e57	Where the internal network meets the internet is the network <b>[...]</b>.	Edge
+8b814292f2	=	-
+1234bd1871	=	-
+3fa5c76238	=	-
+116dd0ec9c	=	-
+b42e8ce8a2	When is a posture assessment usually performed?	At connection
+510cde9617	=	-
+b6754c31a3	A permanently installed posture-checking agent is a <b>[...]</b> agent.	Persistent
+037b193845	A temporary posture agent that deletes itself after checking is a <b>[...]</b> agent.	Dissolvable
+abc13b5606	=	-
+1b2b7c3b3a	A device failing a posture assessment is usually <b>[...]</b>.	Quarantined
+1bbb24057e	=	-
+e79b124d5e	=	-
+a212c72eee	=	-
+edd519bb28	=	-
+be5c016e68	Establishing normal behavior baselines to detect anomalies is <b>[...]</b>.	UBA
+cdc4533fd2	=	-
+b8bbeeb9f8	=	-
+87f8e2a1b8	=	-
+fb40b6997a	=	-
+8e1cfbcbde	=	-
+be17f34965	=	-
+7a46b1e46d	=	-
+1f3c5aab47	=	-
+51ca487232	=	-
+1d17863620	=	-
+c2a9c5ce38	=	-
+23a8590277	=	-
+7cfebd4736	=	-
+5547f86df3	=	-
+4d83f3c0a4	=	-
+8e3e7de691	=	-
+31ad2b2212	=	-
+d7245bc83a	=	-
+968021d472	Access granted only to R&D staff on the VPN during work hours is an example of <b>[...]</b>.	ABAC
+a4830c4403	=	-
+f38e3f4e8d	Time-of-day restrictions in global organizations must account for <b>[...]</b>.	Time zones
+b0b7234d4d	=	-
+0e296ba147	A password, PIN or unlock pattern is which authentication factor?	Something you know
+4ae42b04eb	=	-
+d27578c8b9	=	-
+b3c4a0eac2	A card with an embedded ID inserted into a reader, often with a PIN, is a <b>[...]</b>.	Smart card
+588e796d49	A plug-in device holding a unique certificate for login is a USB <b>[...]</b>.	Security key
+cc05dc4785	A physical device that generates codes you type in at login is a <b>[...]</b>.	Hardware token
+8b031b2e32	A mobile app that generates login codes is a <b>[...]</b>.	Software token
+bf97686d3b	=	-
+0aeb3eeaa2	=	-
+015e4db6e2	=	-
+3a18243578	=	-
+28d02d823f	Which authentication factor is hardest to change once compromised?	Something you are
+b3d92b0b30	=	-
+6b21c7a468	Authentication based on GPS or IP location is which factor?	Somewhere you are
+d225c89cb4	=	-
+8f836f8ea4	=	-
+4074eba2c5	=	-
+5f867f65ca	Strong passwords mix upper and lowercase, numbers and <b>[...]</b>.	Special characters
+25e89f0f6f	A long password made of several words is a <b>[...]</b>.	Passphrase
+981c539c32	=	-
+575092da95	Systems remember past passwords to prevent <b>[...]</b>.	Reuse
+40f107d2be	Requiring password changes every 30, 60 or 90 days is password <b>[...]</b>.	Expiration
+151da74a31	=	-
+89b248bfa6	=	-
+3f9d36a9cd	=	-
+3e55566833	=	-
+6f8976deea	=	-
+7ce664f35e	Face recognition on a phone and Windows PIN login are examples of <b>[...]</b>.	Passwordless authentication
+ef40744024	=	-
+d16764a074	=	-
+c3c94fde96	In JIT permissions, which component grants the temporary credentials?	Clearinghouse
+e1b63f55de	=	-
+b75fcd450b	=	-
+8f3cefa326	=	-
+b4832e7279	=	-
+7fbc9b860a	=	-
+f46c397b9b	=	-
+9b34e15d0b	=	-
+261cbd9dd0	=	-
+d7657c7963	=	-
+fcfe74ce35	=	-
+bd5d38ecbc	=	-
+d233e54aa2	Automation commonly creates and deletes accounts during user <b>[...]</b> and offboarding.	Onboarding
+e88130b169	=	-
+a2f187d3c9	=	-
+33c3c0fa1e	=	-
+2b80c96cb5	=	-
+a4015930b3	=	-
+556a8ad320	=	-
+9c48ff7252	Automation controls firewalls and cloud infrastructure programmatically through <b>[...]</b>.	APIs
+eaa4954390	=	-
+77abe345f9	=	-
+e272920cba	=	-
+59667417e8	=	-
+774f2838bf	=	-
+9345f28e31	An event threatening the confidentiality, integrity or availability of systems is a security <b>[...]</b>.	Incident
+35b0207df4	What is the first phase of the NIST incident handling lifecycle?	Preparation
+cb05dad30c	=	-
+06bb9afda0	=	-
+8deb96d605	A portable kit of hardware and forensic tools for responding on-site is an incident <b>[...]</b>.	Go bag
+05b422544d	=	-
+89f568773d	=	-
+8b1884239e	=	-
+4a08264949	=	-
+1f207a66a4	Stopping an attack immediately to limit damage is the <b>[...]</b> phase.	Containment
+6832363a23	=	-
+4e36b6754d	Some malware detects a <b>[...]</b> and hides its behavior.	Sandbox
+517bad89c5	=	-
+840430197f	=	-
+3100272981	=	-
+d141ef12ee	Reviewing the response to improve procedures is the <b>[...]</b> phase.	Post-incident
+991e0b2ec8	=	-
+9998fb6cbf	=	-
+52977de950	=	-
+304e522ae7	=	-
+e0662a4b2f	Incident response exercises should be run on <b>[...]</b> systems, not production.	Test
+2197499f26	=	-
+8489cbfd3a	=	-
+86b3c4c337	=	-
+9b54cb9023	=	-
+d74e138d77	=	-
+abc46cf9a7	=	-
+b298c2bbd1	=	-
+eee62b7fe1	=	-
+e1fc08a5b6	=	-
+fbc4bacdab	=	-
+5f5187a902	=	-
+984cf92e1a	=	-
+ee40de0214	=	-
+b80967d813	=	-
+59be0519e2	=	-
+d6d18a90af	=	-
+0b0bc501e8	=	-
+4da0f0e9de	=	-
+155adc3181	=	-
+663f51b8b1	=	-
+fc4f85217a	=	-
+22d9c3c4bd	=	-
+657b1a94db	=	-
+53a3c6a148	=	-
+c87e57f4fb	Who evaluates a legal hold and acquires the requested data?	Data custodian
+471edd35ac	=	-
+6c5be3d509	Data that must be preserved under a legal hold is called <b>[...]</b>.	ESI
+27190f6051	=	-
+190daf1032	=	-
+cff10bad13	=	-
+de84e36be8	The first step of the forensic process is data <b>[...]</b>.	Acquisition
+d4d1607cc1	=	-
+2e0b3e8c6c	=	-
+6f05b0e2e8	=	-
+968b1a4e34	=	-
+c36626b010	=	-
+97a2d87452	Forensic analysis is done on a <b>[...]</b> to preserve the original.	Copy
+8a03815025	=	-
+dfe3d1ad85	Copy a mobile device's data immediately because it can be <b>[...]</b> remotely.	Wiped
+289d8e5b1d	=	-
+1c04c1e2c8	=	-
+312a17b6bd	=	-
+da235d1050	Redirecting requests for malicious domains to a harmless address is a DNS <b>[...]</b>.	Sinkhole
+265503a54a	=	-
+8863339be9	Where are Windows application logs viewed?	Event Viewer
+3da72f2d6e	=	-
+dcdab5b241	=	-
+fbee92dca2	=	-
+1edf5b9e69	A network infrastructure log showing a flood of half-open TCP connections indicates a <b>[...]</b> flood.	SYN
+f55864f99f	=	-
+691f4eb640	=	-
+324580b4fb	=	-
+7c89241f9f	=	-
+3e66b5f838	=	-
+3438b73647	=	-
+bcad890cfc	=	-
+51b76a4a5a	A standard configuration image with required security settings for new laptops establishes a security <b>[...]</b>.	Baseline
+7088967a32	=	-
+ed15a7ff74	=	-
+a3bfbfe6d7	=	-
+b6287173d6	=	-
+d4055002d4	=	-
+06d857d9cc	=	-
+13ea9d4268	In the cloud, inbound and outbound VM traffic is limited with network security <b>[...]</b>.	Groups
+7daecaa0b2	=	-
+3630655a61	=	-
+67c596f797	=	-
+a3d747f98c	=	-
+f94c227af0	=	-
+e62e168d84	During a site survey, reduce <b>[...]</b> to limit signal leakage beyond office boundaries.	Transmit power
+62d477b8a0	=	-
+c6778c73e8	Which MDM feature prevents data loss when a company phone is stolen?	Remote wipe
+1810f4ff08	=	-
+dc1dff1517	=	-
+4b838197a9	=	-
+00292d2ebd	=	-
+33f10b71e0	=	-
+b8f77a91b9	=	-
+f766985ea4	To use RADIUS for Wi-Fi logins, set the access point to which WPA mode?	Enterprise
+4d07e622ad	Which EAP method uses certificates on both sides for the strongest mutual authentication?	EAP-TLS
+1e0e56069e	=	-
+1fb4e5e68d	=	-
+a51f1bcdde	=	-
+d15063ca0f	=	-
+ec0cbc3d0a	=	-
+fa33088cb0	=	-
+dee86e00e9	=	-
+8f365be57b	=	-
+eaf8f96bef	=	-
+2983eeb12a	=	-
+af12af05c7	=	-
+844fe9ba50	Continuously discovering devices on the network is asset <b>[...]</b>.	Enumeration
+649db13440	=	-
+d95214a901	Which wipe method suits SSDs: erasing the encryption key so data is unreadable?	Cryptographic erase
+b6fdd6f520	=	-
+2e7a3b04b2	=	-
+e90350ee13	=	-
+713f52aa7e	=	-
+041ce674b2	=	-
+c4ce80ab12	Testing a running application through its interface is <b>[...]</b> analysis.	Dynamic
+aa72a57eb0	Tracking installed software components for updates and vulnerabilities is <b>[...]</b> monitoring.	Package
+74d2ac7714	=	-
+fcbfc9f7de	=	-
+c654bb4926	=	-
+1aae32618f	=	-
+8cf23c042c	=	-
+daaaedb736	A process for researchers to report vulnerabilities ethically is a <b>[...]</b> disclosure program.	Responsible
+22e5715599	=	-
+181160797a	Comparing access control procedures with documented policies to find gaps is an <b>[...]</b>.	Audit
+50f9ab5a43	=	-
+3af7518b6c	=	-
+8539d9ea8c	=	-
+6d22dad82c	=	-
+1a2457ac85	=	-
+2e809c1d10	=	-
+b1984f8c7b	=	-
+fc28fbe201	=	-
+5ca298aa12	=	-
+b576a8cffc	=	-
+f76a09301f	=	-
+eea54f20a3	=	-
+d16e5eb60c	=	-
+47b14ef4c1	=	-
+36fc5de167	Formally documenting why a vulnerability won't be fixed on the normal timeline is an <b>[...]</b>.	Exception
+9c931ae049	After patching, confirm the fix by <b>[...]</b> the systems.	Rescanning
+f5576ebfcc	=	-
+b836b6b728	=	-
+eada715e97	=	-
+5bb801545e	Software that continuously monitors application performance and availability is <b>[...]</b>.	APM
+1f85118bdf	=	-
+2a6831f2e9	Collecting logs from many sources into one place is log <b>[...]</b>.	Aggregation
+0ad7a7cfa5	=	-
+a2b7f4c9af	=	-
+8fb1deb10a	=	-
+05071562a4	Retaining old security logs for compliance and investigations is log <b>[...]</b>.	Archiving
+cb0c5c6b89	What should you do FIRST with a workstation suspected of malware?	Isolate it
+8faa14c7b0	=	-
+0b593f6c22	Adjusting alert rules and thresholds to reduce false positives is alert <b>[...]</b>.	Tuning
+57062ee011	=	-
+435b3fa0be	=	-
+c8900e2245	=	-
+23d298397e	=	-
+032805b1dd	=	-
+2346088987	=	-
+5edefde0e3	=	-
+c8a248cc2a	Which protocol provides metadata about network traffic flows?	NetFlow
+5808de150b	=	-
+205394c24e	=	-
+7f8399c9a1	=	-
+fe058d6f05	=	-
+dfcaf780e7	=	-
+bcb7f8cc0c	Detecting threats in encrypted traffic increasingly relies on machine-learning <b>[...]</b> analysis.	Behavioral
+d70784cb3d	After deploying a new application, update the IDS <b>[...]</b>.	Signatures
+4d8c8efc95	=	-
+2d2ac391fe	=	-
+f3f772e1b7	=	-
+4ea8c7a9a0	=	-
+37f4819637	=	-
+6d8f47b972	=	-
+76260c8cb6	=	-
+044d4e600c	In which SELinux mode are mandatory access control policies actually applied?	Enforcing
+3a48266086	=	-
+ea66c5461e	=	-
+5cb088dde5	=	-
+2ce4dac546	Which DMARC policy action blocks spoofed mail outright?	Reject
+f1cc25c42d	Where are DKIM public keys published?	DNS
+32197c3ea4	=	-
+1d915f1a3e	=	-
+46110dc480	=	-
+f9556c0269	=	-
+1b594b8e4d	=	-
+563d1ed1d4	=	-
+ed1c257dea	=	-
+cd18d6b6b3	What should be done to a user account immediately after the employee leaves?	Disable it
+52c18caa12	=	-
+0960b1a96d	=	-
+4cbf4c86f6	=	-
+1fcdaf485c	Which directory protocol often serves as the backend for SSO?	LDAP
+ebb20ea250	In SAML, which party authenticates the user and issues assertions?	Identity provider
+7727ba8e9c	=	-
+17100ec49e	=	-
+79c3140af3	=	-
+c8e5d8aff5	=	-
+8d9bbbb7bb	=	-
+3233208cf5	=	-
+469d9f44ef	=	-
+82e636dffe	Which hardware security key standard resists phishing without typed codes?	FIDO2
+477de9e844	=	-
+32189e2611	=	-
+7b5f971088	Modern guidance says change passwords mainly when there is evidence of <b>[...]</b>.	Compromise
+5d1b1e5897	=	-
+05d937244a	=	-
+90cdbb3f2b	=	-
+885de32177	=	-
+3595a721b6	Storing privileged credentials in a secure central repository is password <b>[...]</b>.	Vaulting
+eaa0eeadf0	Short-lived credentials created for a single privileged task are <b>[...]</b> credentials.	Ephemeral
+a55e77b6a9	=	-
+9372ce9fb3	=	-
+cd62508664	=	-
+ba7e2d3b09	=	-
+e7d21b65f0	=	-
+39e1ddd5cb	=	-
+6495482cc6	=	-
+fa25a47098	Automatically testing every code change before deployment is continuous <b>[...]</b>.	Integration
+9b2596bc67	=	-
+af467d530c	=	-
+36c7ed4346	=	-
+c43194e631	=	-
+4aa98caefb	=	-
+e6c5c690fd	=	-
+9ab006922c	=	-
+ec209e70a2	Automation lets a security team handle more incidents without more staff, acting as a workforce <b>[...]</b>.	Multiplier
+b53f8144ce	=	-
+2129f054c6	=	-
+59d23cbd9b	=	-
+b3d292d87a	=	-
+8fae983ae5	Keeping automated processes maintainable over time is called ongoing <b>[...]</b>.	Supportability
+8af27e830e	=	-
+d8c9173ffa	=	-
+b8b990ac3f	=	-
+0a2591faa9	=	-
+23dbc1975a	Removing malicious files and unauthorized accounts belongs to which incident response phase?	Eradication
+d2be64a55f	=	-
+b86bb6d565	A post-incident review of what worked and what didn't is a <b>[...]</b> meeting.	Lessons learned
+a6b95f05eb	=	-
+fa59ea76b7	=	-
+127a0296b6	=	-
+92a161cb2c	=	-
+e961859ae9	=	-
+146852788b	=	-
+e9f9e72e4f	=	-
+8d217834ec	To prove evidence integrity, create a forensic image and calculate its <b>[...]</b>.	Hash
+1464a19271	=	-
+cbc01dbf74	A bit-for-bit copy of a drive is a forensic <b>[...]</b>.	Image
+01cb547bab	=	-
+a552e2a072	Repeated connections from one IP to many ports on a server indicate <b>[...]</b>.	Port scanning
+edee4e2eb6	=	-
+7981bc5360	=	-
+8e9d024d60	=	-
+9daab66c15	=	-
+e6b89f8fed	=	-
+c0597a53ea	Security policies imposed by government, legal or industry requirements are external <b>[...]</b>.	Mandates
+088cd21413	=	-
+779e9dccf1	=	-
+3e328fe3b5	An acceptable use policy applies to <b>[...]</b> in the organization.	Everyone
+eb8e11c2e3	=	-
+03250e07c0	=	-
+978552c2c9	=	-
+c6e5282d9b	=	-
+1062091ed6	=	-
+e0f42d2832	Who ensures that data and systems comply with external mandates?	Compliance officer
+eaf96c1859	The processes for taking software from idea to end product are the <b>[...]</b>.	SDLC
+7c28891f8f	=	-
+21d7f89cfc	=	-
+7db9eac270	=	-
+dda4c16c24	=	-
+b00d87dfb0	Besides ISO, which US organization publishes widely used security standards?	NIST
+b2009871d4	=	-
+393a57d292	Security standards should be written down and as <b>[...]</b> as possible.	Detailed
+55d804efc4	=	-
+5d56819c93	=	-
+39b352a2c9	A platform that integrates security tools for automated response is <b>[...]</b>.	SOAR
+cbf043cd69	Documents of conditional steps to follow in a given situation are <b>[...]</b>.	Playbooks
+f3becfad72	A single body making decisions for the whole organization is <b>[...]</b> governance.	Centralized
+c0d73d7f7d	Spreading decision-making among the people doing the work is <b>[...]</b> governance.	Decentralized
+b2e82061d1	=	-
+078b588d41	=	-
+e6bc70fd9e	Which US law governs how public companies protect financial data?	Sarbanes-Oxley
+024cc36e4e	=	-
+ae3bed41d3	=	-
+d68617261f	Many jurisdictions legally mandate how quickly a data breach must be <b>[...]</b>.	Disclosed
+be008d6b05	The high-level person broadly responsible for a set of data, like the VP of Sales for customer data, is the data <b>[...]</b>.	Owner
+05b5b6f1d1	Who manages how data is used and instructs the processor?	Data controller
+77c8ac97f1	A payroll company acting on the payroll department's instructions is a data <b>[...]</b>.	Processor
+c1bf271058	Who handles data security, accuracy, privacy and access day to day?	Data custodian
+d288f80b3a	=	-
+b5a9bbd9e1	Identifying risks and addressing them before they become problems is risk <b>[...]</b>.	Management
+e56e98d2b5	A risk assessment for a single event or project is a <b>[...]</b> assessment.	One-time
+fe605de96b	A risk assessment in broad, non-numerical terms is <b>[...]</b>.	Qualitative
+ab56999afa	A risk assessment that calculates a specific value is <b>[...]</b>.	Quantitative
+83c45f081a	How often a risk is expected to occur in a year is the <b>[...]</b>.	ARO
+41413fc610	=	-
+1f66219e52	The value of the asset whose risk is being calculated is the <b>[...]</b>.	Asset value
+c6184657e5	=	-
+c3c7916e4d	The monetary loss from a single occurrence of a risk is the <b>[...]</b>.	SLE
+5c262e1aa7	ARO multiplied by SLE gives the <b>[...]</b>.	ALE
+620ed0e1ba	A quantitative number based on statistics about a specific risk is risk <b>[...]</b>.	Probability
+3f038218c3	The risk an organization will take on without acting is its risk <b>[...]</b>.	Appetite
+05e2e9385d	A document listing a project's risks and ways to avoid them is a risk <b>[...]</b>.	Register
+400e5f184b	=	-
+c43511b6e7	Each risk in a register needs a risk <b>[...]</b>.	Owner
+fc7f3f7f89	=	-
+0879a5557b	Moving a risk to a third party, for example through insurance, is risk <b>[...]</b>.	Transference
+9aab77b349	Taking a risk on is risk <b>[...]</b>.	Acceptance
+893d59c980	Accepting a risk is often done by granting an <b>[...]</b> to normal policies.	Exception
+45a2d8eb49	Not taking a risk on at all is risk <b>[...]</b>.	Avoidance
+023a1f29cd	Making a risk less likely or less damaging is risk <b>[...]</b>.	Mitigation
+7995476e36	=	-
+539b1d1936	=	-
+c04329c1e1	=	-
+8cf698e3e7	The target time to return to operations after a disaster is the <b>[...]</b>.	RTO
+79b417a565	The maximum acceptable data loss, measured in time, is the <b>[...]</b>.	RPO
+ef25b3c14b	The estimated time a system runs before an outage is the <b>[...]</b>.	MTBF
+93edf67916	=	-
+3979e41db5	MTBF is roughly total uptime divided by the number of <b>[...]</b>.	Failures
+6b4486d133	Third-party risk can be reduced by putting <b>[...]</b> into the vendor agreement.	Penalties
+ed7ec18595	=	-
+e9bc5de74e	Audits are typically performed by a party <b>[...]</b> the agreement.	Outside
+42827fc782	=	-
+8a8e487230	=	-
+b916701c2a	Investigating a company before deciding to do business with it is due <b>[...]</b>.	Diligence
+f114a37967	=	-
+ea08e5d7c7	When something may compromise judgement in a business relationship, it is a <b>[...]</b>.	Conflict of interest
+0108d3b132	Which agreement states only broad goals of what two organizations will accomplish together?	MOU
+85c54b552d	Which agreement describes an inter-organization relationship in more detail than an MOU?	MOA
+1f961cd884	A contract setting the terms for future work between organizations is an <b>[...]</b>.	MSA
+0e3656b82f	=	-
+6abbc4f50f	Under an MSA, individual tasks are defined in work orders or <b>[...]</b>.	Statements of work
+21443a7952	A document detailing one task's scope, location and deliverables is a <b>[...]</b>.	SOW
+6e81e7ffef	=	-
+9665e62296	=	-
+9edb4c40f0	An NDA where only one party must keep confidentiality is <b>[...]</b>.	Unilateral
+8d7ec4bfbc	Which agreement defines a formal partnership between businesses?	BPA
+e6579431a8	Meeting the requirements of one or more standards is <b>[...]</b>.	Compliance
+21eea69ffd	=	-
+fe5f91d4b9	=	-
+1254af3c47	Who makes sure the whole organization meets applicable requirements?	Chief Compliance Officer
+9da6b0d3e1	=	-
+6252a1f236	Besides fines, non-compliance can bring incarceration or loss of <b>[...]</b>.	License
+3e579d7a6d	Acting in good faith with best effort to meet compliance is due diligence and due <b>[...]</b>.	Care
+396f95c5ea	=	-
+9270fdbda2	=	-
+78271ddaf3	A data subject's right to have their personal data erased is the right to be <b>[...]</b>.	Forgotten
+56670fdf13	=	-
+d85fe061e0	Under GDPR, the identifiable person whose personal data is processed is the <b>[...]</b>.	Data subject
+0793e74781	A listing of all the data a company collects and stores is a data <b>[...]</b>.	Inventory
+48b4a81745	=	-
+d9f0883e08	=	-
+ead82f522b	=	-
+159f85de99	=	-
+f718e8a908	An opinion of truth associated with an audit's results is <b>[...]</b>.	Attestation
+8617ec3148	=	-
+87c715caa5	Which group oversees risk management and starts or stops internal audits?	Audit committee
+b1299631b2	=	-
+528e518711	Audits often begin with a <b>[...]</b> of how processes match requirements.	Self-assessment
+14435d93b2	=	-
+a7f7dd033a	In a penetration test, the attackers trying to breach defenses are the <b>[...]</b>.	Red team
+713b7185c2	In a penetration test, the defenders are the <b>[...]</b>.	Blue team
+59d4493ca7	=	-
+c1e0939cb1	A pen test where the tester gets full details of the systems is a <b>[...]</b> environment test.	Known
+bbcee6aabf	A pen test where the tester gets only some information is a <b>[...]</b> environment test.	Partially known
+991c8739c0	A pen test where the tester gets no information is an <b>[...]</b> environment test.	Unknown
+a4581797c0	Gathering information from sources not connected to the target network is <b>[...]</b> reconnaissance.	Passive
+68f515bb7c	Probing the target network directly, risking exposure, is <b>[...]</b> reconnaissance.	Active
+8978ab7008	=	-
+047d0336b8	=	-
+ed4453358b	Behavior out of the norm for a user or device is <b>[...]</b> behavior.	Anomalous
+4549af78e7	Logging in from a new country is an example of <b>[...]</b> behavior.	Unexpected
+7ccf55193e	Mistyping a URL or losing a USB drive is <b>[...]</b> behavior.	Unintentional
+0d89872614	=	-
+08f20861e7	Users who repeatedly behave riskily may need <b>[...]</b> training.	Extended
+183a8ec9ab	Who creates and presents IT security materials?	Security awareness team
+bfa17de9b9	=	-
+3a802f5989	=	-
+cc795a0d49	Users always being on the lookout for threats have situational <b>[...]</b>.	Awareness
+0c05e75872	Requiring multiple <b>[...]</b> for critical changes protects against insider threats.	Approvals
+0ff3dd8735	Using a tampered public charging port to attack a phone is called <b>[...]</b>.	Juice jacking
+16e29ad0b3	Looking at security from an attacker's perspective is <b>[...]</b> security.	Operational
+60f32711e4	=	-
+85ea3e9fb6	=	-
+d951e8aee8	A policy for keeping the business running during outages is a <b>[...]</b>.	BCP
+eab012cea9	A plan covering recovery sites, data restoration and staff availability during disasters is a <b>[...]</b>.	DRP
+106daf24ee	=	-
+3a29765a17	=	-
+e2f93cfb68	=	-
+d9f63a8f13	=	-
+fb4b5a0c3d	A linear, sequential SDLC model is <b>[...]</b>.	Waterfall
+77ba225695	An iterative SDLC model with short cycles and feedback is <b>[...]</b>.	Agile
+c22e82d9c6	=	-
+705bf745ab	=	-
+c2cf67a667	=	-
+189e63b60f	=	-
+43d0884f80	=	-
+4af79346a8	=	-
+e8496f7e33	=	-
+cee6dd72c7	=	-
+bc90d7e7f4	=	-
+fa4833bc95	=	-
+8e19072f5a	=	-
+84495f07b2	=	-
+36a7db4078	=	-
+abc4977fcc	=	-
+fa2a70877c	=	-
+ed8fe89f0c	Integrating a new hire with proper access, policies and technology is <b>[...]</b>.	Onboarding
+4f2205dfa8	=	-
+d2612be4e4	=	-
+ada2ffee96	During offboarding, accounts are disabled rather than deleted to keep access to <b>[...]</b> data.	Encrypted
+93e363a5a4	=	-
+68db77ad39	=	-
+18102a9b1f	=	-
+b7b114e33d	=	-
+82c45785d0	=	-
+9558c558f3	=	-
+2246d49c3a	In a governance structure, which body sets broad objectives?	The board
+d9bac013b2	In a governance structure, which body implements the board's directions?	A committee
+82078a014c	=	-
+36b475ab56	Public sector governance meetings are often open to the <b>[...]</b>.	Public
+2d2aa334de	=	-
+ed44eb3304	=	-
+6c815c2665	=	-
+4c92992690	=	-
+016044085b	=	-
+d98726fd5d	=	-
+6a8d397eec	=	-
+38a81ff7ae	=	-
+4c4a6011ab	=	-
+695f35633e	=	-
+883eda4096	=	-
+cf5c73dfed	=	-
+b1aec7121e	=	-
+bf8846a669	=	-
+4482509903	=	-
+c5834ae072	=	-
+3f8315e697	The payroll department directing how employee data is used acts as the data <b>[...]</b>.	Controller
+364ac438b5	=	-
+d3afaa26e8	=	-
+bb6a725800	=	-
+70445b6086	Who applies sensitivity labels to data?	Data custodian
+5074d511de	=	-
+ff2f8697af	=	-
+28992499b1	=	-
+c7a3cf658f	=	-
+6b11a404d2	Threats come from both internal and <b>[...]</b> sources.	External
+444040249d	=	-
+ccd2e51096	A risk assessment for a merger or a new software deployment is a <b>[...]</b> assessment.	One-time
+41281857a9	Ongoing risk assessment is often part of the <b>[...]</b> process.	Change control
+701dd74aa3	A risk assessment prompted by a newly identified threat is an <b>[...]</b> assessment.	Ad hoc
+9c49352371	=	-
+806431a5f6	A risk assessment done quarterly or annually is on a <b>[...]</b> schedule.	Standard
+e0b8ba2135	=	-
+870ec4323c	A risk assessment required by law or regulation is a <b>[...]</b> assessment.	Mandated
+40d8f6fa4c	Which standard requires an annual risk assessment for organizations storing card data?	PCI DSS
+0e434e3143	=	-
+1e17dfb8b0	=	-
+10aa709ed2	=	-
+d80f408091	=	-
+9506434dac	A qualitative risk assessment is often shown as a <b>[...]</b> grid.	Traffic light
+eea853cd7d	=	-
+6c25ecbddc	=	-
+e29f683975	A quantitative risk assessment calculates a specific <b>[...]</b> value.	Monetary
+032c36072f	=	-
+df43ce59f9	=	-
+56270a429b	Exposure factor is expressed as a decimal between 0.0 and <b>[...]</b>.	1.0
+97b5a99957	SLE equals asset value multiplied by <b>[...]</b>.	Exposure factor
+7bc7d3a3b7	=	-
+c2cf5d0208	=	-
+071052653a	Besides life, property and safety, risk calculations consider <b>[...]</b> impact.	Financial
+c348bec204	Qualitative risk analysis uses likelihood; quantitative analysis uses <b>[...]</b>.	Probability
+a4d7948145	=	-
+141bbf385a	The acceptable deviation above risk appetite is risk <b>[...]</b>.	Tolerance
+0068914171	=	-
+e90831320a	=	-
+d9bc6c71c7	=	-
+57cc8e0de9	A metric identifying a specific risk in the register is a <b>[...]</b>.	KRI
+239b87cb5b	=	-
+0f4f0211ae	=	-
+8066dbcb8a	=	-
+1f879330b6	=	-
+d30d8bfe93	=	-
+a0a753bbb6	=	-
+98bfa99565	=	-
+16980b9c7e	Disabling or removing a risky system entirely is risk <b>[...]</b>.	Avoidance
+8f133582e2	=	-
+73bf823a75	Installing a next-generation firewall to reduce internet threats is risk <b>[...]</b>.	Mitigation
+6f92742209	=	-
+c9bfd46578	=	-
+b578cae07e	Who mainly uses risk reports for investment decisions?	Upper management
+a6ed9018eb	A risk report is a <b>[...]</b> document, updated as risks evolve.	Living
+a48dbc8d4f	=	-
+499b832282	=	-
+79671913e8	=	-
+d7d03aeb3e	=	-
+db48ea4491	=	-
+2dc2c0aa95	=	-
+72dec7e14f	=	-
+4d26fb7230	Keeping spare parts on site reduces <b>[...]</b>.	MTTR
+d405a456e2	=	-
+db6457c8ee	=	-
+52641d08f6	=	-
+25dcb3b6b3	=	-
+76b99a0f6b	=	-
+c6b00a5759	=	-
+7de79e602c	=	-
+1aa3d6ead7	=	-
+62000f5911	A contract clause allowing regular audits of a vendor is the right to <b>[...]</b>.	Audit
+7329553df2	=	-
+074fa90fad	=	-
+f368bcc21c	=	-
+934b2f869d	=	-
+a89bc0aede	=	-
+801ca4e94e	=	-
+754ce1746d	=	-
+d6859146f3	=	-
+de484761a4	=	-
+e2083f0f27	Forms that gather updated information on a vendor's practices are vendor <b>[...]</b>.	Questionnaires
+949e1f033d	An agreement defining minimum service levels such as uptime and response time is an <b>[...]</b>.	SLA
+4072771037	=	-
+c42ebd043a	Is an MOU legally binding?	No
+f3e0e824c4	=	-
+aebf44531a	=	-
+4fae3e10d1	=	-
+29db3cd0dd	=	-
+b683223c98	=	-
+b9d5bbb7cb	An NDA between more than two parties is <b>[...]</b>.	Multilateral
+2942367207	=	-
+2f2cc96a2c	=	-
+f5a0577eb9	=	-
+f8934d1d55	=	-
+1e10dd3da0	=	-
+9b19267fca	=	-
+e402866561	=	-
+94a656732b	=	-
+8b136ce1b6	What is the maximum HIPAA criminal prison term for the worst violations?	10 years
+974890dec9	The Uber 2016 breach drew massive fines mainly for which compliance failure?	Delayed breach disclosure
+9fe1410acc	Which 2009 act raised HIPAA civil fines to tiers of up to $1.5 million per year?	HITECH Act
+060a196cab	Internal actions an organization takes to ensure compliance and prevent harm are called what?	Due care
+4367329e6e	Efforts to ensure compliance when working with external parties are called what?	Due diligence
+bf6601096e	Who typically certifies the accuracy of compliance reports (compliance attestation)?	An executive
+cb52f6dd19	=	-
+5a0cfe9fa4	=	-
+feda593840	What kind of laws protect personal data collected by organizations?	Privacy laws
+3ab8ebd52e	Which EU privacy regulation gives individuals control over their personal data?	GDPR
+3ac9be5917	=	-
+78b17b39cb	Under GDPR, the right to have your personal data removed from websites is called what?	Right to erasure
+d37c4e2163	GDPR defines privacy responsibility from whose perspective?	The data subject's
+2260aa0ab3	Which data privacy role determines how data will be used?	Data controller
+431610dae0	Which data privacy role actually processes the data, such as issuing paychecks?	Data processor
+593060f41d	Which agreement does GDPR require when transferring data to a third-party processor?	DPA
+39eed2ec31	A record of all data an organization collects and stores, with ownership and format, is called what?	Data inventory
+5522001b83	=	-
+a6e10834e5	=	-
+84377dc0a5	=	-
+8843289ff0	What examines IT systems and policies to find vulnerabilities and verify protection?	Cybersecurity audit
+feee054422	=	-
+cdd7da2221	=	-
+3c1391768e	After an audit is conducted, what provides a verified opinion on its findings?	Attestation
+7214b3afb3	An audit conducted within the organization to ensure compliance is called what?	Internal audit
+92bdf9451c	Which body typically oversees internal audits?	Audit committee
+131465c993	An organization's preliminary review of its own processes against compliance requirements is called what?	Self-assessment
+9a14c3ce69	An audit conducted by a third party, often required by regulation, is called what?	External audit
+3e87cc8c10	=	-
+022d636473	Which kind of penetration test tries to gain unauthorized access to a facility through doors, windows and elevators?	Physical penetration testing
+a8762f1f8e	Physical access lets an attacker bypass OS security by modifying what process?	The boot process
+94142c2298	In penetration testing, which team defends by identifying and blocking attacks?	Blue Team
+4175b8e2a4	=	-
+450a94366a	Which penetration test environment is a blind test with no information given?	Unknown environment
+c3244a8cdb	Which penetration testing phase gathers information about servers, applications and network topology before attacking?	Reconnaissance
+c1363ae803	Gathering information without directly interacting with the target, such as from social media, is called what?	Passive reconnaissance
+be43d23132	=	-
+cfe3044f40	Gathering information through direct interaction such as ping scans and port scans is called what?	Active reconnaissance
+aac8bed2c8	What is the key risk of active reconnaissance?	Detection by target
+b7171250db	=	-
+8c41435e52	What do organizations run to see how many employees might click phishing links?	Simulated phishing campaigns
+8f663d967b	After clicking a simulated phishing link, a user is directed to what?	Additional training
+e542f21628	=	-
+467f3305ed	=	-
+d30860a112	Suspected phishing emails should be reported to which team?	IT security team
+ba51e41a84	Which systems try to block phishing emails before they reach inboxes?	Email filtering systems
+9332a9470a	Monitoring for unusual or risky user activity, such as unexpected logins, is called what?	Anomalous behavior recognition
+d850200559	Logging in from a foreign country is an example of which kind of anomalous behavior?	Unexpected
+d64c218138	=	-
+8ff7bc6f60	=	-
+e18cd0468e	Which team monitors security issues, trains users and tracks training effectiveness?	Security awareness team
+ab9e73940c	=	-
+ed88150de6	=	-
+f7f211bf9c	When should users first receive security training?	Before network access
+a8800fae48	Security training should be specialized according to what?	Job function
+1a7e8b9d7a	Besides employees, which group connecting to the network should receive security training?	Third parties
+9ae98b11c2	=	-
+2335a4d7b4	Where can security policies be made easily accessible to users?	Intranet or handbook
+fc3ef6418e	Constantly watching for threats like suspicious emails and unusual URLs is called what?	Situational awareness
+4596df363e	Insider threats are hard to detect because the attackers have what?	Legitimate access
+60e01fc931	Requiring multiple approvals for critical changes helps mitigate which kind of threat?	Insider threats
+db426663da	=	-
+9d7d8e1e2b	Unknown USB drives found by users can carry what?	Malware infections
+b4e18df1ef	=	-
+19231d836a	Thinking from an attacker's perspective to protect sensitive data is which security mindset?	Operational security
+62ff116f8e	Remote workers should connect to company resources through what?	Secure VPN
+6f131b6c98	Which governance document provides recommended practices that support policies and standards?	Guidelines
+bc5f67ac47	Which policy defines acceptable and unacceptable uses of organization-owned resources?	AUP
+7359101273	=	-
+79995eac19	What is most essential for a business continuity policy to support governance?	Defined roles
+5f25da028d	A disaster recovery policy should restore data and systems in what order?	Prioritized order
+76fdf8b49e	=	-
+7c66d202db	An SDLC security policy should require what at each phase of development?	Security reviews
+a3764c75ba	Effective change management requires what for each significant system change?	Formal approval
+71bd462adb	Visitor sign-in and identification badges are a policy control for which kind of security?	Physical security
+52f82d5388	An encryption policy should require data encryption in which two states?	At rest, transit
+20767a6e9c	=	-
+5c1ad45ea1	Which access control model limits permissions based on job duties?	RBAC
+6bbe2e5b84	=	-
+64cb632a9d	What is the essential offboarding step for departing employees?	Revoke all access
+cdac39a234	Step-by-step procedures for handling specific security incidents are called what?	Playbooks
+f6aa273735	=	-
+146eb1081c	=	-
+47e1cd9d7a	Aligning policies with widely accepted industry frameworks is which kind of external consideration?	Industry
+3aca736abd	A state-specific breach notification law is which kind of external consideration?	Local or regional
+cc0d884168	Complying with HIPAA in the U.S. is which kind of external consideration?	National
+6c5edff4c1	Complying with GDPR while operating in multiple countries is which kind of external consideration?	Global
+263cabecd5	Reviewing incident logs and updating policies from the trends is which governance element?	Monitoring and revision
+614d7823dd	=	-
+37ecc621b2	=	-
+cc28131666	Government security governance is distinguished by strict adherence to what?	Statutory mandates
+1bfaf78d85	In which governance structure does one dedicated team oversee security across the whole organization?	Centralized
+47d08291a5	Which data role assigns classifications and determines how the data is protected?	Data owner
+f3e786cf6f	=	-
+a2e62546be	A data processor processes data only as instructed by whom?	The data controller
+201d050f09	Which data role implements and maintains the controls that protect data day to day?	Data custodian
+87964d241d	Cataloging assets and their threats and vulnerabilities happens in which risk management step?	Risk identification
+879dd90e8e	An unscheduled risk assessment triggered by a specific event is called what?	Ad hoc
+5785c9f5bb	=	-
+673fcdc68c	A risk assessment done once, such as for a system upgrade, and not repeated is called what?	One-time
+5a647dcef6	Ongoing monitoring of threats and risks to adapt controls as needed is which kind of risk assessment?	Continuous
+97ad619c9c	Risk analysis using subjective judgment and descriptive ratings is called what?	Qualitative
+7adef8a1f1	Risk analysis that assigns monetary values to loss events is called what?	Quantitative
+1252042539	Single Loss Expectancy (SLE) equals asset value multiplied by what?	Exposure factor
+ee0b67e624	Annualized Loss Expectancy (ALE) equals SLE multiplied by what?	ARO
+c6f82c3336	Which risk metric estimates how many times a threat is expected to happen in one year?	ARO
+6a14b28db5	=	-
+390c02695e	In risk analysis, the probability that a threat will exploit a vulnerability is called what?	Likelihood
+8bf78a353d	Which risk analysis term is the percentage of asset value lost if a threat occurs?	Exposure factor
+a92c6d1cc6	In risk analysis, the consequences or damage from a realized threat are called what?	Impact
+eab1e3710a	Measurable metrics in a risk register that signal changing risk exposure are called what?	KRIs
+05104902b6	In a risk register, the person accountable for managing a specific risk is called what?	Risk owner
+f181f40aa1	The maximum risk level an organization accepts before action is required is called what?	Risk threshold
+e2cc89a050	The amount of risk an organization is willing to accept to achieve its objectives is called what?	Risk tolerance
+f684955d45	Accepting higher risk to pursue new markets and technologies is which risk appetite?	Expansionary
+0c3158b74f	Avoiding risk whenever possible, even at the cost of rewards, is which risk appetite?	Conservative
+1894ed0c0b	Being neither risk-averse nor risk-seeking is which risk appetite?	Neutral
+724ce8b857	Buying cybersecurity insurance is which risk management strategy?	Transfer
+ccca4733e5	Acknowledging a risk and choosing to bear its impact without action is which strategy?	Accept
+f16c27ec2c	=	-
+9e4b4ec01c	Skipping prevention for a low-impact risk because mitigation costs more than the loss is which strategy?	Accept
+c6a9c90537	Eliminating an activity or asset to prevent exposure to a risk is which strategy?	Risk avoidance
+c1719b3b0f	Adding multi-factor authentication to reduce the likelihood of unauthorized access is which risk strategy?	Mitigate
+0711e6c233	=	-
+5a8f4a7fdb	Which business impact metric is the maximum acceptable time to restore a system after disruption?	RTO
+714422baba	Which business impact metric is the maximum acceptable data loss, measured in time?	RPO
+69a83db8a8	Which metric is the average time to restore a system after a failure?	MTTR
+6d33bbf898	Which metric is the predicted time between inherent failures of a system?	MTBF
+724317177b	=	-
+642638e3b0	Which contract clause lets an organization independently verify a vendor's security compliance?	Right-to-audit clause
+46219966a6	To confirm a vendor ran internal audits, which vendor documents do you review?	Internal audit reports
+dad9ea9241	Engaging a neutral third party to evaluate a vendor's controls is called what?	Independent assessment
+ee269266ca	Identifying threats introduced through vendors and their suppliers is called what?	Supply chain analysis
+efcadb843c	Reviewing a vendor's certifications, finances and history before engagement demonstrates what?	Due diligence
+c7229ba408	Requiring vendor-selection participants to disclose vendor relationships mitigates what?	Conflicts of interest
+fcb49d0245	Which agreement defines the performance and availability standards a vendor must deliver?	SLA
+9dc0be7ac8	Which formal document defines cooperative actions and responsibilities agreed by two or more parties?	MOA
+d7c94e0064	Which document expresses intended cooperation between parties without creating legal obligations?	MOU
+65b73d06b5	Which contract establishes the foundational terms for future agreements between organizations?	MSA
+2d44ee280b	Which document details the specific tasks, deliverables and timelines a vendor must follow?	SOW
+a3255c7ec8	Which agreement legally binds parties to keep shared sensitive information confidential?	NDA
+efebc83d7c	Which agreement defines roles and expectations between organizations entering a business relationship?	BPA
+a1e6773beb	=	-
+b9b558da1c	What tool gathers detailed information about a third party's security policies and controls?	Questionnaires
+508fcc1d8c	What defines the authorized scope, methods and limits of a security assessment?	Rules of engagement
+843fa5bcb9	=	-
+18ba232b26	Providing evidence of regulatory adherence to outside entities is which kind of compliance reporting?	External
+46985f2501	What is the most likely consequence of being found non-compliant with GDPR or HIPAA?	Monetary fines
+df655a5ccd	=	-
+300e0ae6ba	Non-compliance causes reputational damage mainly through loss of what?	Customer trust
+fbfc0fb072	In a regulated industry, serious non-compliance can cost an organization what?	License to operate
+8081962787	Failing the security terms of a third-party agreement can lead to what contractual impact?	Partnership termination
+ac53c3ef55	=	-
+6287b2bc39	Employees affirming in writing that they read security policies is called what?	Attestation and acknowledgement
+00f7f81b47	=	-
+fe73ef33fc	Using tools to continuously scan systems for compliance violations improves monitoring through what?	Automation
+171130a3e4	=	-
+5daf977da1	=	-
+e7037c5e01	=	-
+b83afab2a9	Letting individuals access and correct their personal information respects the rights of whom?	Data subjects
+33ded71070	=	-
+0cddfe0fc7	Under privacy compliance, who owns personal data even after an organization collects it?	The data subject
+2289a9eca5	Data should be retained only as long as what?	Necessary
+c90fe77e43	Under the right to be forgotten, what must an organization do with personal data on request?	Erase or anonymize
+62025a1e88	A formal declaration that specified controls are in place and effective is called what?	Attestation
+6c7c3551d1	=	-
+f2c74a148f	=	-
+384db2f450	Proactively finding security gaps before an official audit is the purpose of what?	Self-assessment
+7f4a50ffd7	An external audit that checks compliance with specific laws is called what?	Regulatory audit
+ed4bab732f	=	-
+e8aa01c166	=	-
+8a365811ae	The main benefit of an independent third-party audit is freedom from what?	Internal bias
+5c844c0416	=	-
+c442a0d0fc	Which kind of penetration test actively exploits vulnerabilities to assess real-world risk?	Offensive
+523fe4f8bd	Which kind of penetration test identifies weaknesses to recommend stronger defenses?	Defensive
+c422e85565	Penetration testing coordinated with security operations and change management is called what?	Integrated
+fdc20a92c8	In which penetration test environment do testers get detailed information about the target?	Known environment
+19f8567b75	In which penetration test environment do testers get some information, such as IP ranges?	Partially known environment
+88abc25b4e	=	-
+b34b6eac21	=	-
+641b7e6f10	Running a network scanner to find open ports is which type of reconnaissance?	Active
+617a8317bd	Which UDP port does RADIUS use for authentication?	1812
+da9ba62508	Authority, intimidation, consensus, scarcity, familiarity, trust and urgency are principles of what?	Social engineering
+a0057556eb	Which two TLS versions are current best practice?	TLS 1.2, 1.3
+a0404b4380	Which malware rewrites its own code so antivirus signatures no longer match?	Metamorphic malware
+5103cfdb26	=	ARP poisoning
+31b323d7a8	=	IaaS
+dfb6be2d90	=	PaaS
+1b90c1201e	=	XaaS
+54df1957c0	=	RAID 5
+50cf32d873	=	SoC
+a0bc17b3ae	=	VoIP
+6a247f96f5	=	OTA updates
+5d579912cf	Which acronym can mean Mandatory Access Control, Media Access Control, or Message Authentication Code?	MAC
+a5f66a61ef	Which acronym can mean Privileged Access Management or Pluggable Authentication Modules?	PAM
+5a94bd6443	Which acronym can mean Recovery Agent or Registration Authority?	RA
+f3464fcf9b	Which acronym can mean Role-based or Rule-based Access Control?	RBAC
+00428ffb80	Which acronym can mean Storage Area Network or Subject Alternative Name?	SAN
+a8b6f26818	Users who recognize a social engineering attempt should report it to whom?	IT security

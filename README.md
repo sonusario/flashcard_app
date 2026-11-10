@@ -12,12 +12,14 @@
   - **Delete Deck…** can also delete the deck's cards. Cards that another deck holds are always kept.
 - **Loose Cards.** Cards that are in no deck appear under **Loose Cards**, which you can browse and review like any deck.
 - **Rich content.** Cards are written in markdown and can include images (from a file, a drawing or the clipboard) and audio (from a file or the microphone).
-- **Spaced repetition.** Reviews use Leitner levels on golden-ratio intervals (1, 2, 3, 4, 7, 11, 18… days), buckets of 7, first looks, "review later", and optional time limits that give each level 20% of the time left.
+- **Spaced repetition.** Reviews use Leitner levels on golden-ratio intervals (1, 2, 3, 4, 7, 11, 18… days), buckets of 7 cards (change **Bucket size** on the main menu before you click **Review**), first looks, a summary at the end that shows how many cards moved to each level, "review later", and optional time limits that give each level 20% of the time left.
 - **Anki import.** Imports `.apkg` files from current and older versions of Anki, including Zstandard-compressed collections, cloze and reversed cards, and media. Importing the same deck twice adds nothing.
 
 On first launch, the app starts with a small sample deck. The repository also holds `CompTIA Security+ SY0-701 (Combined).apkg`, which you can load with **Import Anki Deck…**. It has 5,613 cards in 8 decks: the five exam domains, Ports and Protocols, Key Terms, and Acronyms. Large collections stay fast because the card browser draws its rows in pages as you scroll.
 
 `CompTIA Security+ SY0-701 (Short Answer).apkg` holds the same 5,613 cards reframed so that every back is at most one sentence and any detail sits on the front. Cloze cards become one question per blank with only the missing words on the back, key terms are flipped so the definition is the question, and practice questions answer with just the correct choice. It imports into its own decks, so it can sit alongside the original. `tools/build_short_answer_deck.py` rebuilds it from the combined deck.
+
+`CompTIA Security+ SY0-701 (Three-Word Answers).apkg` goes one step further: every back is three words or fewer, and each card asks about a single concept, worded so the front leads to that short answer. Acronym cards with long expansions are flipped so the expansion is the question, multiple-choice questions are rewritten as direct questions, and cards that would repeat another card (including repeats the rewording would create) are left out. It has 3,880 cards. `tools/build_three_word_deck.py` rebuilds it from the combined deck, using the hand rewrites in `tools/three_word_rewrites.tsv`; run it with `--todo` to list cards that still need one.
 
 **About** on the main menu links to this repository and the project hub, and lists the changes merged into `main`.
 
