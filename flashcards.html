@@ -849,18 +849,19 @@ const DataManager = (() => {
 // =============================================================================
 
 const AppState = (() => {
-  const state = { selected_deck_id: DataManager.ALL_CARDS, editing_card_id: -1, review_minutes: 0 };
+  const state = { selected_deck_id: DataManager.ALL_CARDS, editing_card_id: -1, review_minutes: 0, bucket_size: 7 };
   try {
     const saved = JSON.parse(localStorage.getItem('flashcards:app_state') || '{}');
     if (Number.isInteger(saved.selected_deck_id)) state.selected_deck_id = saved.selected_deck_id;
     if (Number.isInteger(saved.review_minutes)) state.review_minutes = saved.review_minutes;
+    if (Number.isInteger(saved.bucket_size) && saved.bucket_size >= 1) state.bucket_size = saved.bucket_size;
   } catch (error) { /* no saved state */ }
   return new Proxy(state, {
     set(target, key, value) {
       target[key] = value;
       try {
         localStorage.setItem('flashcards:app_state', JSON.stringify({
-          selected_deck_id: target.selected_deck_id, review_minutes: target.review_minutes,
+          selected_deck_id: target.selected_deck_id, review_minutes: target.review_minutes, bucket_size: target.bucket_size,
         }));
       } catch (error) { /* storage unavailable */ }
       return true;
@@ -927,7 +928,8 @@ const Srs = (() => {
 // =============================================================================
 // ReviewSession: which card comes next during a review.
 //  1. Levels with due cards are reviewed from the highest down to 0.
-//  2. Each level is worked through in buckets of up to 7 shuffled cards.
+//  2. Each level is worked through in buckets of shuffled cards (7 unless
+//     the main menu sets another size).
 //  3. "Got it!" moves a card up and out of this review; "Didn't get it."
 //     sends it to level 0, so it comes back before the end.
 //  4. At level 0, cards missed (or first looked) in one bucket lead the next.
@@ -944,8 +946,10 @@ class ReviewSession {
   static BUCKET_SIZE = 7;
   static LEVEL_TIME_SHARE = 0.2;
 
-  constructor(scope, timeLimitMinutes = 0, clock = () => performance.now()) {
+  constructor(scope, timeLimitMinutes = 0, clock = () => performance.now(), bucketSize = ReviewSession.BUCKET_SIZE) {
     this.state = ReviewSession.State.REVIEWING;
+    this._bucketLimit = Math.max(1, Math.trunc(bucketSize) || ReviewSession.BUCKET_SIZE);
+    this._startLevels = new Map();  // card id -> its level before this review first changed it
     this.level = -1;
     this.bucketNumber = 0;
     this.gotItCount = 0;
@@ -986,11 +990,28 @@ class ReviewSession {
   timeLeftMsec() { return Math.max(0, this._startedMsec + this._timeLimitMsec - this._clock()); }
   levelTimeLeftMsec() { return Math.max(0, this._levelDeadlineMsec - this._clock()); }
 
+  // For each level, how many cards this review left there that started at
+  // another level, highest level first: [{ level, count }].
+  levelMoves() {
+    const counts = new Map();
+    for (const [cardId, startLevel] of this._startLevels) {
+      const card = DataManager.getCard(cardId);
+      if (!card || card.review.level === startLevel) continue;
+      counts.set(card.review.level, (counts.get(card.review.level) || 0) + 1);
+    }
+    return [...counts].sort((a, b) => b[0] - a[0]).map(([level, count]) => ({ level, count }));
+  }
+
+  _noteStart(cardId, review) {
+    if (!this._startLevels.has(cardId)) this._startLevels.set(cardId, review.level);
+  }
+
   // --- Answers
   answer(gotIt) {
     if (this.state !== ReviewSession.State.REVIEWING) return;
     const cardId = this._bucket.shift();
     const review = DataManager.getCard(cardId).review;
+    this._noteStart(cardId, review);
     if (gotIt) {
       DataManager.setReview(cardId, Srs.afterGotIt(review, Srs.today()));
       this.gotItCount += 1;
@@ -1008,6 +1029,7 @@ class ReviewSession {
     if (this.state !== ReviewSession.State.REVIEWING) return;
     const cardId = this._bucket.shift();
     const review = DataManager.getCard(cardId).review;
+    this._noteStart(cardId, review);
     DataManager.setReview(cardId, Srs.afterFirstLook(review, Srs.today()));
     this.firstLookCount += 1;
     this._carry.push(cardId);
@@ -1053,8 +1075,8 @@ class ReviewSession {
         this._carry = [];
       }
       if (this._queue.length > 0) {
-        this._bucket = this._queue.slice(0, ReviewSession.BUCKET_SIZE);
-        this._queue = this._queue.slice(ReviewSession.BUCKET_SIZE);
+        this._bucket = this._queue.slice(0, this._bucketLimit);
+        this._queue = this._queue.slice(this._bucketLimit);
         this._bucketSize = this._bucket.length;
         this.bucketNumber += 1;
         this._avoidRepeatAtStart();
@@ -2258,6 +2280,14 @@ Screens.mainMenu = () => {
       AppState.review_minutes = minutes;
     },
   });
+  const bucketSize = $('input', {
+    type: 'number', min: 1, max: 100, step: 1, value: AppState.bucket_size, 'aria-label': 'Cards per bucket',
+    onchange: () => {
+      const size = Math.max(1, Math.min(100, Math.trunc(Number(bucketSize.value) || 7)));
+      bucketSize.value = size;
+      AppState.bucket_size = size;
+    },
+  });
   const importInput = $('input', { type: 'file', accept: '.apkg', hidden: true, onchange: () => onImportFileSelected(importInput) });
   const restoreInput = $('input', { type: 'file', accept: '.json,application/json', hidden: true, onchange: () => onRestoreSelected(restoreInput) });
 
@@ -2269,6 +2299,7 @@ Screens.mainMenu = () => {
       countLabel,
       $('div', { class: 'row equal' }, $('button', { onclick: () => changeScreen('cardBrowser') }, 'Browse Cards'), reviewButton),
       $('div', { class: 'row time-row' }, $('span', { class: 'grow' }, 'Time limit (0 = none)'), timeLimit, $('span', {}, 'min')),
+      $('div', { class: 'row time-row' }, $('span', { class: 'grow', title: 'How many cards each bucket of a review holds' }, 'Bucket size'), bucketSize, $('span', {}, 'cards')),
       $('hr'),
       $('button', { onclick: onNewDeckPressed }, 'New Deck'),
       $('button', { onclick: () => importInput.click() }, 'Import Anki Deck…'),
@@ -3242,7 +3273,7 @@ Screens.review = () => {
   const scopeName = DataManager.scopeName(scope);
   // Time spent editing a card is left out of the time limit.
   let editingMsec = 0;
-  const session = new ReviewSession(scope, AppState.review_minutes, () => performance.now() - editingMsec);
+  const session = new ReviewSession(scope, AppState.review_minutes, () => performance.now() - editingMsec, AppState.bucket_size);
   // Whether the answer side has been shown for the current card.
   let revealed = false;
   let showingFront = true;
@@ -3322,7 +3353,11 @@ Screens.review = () => {
   function showSummary() {
     sideLabel.textContent = '';
     const answered = session.gotItCount + session.missedCount;
-    const summary = `Got it: ${session.gotItCount} · Didn't get it: ${session.missedCount} · First looks: ${session.firstLookCount}`;
+    const moves = session.levelMoves();
+    const movesText = moves.length
+      ? '\n\nCards moved to each level:\n' + moves.map(m => `Level ${m.level}: ${m.count}`).join('\n')
+      : '\n\nNo card changed level.';
+    const summary = `Got it: ${session.gotItCount} · Didn't get it: ${session.missedCount} · First looks: ${session.firstLookCount}${movesText}`;
     if (session.state === State.OUT_OF_TIME) {
       const due = Srs.countDue(DataManager.getCards(scope), Srs.today());
       statusLabel.textContent = "Time's up";
