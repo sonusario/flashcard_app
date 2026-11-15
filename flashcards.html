@@ -221,6 +221,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .45); }
 .link-button { align-self: center; background: none; border: 0; padding: 2px 6px; text-decoration: underline; cursor: pointer; }
 .link-button:hover { background: none; color: var(--text); }
 .about a { color: var(--accent); }
+.upd-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 10px 0 0; }
 .about-log { margin: 0; padding-left: 0; list-style: none; font-size: 13px; }
 .about-log li { margin: 0 0 4px; }
 .about-log time { color: var(--muted); margin-right: 8px; font-variant-numeric: tabular-nums; }
@@ -2148,12 +2149,90 @@ function openDialog({ title, body = [], okText = 'OK', cancelText = 'Cancel', wi
   });
 }
 
+// ---------- Check for update and Reload (About panel) ----------
+// The saved offline copy can lag behind the site, so these two buttons ask
+// the site itself. "Check for update" compares the live copy with the one
+// running now. "Reload" fetches this app's files fresh (keeping them for
+// offline use), lets a new service worker take over, then reloads. Offline,
+// both say so and leave the working copy alone.
+function wireUpdateButtons(o) {
+  const { check, reload, msg } = o;
+  if (!check || !reload || !msg) return;
+  const page = location.href.split('#')[0];
+  const web = /^https?:$/.test(location.protocol);
+  const sw = web && 'serviceWorker' in navigator && window.isSecureContext;
+  const say = t => { msg.textContent = t; };
+  const stamp = s => { const t = Date.parse(s || ''); return Number.isNaN(t) ? 0 : t; };
+  const day = t => new Date(t).toISOString().slice(0, 10);
+  const reg = () => sw ? navigator.serviceWorker.getRegistration().catch(() => null) : Promise.resolve(null);
+  const offer = on => { if (o.hot) reload.classList.toggle(o.hot, on); reload.textContent = on ? 'Reload to update' : 'Reload'; };
+  check.addEventListener('click', async () => {
+    if (!web) { say('Opened from a file: Reload picks up any changes.'); return; }
+    check.disabled = true; say('Checking…');
+    try {
+      const r = await reg();
+      if (r) await r.update().catch(() => {});
+      const res = await fetch(page, { cache: 'reload' });
+      if (!res.ok) throw new Error(res.status);
+      const live = stamp(res.headers.get('last-modified')), mine = stamp(document.lastModified);
+      let newer = !!(r && (r.installing || r.waiting)), name = '';
+      if (o.build && o.buildRe) {
+        const m = o.buildRe.exec(await res.text());
+        if (m) { name = m[1]; newer = newer || m[1] !== o.build; }
+      } else if (live && mine && live - mine > 1000) newer = true;
+      if (newer) { say((name ? `Build ${name}` : 'A newer version') + ' is ready. Reload to start using it.'); offer(true); }
+      else { say('Up to date' + (o.build ? ` · build ${o.build}` : live ? ` · published ${day(live)}` : '') + '.'); offer(false); }
+    } catch (e) {
+      say("Couldn't reach the site. Try again when online.");
+    }
+    check.disabled = false;
+  });
+  reload.addEventListener('click', async () => {
+    if (!web) { location.reload(); return; }
+    reload.disabled = check.disabled = true; say('Fetching the latest copy…');
+    try {
+      // Online at all? Refreshes the browser's copy of the page too.
+      const res = await fetch(page, { cache: 'reload' });
+      if (!res.ok) throw new Error(res.status);
+      const r = await reg();
+      if (r) {
+        await r.update().catch(() => {});
+        const next = r.installing || r.waiting;
+        if (next) await new Promise(done => {
+          navigator.serviceWorker.addEventListener('controllerchange', done, { once: true });
+          next.addEventListener('statechange', () => { if (next.state === 'activated') done(); });
+          setTimeout(done, 8000);
+        });
+      }
+      // Refresh every file this app keeps offline (only this app's caches:
+      // every app on this site shares one Cache Storage). A file that can't
+      // be fetched keeps its saved copy.
+      if (o.cachePrefix && 'caches' in window) {
+        for (const n of (await caches.keys()).filter(k => k.startsWith(o.cachePrefix))) {
+          const c = await caches.open(n), keys = await c.keys();
+          const fresh = await Promise.all(keys.map(k => fetch(k.url, { cache: 'reload' }).catch(() => null)));
+          await Promise.all(keys.map((k, i) => fresh[i] && fresh[i].ok ? c.put(k, fresh[i]) : null));
+        }
+      }
+      say('Reloading…');
+      location.reload();
+    } catch (e) {
+      say("Couldn't reach the site, so nothing changed. Try again when online.");
+      reload.disabled = check.disabled = false;
+    }
+  });
+}
+
 // About: where the app lives, plus a one-line-per-change log read from the
 // repository's main branch (merges show their pull request title).
 const REPO = 'sonusario/flashcard_app';
 
 function openAboutDialog() {
   const log = $('ul', { class: 'about-log' }, $('li', { class: 'muted' }, 'Loading changes…'));
+  const upd = { check: $('button', { type: 'button', id: 'updCheck' }, 'Check for update'),
+    reload: $('button', { type: 'button', id: 'updReload', title: 'Fetch the latest copy and reload' }, 'Reload'),
+    msg: $('span', { class: 'muted small', id: 'updMsg', role: 'status' }) };
+  wireUpdateButtons(upd);
   openDialog({
     title: 'About Flashcards',
     body: $('div', { class: 'about' },
@@ -2161,6 +2240,7 @@ function openAboutDialog() {
       $('p', {},
         $('a', { href: `https://github.com/${REPO}`, target: '_blank', rel: 'noopener' }, 'Source on GitHub'), ' · ',
         $('a', { href: 'https://sonusario.github.io/', target: '_blank', rel: 'noopener' }, "More projects (Sonusario's Selects)")),
+      $('div', { class: 'upd-row' }, upd.check, upd.reload, upd.msg),
       $('p', { style: 'font-weight: 600; margin-top: 12px' }, 'Changes'),
       log),
     okText: 'Close', cancelText: null, width: 520,
